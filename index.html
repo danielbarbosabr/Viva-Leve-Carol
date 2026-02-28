@@ -1,645 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site de Vendas responsivo</title>
+    <title>ViverLeve – Bem-estar e saúde</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/631296453_122107941045224900_2123670133654045075_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeH0mABIuHdyzHP8SdptIp6-4_TGfDVrkcnj9MZ8NWuRyZnwxndJ-fMnlMx6Xk59ltaqGcwpGo0YjlVbKFfJEtYm&_nc_ohc=JxEODD1NbRMQ7kNvwH5LD6i&_nc_oc=Adl6vXoWAK70Pyf8hHIUIUB15sz7uWqRwtJJxdE-jD58nOgLHE8DDR8qILBLguZK7G9lUbaVPRvzve52joT_sMRi&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=DrQyqxEMYSv1aD3NcU91GA&_nc_ss=8&oh=00_AfsRbg2TdyU6EMvI0u_LDAyqHXjsiLEJPqW6H5wQ1KfeNg&oe=69A831AF" type="image/jpeg">
 
-    <!-- owl carousel css file cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-    <!-- custom css file link  -->
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS customizado -->
     <link rel="stylesheet" href="style.css">
-
 </head>
-<body>
+<body class="bg-gradient">
 
-<!-- header section starts  -->
-
-<header>
-
-<div class="header-1">
-
-    <a href="#" class="logo"> <i class="fas fa-shopping-bag"></i>  Minha Loja </a>
-
-    <div class="form-container">
-        <form action="">
-            <input type="search" placeholder="pesquisar..." id="search" /> 
-            <label for="search" class="fas fa-search"></label>
-        </form>
+<!-- cabeçalho -->
+<header class="sticky-top bg-white shadow-sm">
+    <div class="container">
+        <div class="row align-items-center py-2">
+            <div class="col-md-4 text-center text-md-start">
+                <a href="#" class="text-decoration-none fs-3 fw-bold" style="color: #27ae60;">
+                    <i class="bi bi-leaf"></i> ViverLeve
+                </a>
+            </div>
+            <div class="col-md-5 my-2 my-md-0">
+                <form id="search-form" class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar produtos..." aria-label="Search" id="search-input">
+                    <button class="btn" type="submit" style="background-color: #f1c40f; color: #000;">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-3 text-center text-md-end">
+                <!-- Ícone do carrinho abre offcanvas -->
+                <a href="#" class="text-dark position-relative d-inline-block" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                    <i class="bi bi-cart fs-4" style="color: #27ae60;"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" id="cart-count">0</span>
+                </a>
+                <span class="fw-bold ms-2" id="cart-total" style="color: #27ae60; font-size: 1.2rem;">R$0</span>
+            </div>
+        </div>
     </div>
-
-</div>
-
-<div class="header-2">
-
-    <div id="menu" class="fas fa-bars"></div>
-
-    <nav class="navbar">
-        <ul>
-            <li><a class="active" href="#home">início</a></li>
-            <li><a href="#arrival">produtos</a></li>
-            <li><a href="#featured">destaques</a></li>
-            <li><a href="#gallery">loja</a></li>
-            <li><a href="#deal">promoções</a></li>
-        </ul>
+    <!-- menu inferior -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #27ae60;">
+        <div class="container">
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-1 text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#arrival">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#novidades">Novidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-
-    <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fas fa-user"></a>
-    </div>
-
-</div>
-
 </header>
 
-<!-- header section ends -->
-
-<!-- home section starts  -->
-
-<section class="home" id="home">
-
-<div class="home-slider owl-carousel">
-
-    <div class="item">
-        <img src="images/home_img1.jpg" alt="">
-        <div class="content">
-            <h3>Melhores descontos</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, neque.</p>
-            <a href="#"><button class="btn">Ver mais</button></a>
+<!-- banner principal -->
+<section class="home" id="home" style="background-image: url('https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/634331317_122108071185224900_5751662294477147767_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=2a1932&_nc_ohc=Visa8VEaoAoQ7kNvwGsLPPq&_nc_oc=AdnZMZ-JCOFCwnwmtLbGY_B1ldW4Xil9FAeKFN6dTMBnJjRKrDe9Qm3AR7DwitpppSd2n6aZwxHVrOg2aEm4_ejm&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=A1gqSc0FKkmnZYtGWi2dWA&_nc_ss=8&oh=00_Afus8uOtCLoRb9Q6lJrsgXAaD3rQVfVkL9mAUW5hNPtv5Q&oe=69A8358F'); background-size: cover; background-position: center; background-attachment: fixed; height: 30vh;">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row">
+            <div class="col-12 text-white">
+                <h1 class="display-4 fw-bold">ViverLeve</h1>
+                <p class="lead">Saúde, beleza e bem-estar para o seu dia a dia</p>
+                <a href="#arrival" class="btn btn-warning btn-lg mt-2 px-4 py-2">Conheça nossos produtos</a>
+            </div>
         </div>
     </div>
+</section>
 
-    <div class="item">
-        <img src="images/home_img2.jpg" alt="">
-        <div class="content">
-            <h3>Mais recentes</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, neque.</p>
-            <a href="#"><button class="btn">Ver mais</button></a>
+<!-- produtos -->
+<section class="arrival py-5" id="arrival">
+    <div class="container">
+        <h1 class="text-center mb-4 pb-2 border-bottom border-warning" style="color: #27ae60;">Nossos Produtos</h1>
+        <div class="row g-4" id="product-list">
+            <!-- Produtos serão inseridos via JavaScript -->
         </div>
     </div>
+</section>
 
-    <div class="item">
-        <img src="images/home_img3.jpg" alt="">
-        <div class="content">
-            <h3>Calçados da moda</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, neque.</p>
-            <a href="#"><button class="btn">Ver mais</button></a>
+<!-- novidades - link para o álbum de fotos do Facebook -->
+<section class="novidades py-5 bg-light" id="novidades">
+    <div class="container">
+        <h1 class="text-center mb-4 pb-2 border-bottom border-warning" style="color: #27ae60;">Novidades</h1>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 text-center">
+                <div class="p-5 bg-white rounded shadow">
+                    <i class="bi bi-images" style="font-size: 4rem; color: #27ae60;"></i>
+                    <h3 class="mt-3">Confira nossas últimas novidades</h3>
+                    <p class="text-muted">Acesse nosso álbum de fotos no Facebook e veja promoções, lançamentos e dicas exclusivas.</p>
+                    <a href="https://www.facebook.com/profile.php?id=61586747021286&sk=photos" 
+                       target="_blank" 
+                       class="btn btn-lg mt-3" 
+                       style="background-color: #4267B2; color: white; padding: 12px 30px;">
+                        <i class="bi bi-facebook me-2"></i> Ver fotos no Facebook
+                    </a>
+                    <p class="mt-4 small text-muted">O link abrirá o álbum de fotos da nossa página em uma nova aba.</p>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <div class="item">
-        <img src="images/home_img4.jpg" alt="">
-        <div class="content">
-            <h3>A onda do verão</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, neque.</p>
-            <a href="#"><button class="btn">Ver mais</button></a>
+<!-- ícones de serviços (antes do contato) -->
+<div class="container mt-4">
+    <div class="row g-4">
+        <div class="col-6 col-md-3">
+            <div class="card h-100 border-0 text-center p-3 shadow-sm">
+                <i class="bi bi-truck fs-1" style="color: #f1c40f;"></i>
+                <h5 class="mt-2">Entrega rápida</h5>
+                <p class="small">em até 7 dias úteis</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card h-100 border-0 text-center p-3 shadow-sm">
+                <i class="bi bi-headset fs-1" style="color: #f1c40f;"></i>
+                <h5 class="mt-2">Suporte</h5>
+                <p class="small">atendimento humanizado</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card h-100 border-0 text-center p-3 shadow-sm">
+                <i class="bi bi-credit-card fs-1" style="color: #f1c40f;"></i>
+                <h5 class="mt-2">Pagamento fácil</h5>
+                <p class="small">Pix, cartão ou boleto</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card h-100 border-0 text-center p-3 shadow-sm">
+                <i class="bi bi-arrow-repeat fs-1" style="color: #f1c40f;"></i>
+                <h5 class="mt-2">10 dias de troca</h5>
+                <p class="small">garantia de satisfação</p>
+            </div>
         </div>
     </div>
-
 </div>
 
+<!-- formulário de contato -->
+<section class="contact py-5" id="contato" style="background: #f8f9fa;">
+    <div class="container">
+        <h1 class="text-center mb-4 pb-2 border-bottom border-warning" style="color: #27ae60;">Fale Conosco</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form action="https://formspree.io/f/seu-form-id" method="POST" class="p-4 bg-white rounded shadow">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label fw-bold">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label fw-bold">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100 py-2">Enviar mensagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- home section ends -->
-
-<!-- arrival section starts  -->
-
-<section class="arrival" id="arrival">
-
-<h1 class="heading"> <span>novos produtos</span> </h1>
-
-<div class="box-container">
-
-    <div class="box">
-        <div class="image">
-            <img src="images/arr-img1.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>smart tv</h3>
-            <div class="subInfo">
-                <strong class="price"> R$2000/- <span>R$3500/-</span> </strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
+<!-- rodapé -->
+<footer class="footer bg-white py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none fs-3 fw-bold" style="color: #27ae60;">
+                    <i class="bi bi-leaf"></i> ViverLeve
+                </a>
+                <p class="mt-2">Saúde, beleza e bem-estar para você viver com mais leveza.</p>
+                <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank" class="me-3">
+                    <i class="bi bi-facebook fs-3" style="color: #27ae60;"></i>
+                </a>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5 style="color: #27ae60;">Links</h5>
+                <a href="#" class="d-block text-decoration-none text-secondary">início</a>
+                <a href="#arrival" class="d-block text-decoration-none text-secondary">produtos</a>
+                <a href="#novidades" class="d-block text-decoration-none text-secondary">novidades</a>
+                <a href="#contato" class="d-block text-decoration-none text-secondary">contato</a>
+            </div>
+            <div class="col-md-4">
+                <h5 style="color: #27ae60;">Contatos</h5>
+                <p><i class="bi bi-geo-alt-fill me-2" style="color: #f1c40f;"></i> Prefeito Celso Daniel, Campinas, SP, Brazil, 13069096</p>
+                <p><i class="bi bi-telephone-fill me-2" style="color: #f1c40f;"></i> (19) 98266-8806</p>
+                <p><i class="bi bi-envelope-fill me-2" style="color: #f1c40f;"></i> equipe.viverleve@gmail.com</p>
+                <p><i class="bi bi-clock-fill me-2" style="color: #f1c40f;"></i> Sempre aberto (online)</p>
             </div>
         </div>
-        <div class="overlay">
-            <a href="#" style="--i:1;" class="fas fa-heart"></a>
-            <a href="#" style="--i:2;" class="fas fa-shopping-cart"></a>
-            <a href="#" style="--i:3;" class="fas fa-search"></a>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="image">
-            <img src="images/arr-img2.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>video game</h3>
-            <div class="subInfo">
-                <strong class="price"> R$1000/- <span>R$3000/-</span> </strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center pt-3 border-top">
+                <p>Criado por <a href="https://github.com/danielbarbosabr" target="_blank" style="color:#27ae60; text-decoration:none;">Daniel B</a> | ViverLeve © 2025</p>
             </div>
         </div>
-        <div class="overlay">
-            <a href="#" style="--i:1;" class="fas fa-heart"></a>
-            <a href="#" style="--i:2;" class="fas fa-shopping-cart"></a>
-            <a href="#" style="--i:3;" class="fas fa-search"></a>
+    </div>
+</footer>
+
+<!-- Offcanvas do carrinho -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel">Meu Carrinho</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="cart-items-container">
+            <!-- Itens do carrinho serão inseridos aqui -->
+        </div>
+        <div class="mt-3">
+            <strong>Total: <span id="offcanvas-total">R$0,00</span></strong>
         </div>
     </div>
-
-    <div class="box">
-        <div class="image">
-            <img src="images/arr-img3.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>calçados</h3>
-            <div class="subInfo">
-                <strong class="price"> R$1000/- <span>R$3000/-</span> </strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-        <div class="overlay">
-            <a href="#" style="--i:1;" class="fas fa-heart"></a>
-            <a href="#" style="--i:2;" class="fas fa-shopping-cart"></a>
-            <a href="#" style="--i:3;" class="fas fa-search"></a>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="image">
-            <img src="images/arr-img4.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>celulares</h3>
-            <div class="subInfo">
-                <strong class="price"> R$1000/- <span>R$3000/-</span> </strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-        <div class="overlay">
-            <a href="#" style="--i:1;" class="fas fa-heart"></a>
-            <a href="#" style="--i:2;" class="fas fa-shopping-cart"></a>
-            <a href="#" style="--i:3;" class="fas fa-search"></a>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="image">
-            <img src="images/arr-img5.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>camisa</h3>
-            <div class="subInfo">
-                <strong class="price"> R$1000/- <span>R$3000/-</span> </strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-        <div class="overlay">
-            <a href="#" style="--i:1;" class="fas fa-heart"></a>
-            <a href="#" style="--i:2;" class="fas fa-shopping-cart"></a>
-            <a href="#" style="--i:3;" class="fas fa-search"></a>
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="image">
-            <img src="images/arr-img6.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>alexa</h3>
-            <div class="subInfo">
-                <strong class="price"> R$1000/- <span>R$3000/-</span> </strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-        <div class="overlay">
-            <a href="#" style="--i:1;" class="fas fa-heart"></a>
-            <a href="#" style="--i:2;" class="fas fa-shopping-cart"></a>
-            <a href="#" style="--i:3;" class="fas fa-search"></a>
-        </div>
-    </div>
-
 </div>
 
-</section>
-
-<!-- arrival section ends -->
-
-<!-- featured section starts  -->
-
-<section class="feature" id="featured">
-
-<h1 class="heading"> <span> produtos em destaque </span> </h1>
-
-<div class="row">
-
-    <div class="image-container">
-
-        <div class="big-image">
-            <img src="images/watch1.jpg" alt="">
-        </div>
-
-        <div class="small-image">
-            <img class="image-active" src="images/watch1.jpg" alt="">
-            <img src="images/watch2.jpg" alt="">
-            <img src="images/watch3.jpg" alt="">
-            <img src="images/watch4.jpg" alt="">
-        </div>
-
-    </div>
-
-    <div class="content">
-
-        <h3>relógios</h3>
-        <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <span>(500+) avaliações</span>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, at!</p>
-        <strong class="price">R$1000 <span>R$3000</span> </strong>
-        <a href="#"><button class="btn">comprar</button></a>
-
-    </div>
-
-</div>
-
-</section>
-
-<!-- featured section ends -->
-
-<!-- gallery section starts  -->
-
-<section class="gallery" id="gallery">
-
-<h1 class="heading"> <span> loja </span> </h1>
-
-<ul class="controls">
-    <li class="btn button-active" data-filter="all">tudo</li>
-    <li class="btn" data-filter="phone">celular</li>
-    <li class="btn" data-filter="laptop">notebook</li>
-    <li class="btn" data-filter="headphone">fone</li>
-    <li class="btn" data-filter="shoes">calçados</li>
-</ul>
-
-<div class="image-container">
-
-    <div class="box phone">
-        <div class="image">
-            <img src="images/g-img1.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>celulares</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="box phone">
-        <div class="image">
-            <img src="images/g-img2.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>celulares</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="box laptop">
-        <div class="image">
-            <img src="images/g-img3.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>notebook</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="box shoes">
-        <div class="image">
-            <img src="images/g-img4.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>calçados</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="box laptop">
-        <div class="image">
-            <img src="images/g-img5.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>notebook</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="box headphone">
-        <div class="image">
-            <img src="images/g-img6.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>fone</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div>  
-
-    <div class="box shoes">
-        <div class="image">
-            <img src="images/g-img7.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>calçados</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <div class="box headphone">
-        <div class="image">
-            <img src="images/g-img8.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>fone</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <div class="box headphone">
-        <div class="image">
-            <img src="images/g-img9.jpg" alt="">
-        </div>
-        <div class="info">
-            <h3>fone</h3>
-            <div class="subInfo">
-                <strong class="price">R$1000</strong>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-</div>
-
-</section>
-
-<!-- gallery section ends -->
-
-<!-- deal section starts  -->
-
-<section class="deal" id="deal">
-
-<h1 class="heading"> <span> melhores promoções </span> </h1>
-
-<div class="box-container">
-
-    <div class="box">
-        <img src="images/deal1.jpg" alt="">
-        <div class="content">
-            <h3>notebook</h3>
-            <p>25% off na primeira compra</p>
-            <a href="#"><button class="btn">explorar</button></a>
-        </div>
-    </div>
-
-    <div class="box">
-        <img src="images/deal2.jpg" alt="">
-        <div class="content">
-            <h3>novo fone</h3>
-            <p>25% off na primeira compra</p>
-            <a href="#"><button class="btn">explorar</button></a>
-        </div>
-    </div>
-
-</div>
-
-<div class="icons-container">
-
-    <div class="icons">
-        <i class="fas fa-shipping-fast"></i>
-        <h3>Entrega rápida</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-user-clock"></i>
-        <h3>suporte</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-money-check-alt"></i>
-        <h3>pagamento rápido</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
-    </div>
-
-    <div class="icons">
-        <i class="fas fa-box"></i>
-        <h3>10 dias de troca</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi, molestiae?</p>
-    </div>
-
-</div>
-
-</section>
-
-<!-- deal section ends -->
-
-<!-- newsletter section starts  -->
-
-<section class="newsletter">
-
-    <h1>Noticias</h1>
-    <p>Clique aqui para ver últimos descontos e atualizações</p>
-    <form action="">
-        <input type="email" placeholder="insira seu email">
-        <input type="submit" class="btn" value="Enviar">
-    </form>
-
-</section>
-
-<!-- newsletter section ends -->
-
-<!-- footer section starts  -->
-
-<section class="footer">
-
-    <div class="box-container">
-
-        <div class="box">
-            <a href="#" class="logo"> <i class="fas fa-shopping-bag"></i>  minha loja </a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique expedita molestiae distinctio facere beatae velit, maiores ullam molestias necessitatibus sapiente.</p>
-        </div>
-
-        <div class="box">
-            <h3>links</h3>
-            <a href="#">inicio</a>
-            <a href="#">produtos</a>
-            <a href="#">destaques</a>
-            <a href="#">loja</a>
-            <a href="#">promoções</a>
-        </div>
-
-        <div class="box">
-            <h3>Contatos</h3>
-            <p> <i class="fas fa-home"></i>
-                Ancuri, Fortaleza, 
-                Brasil 
-            </p>
-            <p> <i class="fas fa-phone"></i>
-                +5588999917733
-            </p>
-            <p> <i class="fas fa-globe"></i>
-                ranielyfreitas23@gmail.com
-            </p>
-        </div>
-
-    </div>
-
-<h1 class="credit"> Criado por <span>Raniely</span> | inspirado do mr. web designer </h1>
-
-</section>
-
-<!-- footer section ends -->
-
-
-
-
-
-
-
-
-
-
-
-<!-- jquery cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- owl carousel js file cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-<!-- custom js file link  -->
+<!-- scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
-    
 </body>
 </html>
