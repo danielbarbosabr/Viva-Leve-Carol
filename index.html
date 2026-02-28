@@ -11,8 +11,179 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- CSS customizado - ÚNICA FONTE DE ESTILO -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS customizado -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionais para o iframe do Facebook */
+        .facebook-optimized-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background: var(--preto-card, #111111);
+            border: 1px solid var(--cinza-medio, #333333);
+            min-height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        
+        .facebook-optimized-container iframe {
+            width: 100% !important;
+            max-width: 500px !important;
+            height: 600px !important;
+            border: none;
+            overflow: hidden;
+            display: block;
+            transition: opacity 0.5s ease;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+        
+        .facebook-optimized-container.fade-out iframe {
+            opacity: 0;
+        }
+        
+        .facebook-optimized-container.fade-in iframe {
+            opacity: 1;
+        }
+        
+        /* Loading spinner */
+        .facebook-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--verde, #2ecc71);
+            font-size: 2rem;
+            z-index: 1;
+        }
+        
+        .spin {
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+/* Banner com a nova imagem do Pexels */
+.home {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 100%), 
+                      url('https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 0;
+    padding: 80px 0;
+}
+        
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(46, 204, 113, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .home .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+      /* TÍTULO DO BANNER - FONTE CALIBRI */
+        .home h1 {
+            font-family: 'Calibri', 'Candara', 'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica Neue', 'Arial', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 5.2rem;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #00ff88, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            letter-spacing: normal;
+            line-height: 1.2;
+        }
+        
+        .home h1 i {
+            font-size: 4.5rem;
+            color: var(--verde);
+            -webkit-text-fill-color: initial;
+            filter: drop-shadow(0 5px 10px rgba(46, 204, 113, 0.3));
+        }
+        
+        /* Ajuste para o texto do lead */
+        .home .lead {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--branco-fumaca);
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        /* Ajuste para o botão */
+        .home .btn-warning {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .facebook-optimized-container {
+                min-height: 550px;
+                padding: 15px;
+            }
+            .facebook-optimized-container iframe {
+                height: 520px !important;
+            }
+            .home h1 {
+                font-size: 3.2rem !important;
+            }
+            .home .lead {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .facebook-optimized-container {
+                min-height: 500px;
+                padding: 10px;
+            }
+            .facebook-optimized-container iframe {
+                height: 480px !important;
+            }
+            .home h1 {
+                font-size: 2.4rem !important;
+            }
+            .home .lead {
+                font-size: 1.1rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -59,7 +230,6 @@
                 <!-- Barra de pesquisa e carrinho -->
                 <div class="d-flex align-items-center gap-3">
                     <form id="search-form" class="d-flex" role="search">
-                        <!-- ADICIONADO ID search-input PARA FUNCIONAR COM O JAVASCRIPT -->
                         <input class="form-control me-2" type="search" id="search-input" placeholder="Pesquisar produtos..." aria-label="Search">
                         <button class="btn btn-success" type="submit">
                             <i class="bi bi-search"></i>
@@ -79,17 +249,12 @@
     </nav>
 </header>
 
-<!-- Banner principal -->
 <section class="home" id="home">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <a href="https://produtosvelmora.com/" target="_blank" class="urgency-badge">
-                    <i class="bi bi-exclamation-triangle-fill"></i>
-                    Últimas Novidades!
-                </a>
-                <h1 class="viverleve-icon">
-                    <i class="bi bi-leaf"></i> 
+                <h1 class="viverleve-icon pulse-title">
+                    <i class="bi bi-heart-pulse-fill pulse-icon"></i> 
                     <span>VIVERLEVE</span>
                 </h1>
                 <p class="lead">Saúde, beleza e bem-estar para o seu dia a dia com produtos de alta qualidade</p>
@@ -101,7 +266,6 @@
         </div>
     </div>
 </section>
-
 <!-- Seção de produtos -->
 <section class="arrival py-5" id="arrival">
     <div class="container">
@@ -113,7 +277,6 @@
         <div class="row g-4" id="product-list">
             <!-- Cards de produtos serão carregados via JavaScript -->
         </div>
-        
     </div>
 </section>
 
@@ -125,31 +288,31 @@
             <span>NOVIDADES</span>
         </h2>
         
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="bg-white p-4 rounded-4">
-                    <i class="bi bi-facebook display-1 text-primary"></i>
-                    <h3 class="h4 mt-3 viverleve-icon">
-                        <i class="bi bi-leaf"></i>
-                        <span>Acompanhe nossas novidades no Facebook</span>
-                    </h3>
-                    <p>Fique por dentro de lançamentos, promoções e dicas de saúde</p>
-                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" 
-                       target="_blank" 
-                       class="btn btn-primary mt-3 viverleve-icon">
-                        <i class="bi bi-facebook"></i> 
-                        <span>Seguir no Facebook</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="facebook-wrapper">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                            width="100%" 
-                            height="400" 
+        <!-- Linha com coluna ajustada para centralizar o widget -->
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <!-- Iframe do Facebook otimizado -->
+                <div class="facebook-optimized-container" id="facebookContainer">
+                    <div class="facebook-loading" id="facebookLoading">
+                        <i class="bi bi-arrow-repeat spin"></i>
+                    </div>
+                    <iframe id="facebookIframe" 
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
                             allowfullscreen="true" 
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                     </iframe>
+                </div>
+                
+                <!-- Informação adicional sobre o Facebook -->
+                <div class="text-center mt-4">
+                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank" class="btn btn-primary">
+                        <i class="bi bi-facebook"></i>
+                        Seguir no Facebook
+                    </a>
+                    <p class="mt-2 text-secondary">
+                        <i class="bi bi-info-circle"></i>
+                        Atualizações em tempo real
+                    </p>
                 </div>
             </div>
         </div>
@@ -164,10 +327,10 @@
             <h5>Rastrear Pedido</h5>
             <p>Clique para rastrear nos Correios</p>
         </div>
-        <div class="service-card" onclick="window.open('https://wa.me/5519996884068', '_blank')">
+        <div class="service-card" onclick="window.open('https://wa.me/5519982668806', '_blank')">
             <i class="bi bi-whatsapp"></i>
             <h5>Suporte via WhatsApp</h5>
-            <p>(19) 99688-4068</p>
+            <p>(19) 98266-8806</p>
         </div>
         <div class="service-card">
             <i class="bi bi-credit-card"></i>
@@ -182,7 +345,7 @@
     </div>
 </div>
 
-<!-- Seção de contato - MESMO TAMANHO DOS CARDS -->
+<!-- Seção de contato -->
 <section class="contact py-5" id="contato">
     <div class="container">
         <h2 class="section-title viverleve-icon">
@@ -192,7 +355,7 @@
         
         <div class="contact-wrapper">
             <div class="services-grid">
-                <!-- Card de contato ocupando todas as 4 colunas -->
+                <!-- Card de contato -->
                 <div class="contact-card">
                     <div class="contact-form-container">
                         <div class="contact-form-title viverleve-icon">
@@ -235,7 +398,7 @@
                             </div>
                             <div class="contact-info-item">
                                 <i class="bi bi-whatsapp"></i>
-                                <span>(19) 99688-4068</span>
+                                <span>(19) 98266-8806</span>
                             </div>
                         </div>
                     </div>
@@ -311,7 +474,6 @@
             </div>
             <div class="modal-body">
                 <div class="tracking-input-group">
-                    <!-- ADICIONADO ID tracking-code PARA FUNCIONAR COM O JAVASCRIPT -->
                     <input type="text" id="tracking-code" class="form-control" placeholder="Digite o código de rastreamento">
                     <button class="btn btn-success viverleve-icon" onclick="trackOrder()">
                         <i class="bi bi-search"></i> Rastrear
@@ -336,7 +498,6 @@
     </div>
     <div class="offcanvas-body">
         <div id="cart-items-container">
-            <!-- Itens do carrinho serão inseridos via JS -->
             <p class="text-center text-secondary">Seu carrinho está vazio</p>
         </div>
         <div class="mt-4 p-3 bg-dark rounded">
@@ -352,14 +513,14 @@
 <script src="script.js"></script>
 
 <script>
-    // Script para destacar link ativo durante a rolagem
     document.addEventListener('DOMContentLoaded', function() {
+        // Scroll suave e active links
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
         
         window.addEventListener('scroll', () => {
             let current = '';
-            const headerHeight = 80; // Valor fixo correspondente ao CSS
+            const headerHeight = 80;
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - headerHeight - 100;
@@ -378,7 +539,7 @@
             });
         });
 
-        // Garantir que a função trackOrder esteja disponível globalmente
+        // Rastreamento
         window.trackOrder = function() {
             const codeInput = document.getElementById('tracking-code');
             if (!codeInput) return;
@@ -390,6 +551,46 @@
                 alert('Por favor, insira um código de rastreamento');
             }
         };
+        
+        // IFRAME DO FACEBOOK COM RECARGA AUTOMÁTICA
+        const iframe = document.getElementById('facebookIframe');
+        const container = document.getElementById('facebookContainer');
+        const loading = document.getElementById('facebookLoading');
+        
+        // URL base do perfil (timeline)
+        const baseUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId';
+        
+        // Função para adicionar um parâmetro aleatório para forçar recarregamento
+        function getRandomUrl() {
+            const timestamp = new Date().getTime();
+            const random = Math.floor(Math.random() * 1000);
+            return baseUrl + '&timestamp=' + timestamp + '&random=' + random;
+        }
+        
+        function reloadFacebookIframe() {
+            if (loading) loading.style.display = 'block';
+            container.classList.add('fade-out');
+            
+            setTimeout(() => {
+                iframe.src = getRandomUrl();
+                
+                container.classList.remove('fade-out');
+                container.classList.add('fade-in');
+                
+                setTimeout(() => {
+                    if (loading) loading.style.display = 'none';
+                    container.classList.remove('fade-in');
+                }, 1000);
+            }, 500);
+        }
+        
+        // Esconde o loading inicial após carregar
+        iframe.onload = function() {
+            if (loading) loading.style.display = 'none';
+        };
+        
+        // Recarrega o iframe a cada 30 segundos
+        setInterval(reloadFacebookIframe, 30000);
     });
 </script>
 
