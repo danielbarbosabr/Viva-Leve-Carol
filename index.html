@@ -11,325 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- CSS customizado -->
+    <!-- CSS customizado - ÚNICA FONTE DE ESTILO -->
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-        /* CORREÇÕES ESPECÍFICAS */
-        :root {
-            --altura-header: 80px;
-            --altura-header-mobile: 130px;
-        }
-
-        /* Ajuste para compensar o header fixo */
-        body {
-            padding-top: var(--altura-header);
-        }
-
-        /* Header fixo */
-        header {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            z-index: 1030 !important;
-            width: 100% !important;
-            background: var(--cinza-nav) !important;
-        }
-
-        /* Ajuste para o scroll suave */
-        html {
-            scroll-padding-top: calc(var(--altura-header) + 20px);
-            scroll-behavior: smooth;
-        }
-
-        /* Ícone de folha em todo ViverLeve */
-        .viverleve-icon {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .viverleve-icon i {
-            font-size: inherit;
-            color: var(--verde);
-        }
-
-        /* Remover duplicidade de ícones nos cards de serviço */
-        .service-card h5 i {
-            display: none !important;
-        }
-        
-        .service-card h5 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        /* FORMULÁRIO DE CONTATO - MESMO TAMANHO DOS CARDS ACIMA */
-        .contact-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        
-        .contact-card {
-            background: var(--preto-card);
-            border: 1px solid var(--cinza-medio);
-            border-radius: 15px;
-            padding: 25px 20px;
-            height: 100%;
-            transition: all 0.3s;
-            grid-column: span 4; /* Ocupa todas as 4 colunas */
-        }
-        
-        .contact-card:hover {
-            border-color: var(--verde);
-            background: var(--preto-secundario);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
-        }
-        
-        .contact-form-container {
-            max-width: 100%;
-        }
-        
-        .contact-form-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--branco);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-        }
-        
-        .contact-form-title i {
-            font-size: 2rem;
-            background: linear-gradient(135deg, var(--verde), var(--amarelo));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .contact-input-group {
-            margin-bottom: 1.2rem;
-        }
-        
-        .contact-input-group label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--branco);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .contact-input-group label i {
-            color: var(--verde);
-            font-size: 1.1rem;
-        }
-        
-        .contact-input-group input,
-        .contact-input-group textarea {
-            width: 100%;
-            background: var(--preto-secundario);
-            border: 2px solid var(--cinza-medio);
-            color: var(--branco);
-            border-radius: 12px;
-            padding: 12px 15px;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-        
-        .contact-input-group input:focus,
-        .contact-input-group textarea:focus {
-            border-color: var(--verde);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
-            background: var(--preto-secundario);
-        }
-        
-        .contact-submit-btn {
-            background: var(--verde);
-            color: var(--preto-fundo);
-            border: none;
-            border-radius: 12px;
-            padding: 15px;
-            width: 100%;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 1rem;
-        }
-        
-        .contact-submit-btn:hover {
-            background: var(--verde-escuro);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
-        }
-        
-        .contact-info-row {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--cinza-medio);
-            flex-wrap: wrap;
-        }
-        
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--cinza-texto);
-            font-size: 0.95rem;
-        }
-        
-        .contact-info-item i {
-            color: var(--verde);
-        }
-        
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .contact-card {
-                grid-column: span 2;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-card {
-                grid-column: span 1;
-            }
-            .contact-info-row {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-        }
-
-        /* Cards de serviço com ícones únicos */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .service-card {
-            background: var(--preto-card);
-            border: 1px solid var(--cinza-medio);
-            border-radius: 15px;
-            padding: 25px 15px;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            border-color: var(--verde);
-            background: var(--preto-secundario);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
-        }
-
-        .service-card > i:first-child {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, var(--verde), var(--amarelo));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
-
-        .service-card h5 {
-            font-weight: 700;
-            color: var(--branco);
-            margin-bottom: 5px;
-        }
-
-        .service-card p {
-            color: var(--cinza-texto);
-            font-size: 0.85rem;
-            margin: 0;
-        }
-
-        /* Badge de urgência clicável */
-        .urgency-badge {
-            background: linear-gradient(135deg, var(--danger), var(--danger-escuro));
-            color: var(--branco);
-            font-weight: 800;
-            font-size: 1rem;
-            padding: 15px 30px;
-            border-radius: 50px;
-            margin-bottom: 30px;
-            display: inline-block;
-            animation: pulse 2s infinite;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(255,255,255,0.1);
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .urgency-badge:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
-            color: var(--branco);
-        }
-        
-        a.urgency-badge {
-            color: var(--branco);
-            text-decoration: none;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: var(--altura-header-mobile);
-            }
-            
-            html {
-                scroll-padding-top: calc(var(--altura-header-mobile) + 20px);
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -376,7 +59,8 @@
                 <!-- Barra de pesquisa e carrinho -->
                 <div class="d-flex align-items-center gap-3">
                     <form id="search-form" class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Pesquisar produtos..." aria-label="Search">
+                        <!-- ADICIONADO ID search-input PARA FUNCIONAR COM O JAVASCRIPT -->
+                        <input class="form-control me-2" type="search" id="search-input" placeholder="Pesquisar produtos..." aria-label="Search">
                         <button class="btn btn-success" type="submit">
                             <i class="bi bi-search"></i>
                         </button>
@@ -402,7 +86,7 @@
             <div class="col-lg-8">
                 <a href="https://produtosvelmora.com/" target="_blank" class="urgency-badge">
                     <i class="bi bi-exclamation-triangle-fill"></i>
-                    Últimas unidades - Promoção relâmpago!
+                    Últimas Novidades!
                 </a>
                 <h1 class="viverleve-icon">
                     <i class="bi bi-leaf"></i> 
@@ -430,12 +114,6 @@
             <!-- Cards de produtos serão carregados via JavaScript -->
         </div>
         
-        <!-- Informação de frete grátis integrada -->
-        <div class="text-center mt-4">
-            <span class="text-success viverleve-icon">
-                <i class="bi bi-truck"></i> Frete grátis para compras acima de R$ 199,90
-            </span>
-        </div>
     </div>
 </section>
 
@@ -478,7 +156,7 @@
     </div>
 </section>
 
-<!-- Cards de serviços (MESMO LAYOUT DO FORMULÁRIO) -->
+<!-- Cards de serviços -->
 <div class="services-section py-4">
     <div class="services-grid">
         <div class="service-card" onclick="window.open('https://rastreamento.correios.com.br/app/index.php', '_blank')">
@@ -504,7 +182,7 @@
     </div>
 </div>
 
-<!-- Seção de contato - AGORA COM O MESMO TAMANHO DOS CARDS ACIMA -->
+<!-- Seção de contato - MESMO TAMANHO DOS CARDS -->
 <section class="contact py-5" id="contato">
     <div class="container">
         <h2 class="section-title viverleve-icon">
@@ -577,14 +255,14 @@
                 </h5>
                 <p>Saúde, beleza e bem-estar para você viver com mais leveza.</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank" class="me-2">
-                        <i class="bi bi-facebook fs-4"></i>
+                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank">
+                        <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="https://wa.me/5519996884068" target="_blank" class="me-2">
-                        <i class="bi bi-whatsapp fs-4"></i>
+                    <a href="https://wa.me/5519996884068" target="_blank">
+                        <i class="bi bi-whatsapp"></i>
                     </a>
                     <a href="mailto:equipe.viverleve@gmail.com" target="_blank">
-                        <i class="bi bi-envelope fs-4"></i>
+                        <i class="bi bi-envelope"></i>
                     </a>
                 </div>
             </div>
@@ -633,8 +311,9 @@
             </div>
             <div class="modal-body">
                 <div class="tracking-input-group">
-                    <input type="text" class="form-control" placeholder="Digite o código de rastreamento">
-                    <button class="btn btn-success viverleve-icon">
+                    <!-- ADICIONADO ID tracking-code PARA FUNCIONAR COM O JAVASCRIPT -->
+                    <input type="text" id="tracking-code" class="form-control" placeholder="Digite o código de rastreamento">
+                    <button class="btn btn-success viverleve-icon" onclick="trackOrder()">
                         <i class="bi bi-search"></i> Rastrear
                     </button>
                 </div>
@@ -680,7 +359,7 @@
         
         window.addEventListener('scroll', () => {
             let current = '';
-            const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--altura-header').replace('px', ''));
+            const headerHeight = 80; // Valor fixo correspondente ao CSS
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - headerHeight - 100;
@@ -698,6 +377,19 @@
                 }
             });
         });
+
+        // Garantir que a função trackOrder esteja disponível globalmente
+        window.trackOrder = function() {
+            const codeInput = document.getElementById('tracking-code');
+            if (!codeInput) return;
+            
+            const code = codeInput.value.trim();
+            if (code) {
+                window.open(`https://rastreamento.correios.com.br/app/index.php?objeto=${code}`, '_blank');
+            } else {
+                alert('Por favor, insira um código de rastreamento');
+            }
+        };
     });
 </script>
 
