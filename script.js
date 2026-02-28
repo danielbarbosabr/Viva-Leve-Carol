@@ -1,5 +1,41 @@
 // Lista de produtos com opções de meses
 const products = [
+    // SECAPS - Todos no início como solicitado
+    { 
+        name: "Secaps Black", 
+        basePrice: 197,
+        img: "https://api.hest.com.br/products/20260203113215423.jpeg", 
+        desc: "Tratamento emagrecedor que age na raiz do problema.",
+        options: [
+            { months: 1, price: 209, link: "https://pay.hest.com.br/baf4666f-6ce9-4da8-a2ac-755c8d3e4d64" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/1cf57f4a-688d-45d0-a3ca-8de9a2ca5e49" },
+            { months: 5, price: 461, link: "https://pay.hest.com.br/527119e2-5030-41f8-b0af-b14b0e98c78c" }
+        ]
+    },
+    { 
+        name: "Secaps Black Chá", 
+        basePrice: 209.9,
+        img: "https://api.hest.com.br/products/20260114195505729.jpg", 
+        desc: "Chá solúvel com cúrcuma e psyllium. Energia e saciedade.",
+        options: [
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/b98ee4b7-6064-4260-a7a9-b3dc880416da" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/6ba5966d-bcf1-45be-b16d-0d713e154715" },
+            { months: 12, price: 851, link: "https://pay.hest.com.br/8bc7fa93-ca39-42b1-b273-8ba1dbc18c62" }
+        ]
+    },
+    { 
+        name: "Secaps Max", 
+        basePrice: 197,
+        img: "https://api.hest.com.br/products/20250128152337073.png", 
+        desc: "Emagrecedor que já transformou mais de 35 mil pessoas.",
+        options: [
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/8893b794-7c19-4419-804f-0538e5604222" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/5b8ecc68-44bb-4ed7-9c5d-f14d4f68f2c4" },
+            { months: 12, price: 859, link: "https://pay.hest.com.br/dfc1625d-cee9-4be0-806c-11ea58a8d3e7" }
+        ]
+    },
+    
+    // DEMAIS PRODUTOS (ordenados alfabeticamente)
     { 
         name: "Calminol", 
         basePrice: 197,
@@ -67,6 +103,28 @@ const products = [
         ]
     },
     { 
+        name: "Long Beauty", 
+        basePrice: 197,
+        img: "https://api.hest.com.br/products/20250128152440130.png", 
+        desc: "Tratamento capilar que restaura a beleza e confiança dos seus cabelos.",
+        options: [
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/eef48a82-a6c6-4aa3-a14f-4738d440c9a9" },
+            { months: 3, price: 335.70, link: "https://pay.hest.com.br/7c0eba99-dd07-46e1-89aa-857c83f4ae76" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/feb19442-b2c6-4e86-a075-0b9dfbdbf9df" }
+        ]
+    },
+    { 
+        name: "Neumax Drops", 
+        basePrice: 197,
+        img: "https://api.hest.com.br/products/20250128152643280.png", 
+        desc: "Biohacking para foco, cognição e memorização.",
+        options: [
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/a9f50f74-c70f-4c99-a972-3458c12c2b50" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/407d998f-0e6d-4393-93d0-95ae0f262b8f" },
+            { months: 12, price: 859, link: "https://pay.hest.com.br/eff80e9b-6f1e-4f54-a0ea-3671e8df5068" }
+        ]
+    },
+    { 
         name: "Passa Tudo", 
         basePrice: 197,
         img: "https://api.hest.com.br/products/20250902120550201.png", 
@@ -108,61 +166,6 @@ const products = [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/a9f50f74-c70f-4c99-a972-3458c12c2b50" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/407d998f-0e6d-4393-93d0-95ae0f262b8f" },
             { months: 12, price: 859, link: "https://pay.hest.com.br/eff80e9b-6f1e-4f54-a0ea-3671e8df5068" }
-        ]
-    },
-    { 
-        name: "Long Beauty", 
-        basePrice: 197,
-        img: "https://api.hest.com.br/products/20250128152440130.png", 
-        desc: "Tratamento capilar que restaura a beleza e confiança dos seus cabelos.",
-        options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/eef48a82-a6c6-4aa3-a14f-4738d440c9a9" },
-            { months: 3, price: 335.70, link: "https://pay.hest.com.br/7c0eba99-dd07-46e1-89aa-857c83f4ae76" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/feb19442-b2c6-4e86-a075-0b9dfbdbf9df" }
-        ]
-    },
-    { 
-        name: "Neumax Drops", 
-        basePrice: 197,
-        img: "https://api.hest.com.br/products/20250128152643280.png", 
-        desc: "Biohacking para foco, cognição e memorização.",
-        options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/a9f50f74-c70f-4c99-a972-3458c12c2b50" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/407d998f-0e6d-4393-93d0-95ae0f262b8f" },
-            { months: 12, price: 859, link: "https://pay.hest.com.br/eff80e9b-6f1e-4f54-a0ea-3671e8df5068" }
-        ]
-    },
-    { 
-        name: "Secaps Black", 
-        basePrice: 197,
-        img: "https://api.hest.com.br/products/20260203113215423.jpeg", 
-        desc: "Tratamento emagrecedor que age na raiz do problema.",
-        options: [
-            { months: 1, price: 209, link: "https://pay.hest.com.br/baf4666f-6ce9-4da8-a2ac-755c8d3e4d64" },
-            { months: 3, price: 335, link: "https://pay.hest.com.br/1cf57f4a-688d-45d0-a3ca-8de9a2ca5e49" },
-            { months: 5, price: 461, link: "https://pay.hest.com.br/527119e2-5030-41f8-b0af-b14b0e98c78c" }
-        ]
-    },
-    { 
-        name: "Secaps Black Chá", 
-        basePrice: 209.9,
-        img: "https://api.hest.com.br/products/20260114195505729.jpg", 
-        desc: "Chá solúvel com cúrcuma e psyllium. Energia e saciedade.",
-        options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/b98ee4b7-6064-4260-a7a9-b3dc880416da" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/6ba5966d-bcf1-45be-b16d-0d713e154715" },
-            { months: 12, price: 851, link: "https://pay.hest.com.br/8bc7fa93-ca39-42b1-b273-8ba1dbc18c62" }
-        ]
-    },
-    { 
-        name: "Secaps Max", 
-        basePrice: 197,
-        img: "https://api.hest.com.br/products/20250128152337073.png", 
-        desc: "Emagrecedor que já transformou mais de 35 mil pessoas.",
-        options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/8893b794-7c19-4419-804f-0538e5604222" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/5b8ecc68-44bb-4ed7-9c5d-f14d4f68f2c4" },
-            { months: 12, price: 859, link: "https://pay.hest.com.br/dfc1625d-cee9-4be0-806c-11ea58a8d3e7" }
         ]
     },
     { 
