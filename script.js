@@ -232,7 +232,6 @@ function renderCartItems() {
         </div>
     `).join('');
 
-    // Adicionar eventos aos inputs de quantidade
     document.querySelectorAll('.item-qty').forEach((input, idx) => {
         input.addEventListener('change', function() {
             let cart = getCart();
@@ -246,7 +245,6 @@ function renderCartItems() {
         });
     });
 
-    // Adicionar eventos aos botões de remover
     document.querySelectorAll('.remove-item').forEach((btn, idx) => {
         btn.addEventListener('click', function() {
             let cart = getCart();
@@ -279,7 +277,6 @@ function addToCart(product, selectedOption, quantity) {
     
     saveCart(cart);
     
-    // Abrir o offcanvas do carrinho
     const cartOffcanvas = document.getElementById('cartOffcanvas');
     if (cartOffcanvas) {
         try {
@@ -301,16 +298,13 @@ function buyNow(link) {
     }
 }
 
+// FUNÇÃO MODIFICADA: produtos com botão de opções (collapse)
 function renderProducts(filterText = '') {
     const container = document.getElementById('product-list');
-    if (!container) {
-        console.log('Container de produtos não encontrado');
-        return;
-    }
+    if (!container) return;
     
     container.innerHTML = '';
     
-    // Filtrar produtos
     let filtered = products;
     if (filterText && filterText.trim() !== '') {
         const searchTerm = filterText.toLowerCase().trim();
@@ -318,7 +312,6 @@ function renderProducts(filterText = '') {
             p.name.toLowerCase().includes(searchTerm) || 
             p.desc.toLowerCase().includes(searchTerm)
         );
-        console.log('Filtrando por:', searchTerm, 'Encontrados:', filtered.length);
     }
     
     if (filtered.length === 0) {
@@ -330,6 +323,7 @@ function renderProducts(filterText = '') {
         const col = document.createElement('div');
         col.className = 'col-12 col-sm-6 col-md-4 col-lg-3 mb-4';
         
+        // Gera as opções (serão colocadas dentro do collapse)
         let optionsHtml = '';
         product.options.forEach((option, optIndex) => {
             const priceFormatted = 'R$ ' + option.price.toFixed(2).replace('.', ',');
@@ -354,14 +348,28 @@ function renderProducts(filterText = '') {
             `;
         });
 
+        // ID único para o collapse
+        const collapseId = `collapse-${index}-${Date.now()}`;
+
         col.innerHTML = `
             <div class="card h-100 shadow-sm product-card">
                 <img src="${product.img}" class="card-img-top p-3" alt="${product.name}" style="height: 180px; object-fit: contain;">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title product-title">${product.name}</h5>
                     <p class="card-text small product-desc flex-grow-1">${product.desc}</p>
-                    <div class="product-options mt-2">
-                        ${optionsHtml}
+                    
+                    <!-- Botão que abre as opções -->
+                    <button class="btn btn-outline-success w-100 mb-2" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#${collapseId}" 
+                            aria-expanded="false" aria-controls="${collapseId}">
+                        <i class="bi bi-chevron-down"></i> Opções de compra
+                    </button>
+                    
+                    <!-- Collapse com as opções -->
+                    <div class="collapse" id="${collapseId}">
+                        <div class="product-options mt-2">
+                            ${optionsHtml}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -370,7 +378,7 @@ function renderProducts(filterText = '') {
         container.appendChild(col);
     });
 
-    // Adicionar eventos aos botões de comprar
+    // Eventos para botões de compra (dentro do collapse)
     document.querySelectorAll('.buy-now-option').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -380,7 +388,7 @@ function renderProducts(filterText = '') {
         });
     });
 
-    // Adicionar eventos aos botões de adicionar ao carrinho
+    // Eventos para adicionar ao carrinho
     document.querySelectorAll('.add-to-cart-option').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -388,8 +396,7 @@ function renderProducts(filterText = '') {
             const productIndex = parseInt(btn.dataset.productIndex);
             const optionIndex = parseInt(btn.dataset.optionIndex);
             
-            // IMPORTANTE: Usar o array original products, não o filtered
-            // Precisamos encontrar o produto original pelo nome ou índice
+            // Encontrar o produto original (pode ser filtrado)
             const originalProductIndex = products.findIndex(p => p.name === filtered[productIndex].name);
             if (originalProductIndex !== -1) {
                 const product = products[originalProductIndex];
@@ -400,7 +407,7 @@ function renderProducts(filterText = '') {
     });
 }
 
-// Função para rastrear pedido
+// Função para rastrear pedido (chamada pelo botão no modal)
 function trackOrder() {
     const codeInput = document.getElementById('tracking-code');
     if (!codeInput) return;
@@ -413,70 +420,119 @@ function trackOrder() {
     }
 }
 
+// Função para recarregar o iframe do Facebook a cada 30 segundos
+function setupFacebookIframe() {
+    const iframe = document.getElementById('facebookIframe');
+    const container = document.getElementById('facebookContainer');
+    const loading = document.getElementById('facebookLoading');
+    
+    if (!iframe || !container || !loading) return;
+    
+    const baseUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId';
+    
+    function getRandomUrl() {
+        const timestamp = new Date().getTime();
+        const random = Math.floor(Math.random() * 1000);
+        return baseUrl + '&timestamp=' + timestamp + '&random=' + random;
+    }
+    
+    function reloadFacebookIframe() {
+        if (loading) loading.style.display = 'block';
+        container.classList.add('fade-out');
+        
+        setTimeout(() => {
+            iframe.src = getRandomUrl();
+            container.classList.remove('fade-out');
+            container.classList.add('fade-in');
+            
+            setTimeout(() => {
+                if (loading) loading.style.display = 'none';
+                container.classList.remove('fade-in');
+            }, 1000);
+        }, 500);
+    }
+    
+    iframe.onload = function() {
+        if (loading) loading.style.display = 'none';
+    };
+    
+    setInterval(reloadFacebookIframe, 30000);
+}
+
+// Formulário de contato personalizado
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const mensagem = document.getElementById('contact-message').value.trim();
+
+        if (!nome || !email || !mensagem) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        // Assunto: "Dúvida pelo site - Nome"
+        const assunto = encodeURIComponent(`Dúvida pelo site - ${nome}`);
+
+        // Corpo: Nome, E-mail e Mensagem formatados
+        const corpo = encodeURIComponent(
+            `Nome: ${nome}\n` +
+            `E-mail: ${email}\n\n` +
+            `Mensagem:\n${mensagem}`
+        );
+
+        // Link mailto
+        const mailtoLink = `mailto:equipe.viverleve@gmail.com?subject=${assunto}&body=${corpo}`;
+        window.location.href = mailtoLink;
+    });
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado, inicializando...');
-    
-    // Renderizar produtos
     renderProducts();
-    
-    // Atualizar carrinho
     updateCartDisplay();
     renderCartItems();
-    
-    // CORREÇÃO DA BUSCA - Múltiplas formas de capturar o evento
+    setupFacebookIframe();
+
+    // Busca
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
     const searchButton = document.querySelector('#search-form button');
-    
-    console.log('Search form:', searchForm);
-    console.log('Search input:', searchInput);
-    
-    // Função de busca unificada
+
     function performSearch() {
         if (searchInput) {
             const term = searchInput.value;
-            console.log('Buscando por:', term);
             renderProducts(term);
         }
     }
-    
-    // Evento de submit do formulário
+
     if (searchForm) {
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            console.log('Form submit');
             performSearch();
         });
     }
-    
-    // Evento de clique no botão
+
     if (searchButton) {
         searchButton.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('Botão clique');
             performSearch();
         });
     }
-    
-    // Evento de tecla Enter no input
+
     if (searchInput) {
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                console.log('Enter pressionado');
                 performSearch();
             }
         });
     }
-    
-    // Evento do botão de rastrear
-    const trackBtn = document.getElementById('track-order-btn');
-    if (trackBtn) {
-        trackBtn.addEventListener('click', trackOrder);
-    }
-    
-    // Evento para limpar busca quando clicar no logo
+
+    // Logo para limpar busca
     const logoLink = document.querySelector('.navbar-brand');
     if (logoLink) {
         logoLink.addEventListener('click', (e) => {
@@ -485,19 +541,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchInput.value = '';
             }
             renderProducts('');
-            
-            // Scroll suave para o topo
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-});
 
-// Função adicional para garantir que o carrinho seja atualizado quando a página carregar
-window.addEventListener('load', () => {
-    console.log('Página completamente carregada');
-    updateCartDisplay();
-    renderCartItems();
+    // Scroll suave e active links
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const headerHeight = 80;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - headerHeight - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
 });
