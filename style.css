@@ -281,8 +281,16 @@ header {
     color: var(--branco);
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
+}
+
+.section-title.text-start {
+    justify-content: flex-start;
+}
+
+.section-title.text-start:after {
+    left: 0;
+    transform: none;
 }
 
 .section-title i {
@@ -304,60 +312,117 @@ header {
     border-radius: 2px;
 }
 
-/* ===== CARROSSEL DE NOVIDADES - IMAGENS INTEIRAS E CENTRALIZADAS ===== */
-.novidades-carrossel {
+/* ===== SEÇÃO DESTAQUES (NOVIDADES + FACEBOOK) ===== */
+.destaques {
     background: var(--preto-secundario);
     padding: 60px 0;
 }
 
-.novidades-carrossel .carousel-inner {
+/* ===== CARROSSEL DE NOVIDADES ===== */
+.destaques .carousel-inner {
     width: 100%;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.novidades-carrossel .carousel-item img {
-    height: 800px;
+.destaques .carousel-item img {
+    height: 600px; /* Ajustado para ficar harmonioso com o Facebook */
     width: 100%;
-    object-fit: contain;          /* Garante que a imagem inteira apareça */
-    object-position: center;       /* Centraliza a imagem */
-    background-color: var(--preto-secundario); /* Fundo para áreas vazias */
+    object-fit: contain;
+    object-position: center;
+    background-color: var(--preto-secundario);
     filter: brightness(0.8);
     cursor: pointer;
 }
 
-.novidades-carrossel .carousel-caption {
+.destaques .carousel-caption {
     background: rgba(0,0,0,0.7);
     border-radius: 15px;
-    padding: 20px;
-    bottom: 30px;
+    padding: 15px;
+    bottom: 20px;
     left: 20px;
     right: 20px;
 }
 
-.novidades-carrossel .carousel-caption h5 {
-    font-size: 2rem;
+.destaques .carousel-caption h5 {
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--verde-neon);
 }
 
-.novidades-carrossel .carousel-caption p {
-    font-size: 1.2rem;
+.destaques .carousel-caption p {
+    font-size: 1rem;
 }
 
-.novidades-carrossel .carousel-indicators button {
-    width: 12px;
-    height: 12px;
+.destaques .carousel-indicators button {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: var(--verde);
 }
 
-.novidades-carrossel .carousel-control-prev-icon,
-.novidades-carrossel .carousel-control-next-icon {
+.destaques .carousel-control-prev-icon,
+.destaques .carousel-control-next-icon {
     background-color: var(--verde);
     border-radius: 50%;
-    padding: 20px;
+    padding: 15px;
+}
+
+/* ===== WIDGET DO FACEBOOK ===== */
+.facebook-optimized-container {
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    background: var(--preto-card);
+    border: 1px solid var(--cinza-medio);
+    min-height: 600px; /* mesma altura aproximada do carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.facebook-optimized-container iframe {
+    width: 100% !important;
+    max-width: 500px !important;
+    height: 570px !important; /* ajuste fino */
+    border: none;
+    overflow: hidden;
+    display: block;
+    transition: opacity 0.5s ease;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.facebook-optimized-container.fade-out iframe {
+    opacity: 0;
+}
+
+.facebook-optimized-container.fade-in iframe {
+    opacity: 1;
+}
+
+.facebook-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--verde);
+    font-size: 2rem;
+    z-index: 1;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* ===== BOTÃO FLUTUANTE DO WHATSAPP ===== */
@@ -401,19 +466,11 @@ header {
     }
 }
 
-/* ===== SEÇÃO FACEBOOK (MESMO FUNDO DA NOVIDADES) ===== */
-.facebook-section {
-    background-color: var(--preto-secundario);
-    padding: 60px 0;
-}
-
-/* ===== SEÇÃO CONTATO (MESMO FUNDO DA NOVIDADES) ===== */
-.contact {
-    background-color: var(--preto-secundario);
-    padding: 60px 0;
-}
-
 /* ===== CARDS DE PRODUTOS ===== */
+.arrival {
+    background: var(--preto-fundo);
+}
+
 .product-card {
     background: var(--branco-card) !important;
     border: 1px solid #e0e0e0 !important;
@@ -537,7 +594,11 @@ header {
     margin: 0;
 }
 
-/* ===== CARD DE CONTATO (DENTRO DA SEÇÃO CONTATO) ===== */
+/* ===== CARD DE CONTATO ===== */
+.contact {
+    background: var(--preto-secundario);
+}
+
 .contact-wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -788,64 +849,6 @@ header {
     transform: translateY(-3px);
 }
 
-/* ===== WIDGET DO FACEBOOK ===== */
-.facebook-optimized-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    background: var(--preto-card);
-    border: 1px solid var(--cinza-medio);
-    min-height: 650px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-}
-
-.facebook-optimized-container iframe {
-    width: 100% !important;
-    max-width: 500px !important;
-    height: 600px !important;
-    border: none;
-    overflow: hidden;
-    display: block;
-    transition: opacity 0.5s ease;
-    border-radius: 12px;
-    margin: 0 auto;
-}
-
-.facebook-optimized-container.fade-out iframe {
-    opacity: 0;
-}
-
-.facebook-optimized-container.fade-in iframe {
-    opacity: 1;
-}
-
-.facebook-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--verde);
-    font-size: 2rem;
-    z-index: 1;
-}
-
-.spin {
-    animation: spin 1s linear infinite;
-    display: inline-block;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
     width: 10px;
@@ -884,9 +887,16 @@ header {
         font-size: 3.5rem;
     }
     
+    .destaques .carousel-item img {
+        height: 500px;
+    }
+    
     .facebook-optimized-container {
-        min-height: 600px;
-        padding: 20px 15px;
+        min-height: 550px;
+    }
+    
+    .facebook-optimized-container iframe {
+        height: 520px !important;
     }
 }
 
@@ -903,13 +913,16 @@ header {
         font-size: 2rem;
     }
     
-    .facebook-optimized-container {
-        min-height: 550px;
-        padding: 15px 10px;
+    .destaques .carousel-item img {
+        height: 400px;
     }
     
-    .novidades-carrossel .carousel-item img {
-        height: 500px; /* Reduz em tablets */
+    .facebook-optimized-container {
+        min-height: 500px;
+    }
+    
+    .facebook-optimized-container iframe {
+        height: 470px !important;
     }
 }
 
@@ -930,21 +943,25 @@ header {
         font-size: 3rem;
     }
     
+    .destaques .carousel-item img {
+        height: 300px;
+    }
+    
+    .destaques .carousel-caption h5 {
+        font-size: 1.2rem;
+    }
+    
+    .destaques .carousel-caption p {
+        font-size: 0.9rem;
+    }
+    
     .facebook-optimized-container {
-        min-height: 500px;
-        border-radius: 15px;
+        min-height: 450px;
+        padding: 10px;
     }
     
-    .novidades-carrossel .carousel-item img {
-        height: 350px; /* Reduz em celulares */
-    }
-    
-    .novidades-carrossel .carousel-caption h5 {
-        font-size: 1.5rem;
-    }
-    
-    .novidades-carrossel .carousel-caption p {
-        font-size: 1rem;
+    .facebook-optimized-container iframe {
+        height: 420px !important;
     }
 
     .whatsapp-float {
