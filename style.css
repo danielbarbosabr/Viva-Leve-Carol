@@ -1,4 +1,4 @@
-/* style.css - Dark Theme com Cards Brancos */
+/* style.css - Dark Theme com Cards Brancos e Efeito Blur nos Destaques */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&display=swap');
 
@@ -269,6 +269,65 @@ header {
     box-shadow: 0 15px 30px rgba(46, 204, 113, 0.5);
 }
 
+/* ===== IFRAME DO FACEBOOK ===== */
+.facebook-banner-container {
+    width: 100%;
+    max-width: 500px; /* Largura máxima permitida pelo Facebook */
+    margin-left: auto;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    background: var(--preto-card);
+    border: 1px solid var(--cinza-medio);
+}
+
+.facebook-banner-container iframe {
+    width: 100% !important;
+    height: 650px; /* Altura padrão para desktop */
+    border: none;
+    overflow: hidden;
+    display: block;
+    transition: opacity 0.5s ease;
+}
+
+/* Altura responsiva do iframe */
+@media (max-width: 992px) {
+    .facebook-banner-container iframe {
+        height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .facebook-banner-container iframe {
+        height: 500px;
+    }
+}
+
+@media (max-width: 576px) {
+    .facebook-banner-container iframe {
+        height: 400px;
+    }
+}
+
+.facebook-banner-container.fade-out iframe {
+    opacity: 0;
+}
+
+.facebook-banner-container.fade-in iframe {
+    opacity: 1;
+}
+
+.facebook-banner-container .facebook-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--verde);
+    font-size: 2rem;
+    z-index: 1;
+}
+
 /* ===== TÍTULOS DE SEÇÃO ===== */
 .section-title {
     font-weight: 800;
@@ -281,23 +340,8 @@ header {
     color: var(--branco);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-}
-
-.section-title.text-start {
-    justify-content: flex-start;
-}
-
-.section-title.text-start:after {
-    left: 0;
-    transform: none;
-}
-
-.section-title i {
-    font-size: 2.5rem;
-    background: linear-gradient(135deg, var(--verde), var(--amarelo));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .section-title:after {
@@ -312,163 +356,100 @@ header {
     border-radius: 2px;
 }
 
-/* ===== SEÇÃO DESTAQUES (NOVIDADES + FACEBOOK) ===== */
-.destaques {
-    background: var(--preto-secundario);
+.section-title i {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--verde), var(--amarelo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== SEÇÃO DESTAQUES (CARROSSEL COM EFEITO BLUR) ===== */
+.destaques-section {
+    background-color: var(--preto-secundario);
     padding: 60px 0;
 }
 
-/* ===== CARROSSEL DE NOVIDADES ===== */
-.destaques .carousel-inner {
-    width: 100%;
+.destaques-section .carousel-inner {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.destaques .carousel-item img {
-    height: 600px; /* Ajustado para ficar harmonioso com o Facebook */
+.destaques-section .carousel-item {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide-blur-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) brightness(0.7);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.destaques-section .carousel-item img {
+    position: relative;
+    z-index: 2;
+    height: 100%;
     width: 100%;
     object-fit: contain;
     object-position: center;
-    background-color: var(--preto-secundario);
-    filter: brightness(0.8);
+    filter: brightness(0.9);
     cursor: pointer;
 }
 
-.destaques .carousel-caption {
+.destaques-section .carousel-caption {
+    position: absolute;
+    z-index: 3;
     background: rgba(0,0,0,0.7);
     border-radius: 15px;
-    padding: 15px;
-    bottom: 20px;
+    padding: 20px;
+    bottom: 30px;
     left: 20px;
     right: 20px;
 }
 
-.destaques .carousel-caption h5 {
-    font-size: 1.5rem;
+.destaques-section .carousel-caption h5 {
+    font-size: 2rem;
     font-weight: 700;
     color: var(--verde-neon);
 }
 
-.destaques .carousel-caption p {
-    font-size: 1rem;
+.destaques-section .carousel-caption p {
+    font-size: 1.2rem;
 }
 
-.destaques .carousel-indicators button {
-    width: 10px;
-    height: 10px;
+.destaques-section .carousel-indicators button {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: var(--verde);
 }
 
-.destaques .carousel-control-prev-icon,
-.destaques .carousel-control-next-icon {
+.destaques-section .carousel-control-prev-icon,
+.destaques-section .carousel-control-next-icon {
     background-color: var(--verde);
     border-radius: 50%;
-    padding: 15px;
+    padding: 20px;
+    z-index: 4;
 }
 
-/* ===== WIDGET DO FACEBOOK ===== */
-.facebook-optimized-container {
-    width: 100%;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    background: var(--preto-card);
-    border: 1px solid var(--cinza-medio);
-    min-height: 600px; /* mesma altura aproximada do carrossel */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 15px;
-}
-
-.facebook-optimized-container iframe {
-    width: 100% !important;
-    max-width: 500px !important;
-    height: 570px !important; /* ajuste fino */
-    border: none;
-    overflow: hidden;
-    display: block;
-    transition: opacity 0.5s ease;
-    border-radius: 12px;
-    margin: 0 auto;
-}
-
-.facebook-optimized-container.fade-out iframe {
-    opacity: 0;
-}
-
-.facebook-optimized-container.fade-in iframe {
-    opacity: 1;
-}
-
-.facebook-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--verde);
-    font-size: 2rem;
-    z-index: 1;
-}
-
-.spin {
-    animation: spin 1s linear infinite;
-    display: inline-block;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* ===== BOTÃO FLUTUANTE DO WHATSAPP ===== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-    z-index: 100;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s;
-    animation: pulse-whatsapp 2s infinite;
-}
-
-.whatsapp-float:hover {
-    background-color: #20b859;
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-}
-
-@keyframes pulse-whatsapp {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* ===== CARDS DE PRODUTOS ===== */
+/* ===== SEÇÃO DE PRODUTOS ===== */
 .arrival {
-    background: var(--preto-fundo);
+    background-color: var(--preto-fundo);
+    padding: 60px 0;
+}
+
+.arrival .section-title {
+    color: var(--branco);
 }
 
 .product-card {
@@ -532,7 +513,6 @@ header {
     color: var(--branco);
 }
 
-/* ===== BOTÃO DE OPÇÕES DE COMPRA ===== */
 .product-card .btn-outline-success {
     border-width: 2px;
     font-weight: 600;
@@ -546,7 +526,12 @@ header {
     box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
 }
 
-/* ===== CARDS DE SERVIÇOS ===== */
+/* ===== SEÇÃO DE SERVIÇOS ===== */
+.services-section {
+    background-color: var(--preto-secundario);
+    padding: 60px 0;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -594,9 +579,10 @@ header {
     margin: 0;
 }
 
-/* ===== CARD DE CONTATO ===== */
+/* ===== SEÇÃO DE CONTATO ===== */
 .contact {
-    background: var(--preto-secundario);
+    background-color: var(--preto-secundario);
+    padding: 60px 0;
 }
 
 .contact-wrapper {
@@ -722,6 +708,50 @@ header {
 
 .contact-info-item i {
     color: var(--verde);
+}
+
+.contact-info-item a {
+    color: var(--cinza-texto);
+    transition: color 0.3s;
+}
+
+.contact-info-item a:hover {
+    color: var(--verde);
+}
+
+/* ===== BOTÃO FLUTUANTE DO WHATSAPP ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #20b859;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 /* ===== MODAL DE RASTREAMENTO ===== */
@@ -887,16 +917,17 @@ header {
         font-size: 3.5rem;
     }
     
-    .destaques .carousel-item img {
-        height: 500px;
+    .destaques-section .carousel-item {
+        height: 400px;
     }
     
-    .facebook-optimized-container {
-        min-height: 550px;
+    .facebook-banner-container {
+        max-width: 100%;
+        margin-top: 30px;
     }
     
-    .facebook-optimized-container iframe {
-        height: 520px !important;
+    .home .row {
+        flex-direction: column;
     }
 }
 
@@ -913,16 +944,16 @@ header {
         font-size: 2rem;
     }
     
-    .destaques .carousel-item img {
-        height: 400px;
+    .destaques-section .carousel-item {
+        height: 300px;
     }
     
-    .facebook-optimized-container {
-        min-height: 500px;
+    .destaques-section .carousel-caption h5 {
+        font-size: 1.5rem;
     }
     
-    .facebook-optimized-container iframe {
-        height: 470px !important;
+    .destaques-section .carousel-caption p {
+        font-size: 1rem;
     }
 }
 
@@ -943,25 +974,16 @@ header {
         font-size: 3rem;
     }
     
-    .destaques .carousel-item img {
-        height: 300px;
+    .destaques-section .carousel-item {
+        height: 250px;
     }
     
-    .destaques .carousel-caption h5 {
+    .destaques-section .carousel-caption h5 {
         font-size: 1.2rem;
     }
     
-    .destaques .carousel-caption p {
+    .destaques-section .carousel-caption p {
         font-size: 0.9rem;
-    }
-    
-    .facebook-optimized-container {
-        min-height: 450px;
-        padding: 10px;
-    }
-    
-    .facebook-optimized-container iframe {
-        height: 420px !important;
     }
 
     .whatsapp-float {
