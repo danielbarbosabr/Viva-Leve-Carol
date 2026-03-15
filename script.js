@@ -298,7 +298,6 @@ function buyNow(link) {
     }
 }
 
-// FUNÇÃO MODIFICADA: produtos com botão de opções (collapse)
 function renderProducts(filterText = '') {
     const container = document.getElementById('product-list');
     if (!container) return;
@@ -323,7 +322,6 @@ function renderProducts(filterText = '') {
         const col = document.createElement('div');
         col.className = 'col-12 col-sm-6 col-md-4 col-lg-3 mb-4';
         
-        // Gera as opções (serão colocadas dentro do collapse)
         let optionsHtml = '';
         product.options.forEach((option, optIndex) => {
             const priceFormatted = 'R$ ' + option.price.toFixed(2).replace('.', ',');
@@ -348,7 +346,6 @@ function renderProducts(filterText = '') {
             `;
         });
 
-        // ID único para o collapse
         const collapseId = `collapse-${index}-${Date.now()}`;
 
         col.innerHTML = `
@@ -358,14 +355,12 @@ function renderProducts(filterText = '') {
                     <h5 class="card-title product-title">${product.name}</h5>
                     <p class="card-text small product-desc flex-grow-1">${product.desc}</p>
                     
-                    <!-- Botão que abre as opções -->
                     <button class="btn btn-outline-success w-100 mb-2" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#${collapseId}" 
                             aria-expanded="false" aria-controls="${collapseId}">
                         <i class="bi bi-chevron-down"></i> Opções de compra
                     </button>
                     
-                    <!-- Collapse com as opções -->
                     <div class="collapse" id="${collapseId}">
                         <div class="product-options mt-2">
                             ${optionsHtml}
@@ -378,7 +373,6 @@ function renderProducts(filterText = '') {
         container.appendChild(col);
     });
 
-    // Eventos para botões de compra (dentro do collapse)
     document.querySelectorAll('.buy-now-option').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -388,7 +382,6 @@ function renderProducts(filterText = '') {
         });
     });
 
-    // Eventos para adicionar ao carrinho
     document.querySelectorAll('.add-to-cart-option').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -396,7 +389,6 @@ function renderProducts(filterText = '') {
             const productIndex = parseInt(btn.dataset.productIndex);
             const optionIndex = parseInt(btn.dataset.optionIndex);
             
-            // Encontrar o produto original (pode ser filtrado)
             const originalProductIndex = products.findIndex(p => p.name === filtered[productIndex].name);
             if (originalProductIndex !== -1) {
                 const product = products[originalProductIndex];
@@ -420,15 +412,16 @@ function trackOrder() {
     }
 }
 
-// Função para recarregar o iframe do Facebook a cada 30 segundos
+// Configuração do iframe do Facebook com recarga automática
 function setupFacebookIframe() {
-    const iframe = document.getElementById('facebookIframe');
-    const container = document.getElementById('facebookContainer');
-    const loading = document.getElementById('facebookLoading');
+    const iframe = document.getElementById('facebookBannerIframe');
+    const container = document.getElementById('facebookBannerContainer');
+    const loading = document.getElementById('facebookBannerLoading');
     
     if (!iframe || !container || !loading) return;
     
-    const baseUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId';
+    // URL base sem parâmetros de timestamp
+    const baseUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId';
     
     function getRandomUrl() {
         const timestamp = new Date().getTime();
@@ -456,6 +449,7 @@ function setupFacebookIframe() {
         if (loading) loading.style.display = 'none';
     };
     
+    // Recarrega a cada 30 segundos (opcional, pode ser removido)
     setInterval(reloadFacebookIframe, 30000);
 }
 
@@ -474,21 +468,31 @@ if (contactForm) {
             return;
         }
 
-        // Assunto: "Dúvida pelo site - Nome"
         const assunto = encodeURIComponent(`Dúvida pelo site - ${nome}`);
-
-        // Corpo: Nome, E-mail e Mensagem formatados
         const corpo = encodeURIComponent(
             `Nome: ${nome}\n` +
             `E-mail: ${email}\n\n` +
             `Mensagem:\n${mensagem}`
         );
 
-        // Link mailto
         const mailtoLink = `mailto:equipe.viverleve@gmail.com?subject=${assunto}&body=${corpo}`;
         window.location.href = mailtoLink;
     });
 }
+
+// Modal de imagem (lightbox)
+document.addEventListener('DOMContentLoaded', function() {
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    if (imageModal) {
+        imageModal.addEventListener('show.bs.modal', function(event) {
+            const trigger = event.relatedTarget;
+            const imgSrc = trigger.getAttribute('data-bs-img');
+            modalImage.src = imgSrc;
+        });
+    }
+});
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
