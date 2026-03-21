@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>ViverLeve – Bem-estar e saúde</title>
     <!-- Favicon -->
-    <link rel="icon" href="https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/631296453_122107941045224900_2123670133654045075_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeH0mABIuHdyzHP8SdptIp6-4_TGfDVrkcnj9MZ8NWuRyZnwxndJ-fMnlMx6Xk59ltaqGcwpGo0YjlVbKFfJEtYm&_nc_ohc=JxEODD1NbRMQ7kNvwH5LD6i&_nc_oc=Adl6vXoWAK70Pyf8hHIUIUB15sz7uWqRwtJJxdE-jD58nOgLHE8DDR8qILBLguZK7G9lUbaVPRvzve52joT_sMRi&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=DrQyqxEMYSv1aD3NcU91GA&_nc_ss=8&oh=00_AfsRbg2TdyU6EMvI0u_LDAyqHXjsiLEJPqW6H5wQ1KfeNg&oe=69A831AF" type="image/jpeg">
+    <link rel="icon" href="https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/650803182_122112694233224900_1326095623705846834_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE5c5n05ifn-OzEj9exIO2pIf8PkJcDcJIh_w-QlwNwkvHkkxpvSD-b9IUX9cC51HvkPe2GfjuGgEq-ALJ7bQZ3&_nc_ohc=s4P_G4IEZ6MQ7kNvwHJggD_&_nc_oc=AdraYJkJjj2Zz_ygi1cmw0oLIfo5TxcVwjzw96o519FlR6xhGyr7tD_dx79fQF5bYM28GHXKidHM_Ta3YZFpVzRP&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=aBqSw6KC5yMLe86DDcvbsQ&_nc_ss=7a30f&oh=00_AfwHJ6Q-Uk6TO2rdmnZ5wiesvKYrrc9zWn7JiIy-pC5TWQ&oe=69C4A4C8" type="image/jpeg">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&display=swap" rel="stylesheet">
     <!-- CSS customizado -->
     <link rel="stylesheet" href="style.css">
@@ -31,7 +32,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand viverleve-icon" href="#">
-                <i class="bi bi-leaf"></i>
+                <i class="bi bi-heart-pulse-fill"></i>
                 <span>ViverLeve</span>
             </a>
             
@@ -89,7 +90,7 @@
 <section class="home" id="home">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-7">
+            <div class="col-lg-8 text-center text-lg-start">
                 <h1 class="viverleve-icon pulse-title">
                     <i class="bi bi-heart-pulse-fill pulse-icon"></i> 
                     <span>ViverLeve</span>
@@ -105,25 +106,11 @@
                         <span>QUERO UMA PROMOÇÃO</span>
                     </button>
                 </div>
-                <div class="home-social-links mt-4">
+                <div class="home-social-links mt-4 justify-content-center justify-content-lg-start">
                     <a href="https://wa.me/5519982668806" target="_blank" title="WhatsApp" class="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
                     <a href="mailto:equipe.viverleve@gmail.com" target="_blank" title="E-mail" class="social-email"><i class="bi bi-envelope-fill"></i></a>
                     <a href="https://www.instagram.com/fitviverleve" target="_blank" title="Instagram" class="social-instagram"><i class="bi bi-instagram"></i></a>
                     <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank" title="Facebook" class="social-facebook"><i class="bi bi-facebook"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <!-- Iframe do Facebook com tamanho máximo permitido -->
-                <div class="facebook-banner-container" id="facebookBannerContainer">
-                    <div class="facebook-loading" id="facebookBannerLoading">
-                        <i class="bi bi-arrow-repeat spin"></i>
-                    </div>
-                    <iframe id="facebookBannerIframe" 
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                            style="border:none;overflow:hidden" 
-                            allowfullscreen="true" 
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
                 </div>
             </div>
         </div>
@@ -146,6 +133,7 @@
                 <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="4" aria-label="FiberSlim"></button>
                 <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="5" aria-label="Secaps Black Chá"></button>
                 <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="6" aria-label="Passa Tudo"></button>
+                <button type="button" data-bs-target="#carouselDestaques" data-bs-slide-to="7" aria-label="Facebook"></button>
             </div>
             <div class="carousel-inner rounded-4">
                 <!-- Slide 1: Calminol -->
@@ -209,6 +197,23 @@
                     <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
                         <h5>Passa Tudo</h5>
                         <p>Colágeno Tipo II com vitaminas D3 e K2. Fortalece articulações e reduz inflamações.</p>
+                    </div>
+                </div>
+                <!-- Slide 8: Facebook -->
+                <div class="carousel-item">
+                    <div class="slide-blur-bg" style="background: linear-gradient(135deg, var(--azul), var(--azul-escuro));"></div>
+                    <div class="d-flex justify-content-center align-items-center h-100" style="position: relative; z-index: 2;">
+                        <div class="facebook-banner-container" id="facebookBannerContainer">
+                            <div class="facebook-loading" id="facebookBannerLoading">
+                                <i class="bi bi-arrow-repeat spin text-dark"></i>
+                            </div>
+                            <iframe id="facebookBannerIframe" 
+                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=450&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                                    style="border:none;overflow:hidden" 
+                                    allowfullscreen="true" 
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -359,11 +364,11 @@
                 <h5 class="mb-3 viverleve-icon">
                     <i class="bi bi-info-circle"></i> Contatos
                 </h5>
-                <p class="mb-2 viverleve-icon"><i class="bi bi-geo-alt-fill"></i> Prefeito Celso Daniel, 123 - Campinas/SP</p>
+                <p class="mb-2 viverleve-icon"><i class="bi bi-geo-alt-fill"></i> Endereço: R. Fioravante Mancino - Parque Industrial Brasileiro, Sumaré - SP</p>
                 <p class="mb-2 viverleve-icon"><i class="bi bi-telephone-fill"></i> (19) 98266-8806</p>
                 <p class="mb-2 viverleve-icon"><i class="bi bi-envelope-fill"></i> equipe.viverleve@gmail.com</p>
                 <p class="mb-2 viverleve-icon"><i class="bi bi-instagram"></i> <a href="https://www.instagram.com/fitviverleve" target="_blank" class="text-decoration-none">@fitviverleve</a></p>
-                <p class="viverleve-icon"><i class="bi bi-clock-fill"></i> Seg a Sex, 9h às 18h</p>
+                <p class="viverleve-icon"><i class="bi bi-clock-fill"></i> Atendimento 24 horas</p>
             </div>
         </div>
         <div class="border-top pt-4 mt-4 text-center">
