@@ -462,58 +462,85 @@ function renderProducts(filterText = '') {
     });
 }
 
+// Inicializa o Carrossel Dinâmico de Destaques
+function initDynamicCarousel() {
+    const carouselInner = document.querySelector('#carouselDestaques .carousel-inner');
+    const carouselIndicators = document.querySelector('#carouselDestaques .carousel-indicators');
+    
+    if (!carouselInner || !carouselIndicators) return;
+    
+    // Limpa conteúdo atual
+    carouselInner.innerHTML = '';
+    carouselIndicators.innerHTML = '';
+    
+    // Filtra apenas produtos que têm a seção "details" e a embaralha
+    const productsWithDetails = [...products]
+        .filter(p => p.details && p.details.length > 0)
+        .sort(() => 0.5 - Math.random());
+        
+    productsWithDetails.forEach((product, index) => {
+        // Cria o indicador
+        const indicator = document.createElement('button');
+        indicator.type = 'button';
+        indicator.dataset.bsTarget = '#carouselDestaques';
+        indicator.dataset.bsSlideTo = index;
+        indicator.ariaLabel = product.name;
+        if (index === 0) {
+            indicator.className = 'active';
+            indicator.ariaCurrent = 'true';
+        }
+        carouselIndicators.appendChild(indicator);
+
+        // Determina o conteúdo principal do slide (Sobre o Produto)
+        const detailImage = product.details.find(d => d.type === 'image');
+        if (!detailImage) return; // Pula este produto se não houver imagem nos detalhes
+
+        const imgSrc = detailImage.src || `https://drive.google.com/uc?export=view&id=${detailImage.id}`;
+        const mainContentHtml = `
+            <img src="${imgSrc}" 
+                 class="img-fluid rounded-4 shadow-lg product-highlight-img" 
+                 alt="Detalhe ${product.name}" 
+                 style="max-height: 380px; width: auto; object-fit: contain; cursor: pointer;"
+                 data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="${imgSrc}">
+        `;
+
+        // Cria o slide com layout lado a lado
+        const slideHtml = `
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <div class="slide-blur-bg" style="background-image: url('${imgSrc}');"></div>
+                <div class="d-flex h-100 align-items-center justify-content-center position-relative" style="z-index: 2;">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-md-5 mb-4 mb-md-0 text-center">
+                                ${mainContentHtml}
+                            </div>
+                            <div class="col-md-7 text-center text-md-start text-white p-4">
+                                <h2 class="display-5 fw-bold text-warning mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">${product.name}</h2>
+                                <p class="fs-4 mb-4 fw-light" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">${product.desc}</p>
+                                <button type="button" class="btn btn-success btn-lg rounded-pill shadow px-5 fw-bold" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="${imgSrc}">
+                                    <i class="bi bi-bag-check-fill me-2"></i> Ver Detalhes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        carouselInner.insertAdjacentHTML('beforeend', slideHtml);
+    });
+
+}
+
 // Função para rastrear pedido (chamada pelo botão no modal)
 function trackOrder() {
     const codeInput = document.getElementById('tracking-code');
     if (!codeInput) return;
-    
     const code = codeInput.value.trim();
     if (code) {
         window.open(`https://rastreamento.correios.com.br/app/index.php?objeto=${code}`, '_blank');
     } else {
         alert('Por favor, insira um código de rastreamento');
     }
-}
-
-// Configuração do iframe do Facebook com recarga automática
-function setupFacebookIframe() {
-    const iframe = document.getElementById('facebookBannerIframe');
-    const container = document.getElementById('facebookBannerContainer');
-    const loading = document.getElementById('facebookBannerLoading');
-    
-    if (!iframe || !container || !loading) return;
-    
-    // URL base sem parâmetros de timestamp
-    const baseUrl = 'https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId';
-    
-    function getRandomUrl() {
-        const timestamp = new Date().getTime();
-        const random = Math.floor(Math.random() * 1000);
-        return baseUrl + '&timestamp=' + timestamp + '&random=' + random;
-    }
-    
-    function reloadFacebookIframe() {
-        if (loading) loading.style.display = 'block';
-        container.classList.add('fade-out');
-        
-        setTimeout(() => {
-            iframe.src = getRandomUrl();
-            container.classList.remove('fade-out');
-            container.classList.add('fade-in');
-            
-            setTimeout(() => {
-                if (loading) loading.style.display = 'none';
-                container.classList.remove('fade-in');
-            }, 1000);
-        }, 500);
-    }
-    
-    iframe.onload = function() {
-        if (loading) loading.style.display = 'none';
-    };
-    
-    // Recarrega a cada 30 segundos (opcional, pode ser removido)
-    setInterval(reloadFacebookIframe, 30000);
 }
 
 // Formulário de contato personalizado
@@ -543,26 +570,12 @@ if (contactForm) {
     });
 }
 
-// Modal de imagem (lightbox)
-document.addEventListener('DOMContentLoaded', function() {
-    const imageModal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    
-    if (imageModal) {
-        imageModal.addEventListener('show.bs.modal', function(event) {
-            const trigger = event.relatedTarget;
-            const imgSrc = trigger.getAttribute('data-bs-img');
-            modalImage.src = imgSrc;
-        });
-    }
-});
-
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
+    initDynamicCarousel(); // Inicializa o carrossel dinâmico
     updateCartDisplay();
     renderCartItems();
-    setupFacebookIframe();
 
     // Busca
     const searchForm = document.getElementById('search-form');
@@ -609,6 +622,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             renderProducts('');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Modal de imagem (lightbox)
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    if (imageModal) {
+        imageModal.addEventListener('show.bs.modal', function(event) {
+            const trigger = event.relatedTarget;
+            const imgSrc = trigger.getAttribute('data-bs-img');
+            modalImage.src = imgSrc;
         });
     }
 
