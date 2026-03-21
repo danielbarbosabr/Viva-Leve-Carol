@@ -19,10 +19,12 @@
 </head>
 <body>
 
-<!-- BOTÃO FLUTUANTE DO WHATSAPP -->
-<a href="https://wa.me/5519982668806" class="whatsapp-float" target="_blank">
-    <i class="bi bi-whatsapp"></i>
-</a>
+<!-- 
+    BOTÃO FLUTUANTE DO WHATSAPP - Removido a pedido do cliente
+    <a href="https://wa.me/5519982668806" class="whatsapp-float" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a> 
+-->
 
 <!-- HEADER COM NAVBAR FIXA -->
 <header>
@@ -56,13 +58,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services-section">
-                            <i class="bi bi-truck"></i> Serviços
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">
-                            <i class="bi bi-envelope-fill"></i> Contato
+                        <a class="nav-link" href="#sobre-nos">
+                            <i class="bi bi-info-circle-fill"></i> Sobre Nós
                         </a>
                     </li>
                 </ul>
@@ -95,13 +92,25 @@
             <div class="col-lg-7">
                 <h1 class="viverleve-icon pulse-title">
                     <i class="bi bi-heart-pulse-fill pulse-icon"></i> 
-                    <span>VIVERLEVE</span>
+                    <span>ViverLeve</span>
                 </h1>
                 <p class="lead">Saúde, beleza e bem-estar para o seu dia a dia com produtos de alta qualidade</p>
                 <a href="#arrival" class="btn btn-warning btn-lg viverleve-icon">
                     <i class="bi bi-arrow-right-circle"></i> 
                     <span>CONHEÇA NOSSOS PRODUTOS</span>
                 </a>
+                <div class="mt-3">
+                    <button class="btn btn-custom-promo btn-lg viverleve-icon pulse-button" id="banner-promo-btn">
+                        <i class="bi bi-gift-fill"></i>
+                        <span>QUERO UMA PROMOÇÃO</span>
+                    </button>
+                </div>
+                <div class="home-social-links mt-4">
+                    <a href="https://wa.me/5519982668806" target="_blank" title="WhatsApp" class="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:equipe.viverleve@gmail.com" target="_blank" title="E-mail" class="social-email"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="https://www.instagram.com/fitviverleve" target="_blank" title="Instagram" class="social-instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank" title="Facebook" class="social-facebook"><i class="bi bi-facebook"></i></a>
+                </div>
             </div>
             <div class="col-lg-5">
                 <!-- Iframe do Facebook com tamanho máximo permitido -->
@@ -226,13 +235,14 @@
     </div>
 </section>
 
-<!-- CARDS DE SERVIÇOS -->
-<section class="services-section py-4" id="services-section">
+<!-- SEÇÃO SOBRE NÓS (SERVIÇOS + CONTATO) -->
+<section class="about-section py-5" id="sobre-nos">
     <div class="container">
         <h2 class="section-title viverleve-icon">
-            <i class="bi bi-gear"></i> 
-            <span>SERVIÇOS</span>
+            <i class="bi bi-info-circle-fill"></i> 
+            <span>SOBRE NÓS</span>
         </h2>
+        
         <div class="services-grid">
             <div class="service-card" data-bs-toggle="modal" data-bs-target="#trackingModal">
                 <i class="bi bi-truck"></i>
@@ -240,38 +250,31 @@
                 <p>Clique para rastrear nos Correios</p>
             </div>
             <div class="service-card" onclick="window.open('https://wa.me/5519982668806', '_blank')">
-                <i class="bi bi-whatsapp"></i>
+                <i class="bi bi-headset"></i>
                 <h5>Suporte via WhatsApp</h5>
                 <p>(19) 98266-8806</p>
             </div>
             <div class="service-card">
                 <i class="bi bi-credit-card"></i>
-                <h5>Pagamento fácil</h5>
+                <h5>Pagamento Facilitado</h5>
                 <p>Pix, cartão ou boleto</p>
             </div>
             <div class="service-card">
-                <i class="bi bi-arrow-repeat"></i>
-                <h5>10 dias de troca</h5>
-                <p>Garantia de satisfação</p>
+                <i class="bi bi-shield-check"></i>
+                <h5>Garantia de 90 dias</h5>
+                <p>Sua satisfação ou seu dinheiro de volta</p>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- SEÇÃO DE CONTATO -->
-<section class="contact py-5" id="contato">
-    <div class="container">
-        <h2 class="section-title viverleve-icon">
-            <i class="bi bi-envelope-paper-fill"></i> 
-            <span>FALE CONOSCO</span>
-        </h2>
+        <div class="mt-5"></div>
+
         <div class="contact-wrapper">
             <div class="services-grid">
                 <div class="contact-card">
                     <div class="contact-form-container">
                         <div class="contact-form-title viverleve-icon">
                             <i class="bi bi-chat-dots-fill"></i>
-                            <span>Envie sua mensagem</span>
+                            <span>Entre em contato</span>
                         </div>
                         
                         <form id="contact-form">
@@ -335,10 +338,10 @@
                 </h5>
                 <p>Saúde, beleza e bem-estar para você viver com mais leveza.</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com/fitviverleve" target="_blank"><i class="bi bi-instagram"></i></a>
-                    <a href="https://wa.me/5519996884068" target="_blank"><i class="bi bi-whatsapp"></i></a>
-                    <a href="mailto:equipe.viverleve@gmail.com" target="_blank"><i class="bi bi-envelope"></i></a>
+                    <a href="https://www.facebook.com/people/ViverLeve/61586747021286/" target="_blank" class="social-facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/fitviverleve" target="_blank" class="social-instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://wa.me/5519996884068" target="_blank" class="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:equipe.viverleve@gmail.com" target="_blank" class="social-email"><i class="bi bi-envelope"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -349,8 +352,7 @@
                     <li class="mb-2"><a href="#home" class="text-decoration-none viverleve-icon"><i class="bi bi-house-door"></i> Início</a></li>
                     <li class="mb-2"><a href="#destaques" class="text-decoration-none viverleve-icon"><i class="bi bi-stars"></i> Destaques</a></li>
                     <li class="mb-2"><a href="#arrival" class="text-decoration-none viverleve-icon"><i class="bi bi-box-seam"></i> Produtos</a></li>
-                    <li class="mb-2"><a href="#services-section" class="text-decoration-none viverleve-icon"><i class="bi bi-truck"></i> Serviços</a></li>
-                    <li class="mb-2"><a href="#contato" class="text-decoration-none viverleve-icon"><i class="bi bi-envelope"></i> Contato</a></li>
+                    <li class="mb-2"><a href="#sobre-nos" class="text-decoration-none viverleve-icon"><i class="bi bi-info-circle-fill"></i> Sobre Nós</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -395,12 +397,10 @@
 <!-- MODAL PARA AMPLIAR IMAGEM (LIGHTBOX) -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content bg-transparent border-0">
-            <div class="modal-body p-0 text-center">
-                <img src="" id="modalImage" class="img-fluid" alt="Imagem ampliada" style="max-height: 90vh;">
-            </div>
-            <div class="modal-footer border-0 justify-content-center">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
+        <div class="modal-content bg-transparent border-0 align-items-center">
+            <div class="modal-body p-0 position-relative d-inline-block">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="" id="modalImage" class="img-fluid" alt="Imagem ampliada">
             </div>
         </div>
     </div>
@@ -418,6 +418,62 @@
         </div>
         <div class="mt-4 p-3 bg-dark rounded">
             <strong class="fs-5 viverleve-icon"><i class="bi bi-cash"></i> Total: <span id="offcanvas-total" class="text-success">R$0,00</span></strong>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE OFERTA DE DESCONTO -->
+<div class="modal fade discount-modal" id="discountOfferModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title viverleve-icon"><i class="bi bi-gift-fill"></i> Oferta Especial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <h3 class="mt-3">Olá! <i class="bi bi-emoji-smile-fill text-warning"></i></h3>
+                <p class="lead my-3">Que bom ter você por aqui! Gostaria de receber um <strong>DESCONTO</strong> exclusivo?</p>
+                <button class="btn btn-success btn-lg w-100 mb-2" id="getDiscountBtn">QUERO MEU DESCONTO</button>
+                <button class="btn btn-secondary btn-lg w-100" data-bs-dismiss="modal">NÃO, OBRIGADO</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PARA PEGAR NOME PARA O WHATSAPP -->
+<div class="modal fade discount-modal" id="discountNameModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title viverleve-icon"><i class="bi bi-whatsapp"></i> Receber Desconto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <h4 class="mt-3">Ótima escolha!</h4>
+                <p class="my-3">Para receber seu desconto, me diga seu nome e clique no botão abaixo para falar comigo no WhatsApp!</p>
+                <div class="mb-3">
+                    <input type="text" id="whatsapp-name" class="form-control form-control-lg text-center" placeholder="Seu nome" required>
+                </div>
+                <div class="mb-3">
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <input type="text" id="whatsapp-uf" class="form-control text-center" placeholder="UF (Ex: SP)">
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="whatsapp-city" class="form-control" placeholder="Cidade">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <select id="whatsapp-product-select" class="form-select form-select-lg text-center">
+                        <option value="" selected>Selecione o produto de interesse...</option>
+                        <!-- Preenchido via JavaScript -->
+                    </select>
+                </div>
+                <button class="btn btn-success btn-lg w-100" id="sendWhatsAppDiscount">
+                    <i class="bi bi-whatsapp me-2"></i> RECEBER MEU DESCONTO
+                </button>
+            </div>
         </div>
     </div>
 </div>
