@@ -1083,6 +1083,8 @@ input, textarea, select {
     
     .home h1 {
         font-size: 3.5rem;
+        justify-content: center;
+        animation: titleEntry 1.2s ease-out;
     }
     
     .destaques-section .carousel-item {
@@ -1092,10 +1094,26 @@ input, textarea, select {
     .facebook-banner-container {
         max-width: 100%;
         margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .home .row {
         flex-direction: column;
+        text-align: center;
+    }
+
+    .home-social-links {
+        justify-content: center;
+    }
+
+    .home .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home {
+        background-attachment: scroll;
     }
 }
 
@@ -1171,4 +1189,16 @@ input, textarea, select {
 }
 .pulse-button {
     animation: subtle-pulse 2s infinite ease-in-out;
+}
+
+/* Animação de entrada do título mobile */
+@keyframes titleEntry {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
