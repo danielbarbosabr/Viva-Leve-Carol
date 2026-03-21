@@ -350,27 +350,6 @@ header {
     box-shadow: 0 0 15px #EA4335;
 }
 
-/* ===== IFRAME DO FACEBOOK ===== */
-.facebook-banner-container {
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
-    height: 100%;
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    background: var(--preto-card);
-    border: 1px solid var(--cinza-medio);
-}
-
-.facebook-banner-container iframe {
-    width: 100% !important;
-    height: 100%;
-    overflow: hidden;
-    display: block;
-    transition: opacity 0.5s ease;
-}
 /* ===== TÍTULOS DE SEÇÃO ===== */
 .section-title {
     font-weight: 800;
@@ -421,6 +400,7 @@ header {
 .destaques-section .carousel-item {
     position: relative;
     height: 500px;
+    min-height: 500px; /* Alterado de height fixo para min-height para flexibilidade */
     width: 100%;
     overflow: hidden;
 }
@@ -436,17 +416,6 @@ header {
     filter: blur(15px) brightness(0.7);
     transform: scale(1.1);
     z-index: 1;
-}
-
-.destaques-section .carousel-item img {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    object-position: center;
-    filter: brightness(0.9);
-    cursor: pointer;
 }
 
 .destaques-section .carousel-caption {
@@ -1096,9 +1065,19 @@ input, textarea, select {
         font-size: 2rem;
     }
     
+    /* Ajustes Destaques Mobile */
     .destaques-section .carousel-item {
         height: 300px;
+        min-height: 600px; /* Aumenta altura para caber tudo empilhado */
+        padding-bottom: 40px;
     }
+    
+    .destaques-section .product-highlight-img {
+        max-height: 250px !important; /* Reduz imagem no mobile */
+        margin-bottom: 20px;
+    }
+    
+    /* Fim Ajustes Destaques */
     
     .destaques-section .carousel-caption h5 {
         font-size: 1.5rem;
@@ -1128,6 +1107,7 @@ input, textarea, select {
     
     .destaques-section .carousel-item {
         height: 250px;
+        min-height: 550px;
     }
     
     .destaques-section .carousel-caption h5 {
