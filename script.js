@@ -10,6 +10,9 @@ const products = [
             { months: 1, price: 209, link: "https://pay.hest.com.br/baf4666f-6ce9-4da8-a2ac-755c8d3e4d64" },
             { months: 3, price: 335, link: "https://pay.hest.com.br/1cf57f4a-688d-45d0-a3ca-8de9a2ca5e49" },
             { months: 5, price: 461, link: "https://pay.hest.com.br/527119e2-5030-41f8-b0af-b14b0e98c78c" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/641388317_122110164249224900_2559633456177760796_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFjhBHJV30_nAfT8PsQD_2DvL44xFKJpPS8vjjEUomk9CRRmQV32fE-WwyXXWUErvbaoY2GDK_2VV79vaFalx6L&_nc_ohc=z-XScaDZGDwQ7kNvwGvw6OT&_nc_oc=AdrxeyEAQTO172k6855-LQn41RkbK1_dnCTHSYZXrG17WgOSxyP3CecMEq-9KNv6b3N2HJmgqMaC5RSGM3Qfejww&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=dakLt4vukcFs4S9e2JGB2g&_nc_ss=7a30f&oh=00_Afxk1iu5HWcyXYr5UF0z6dnlc2vcuGQUm25D0bya2cYG6w&oe=69C47696' }
         ]
     },
     { 
@@ -21,6 +24,10 @@ const products = [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/b98ee4b7-6064-4260-a7a9-b3dc880416da" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/6ba5966d-bcf1-45be-b16d-0d713e154715" },
             { months: 12, price: 851, link: "https://pay.hest.com.br/8bc7fa93-ca39-42b1-b273-8ba1dbc18c62" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/652612647_122113112967224900_2552435891511405490_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH4LZqYRYu2x4Im_PylXqYCVCOgUSfMlVRUI6BRJ8yVVBSPTKFfpmfikbTaSzLPHtGaRXaIDDNgDxs2Gwx5LWMD&_nc_ohc=gUIGXJ4ZhWYQ7kNvwGSXRqA&_nc_oc=AdqR6Zw3rTiBXnPF5ICx0Ck5yWqr61fu_iNmcgbG5szSMiqDAlsK8zWcNpHiGJYOmaCUYcK_GBmAqVRqO3PNU-fA&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=HGdnSCP9-UQ-Bmk_oz28Dg&_nc_ss=7a32e&oh=00_AfzdxhIUS8T6u68qji1xGWQxnZpdfPEWB2LriVsD5epGEw&oe=69C46DA2' },
+            { type: 'html', content: '<iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1486733326405141%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>' }
         ]
     },
     { 
@@ -32,6 +39,9 @@ const products = [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/8893b794-7c19-4419-804f-0538e5604222" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/5b8ecc68-44bb-4ed7-9c5d-f14d4f68f2c4" },
             { months: 12, price: 859, link: "https://pay.hest.com.br/dfc1625d-cee9-4be0-806c-11ea58a8d3e7" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/645149433_122110773051224900_9019391559536306528_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEaSxtwTiHcpW_wp0k3_HPu293ZSKXpa8fb3dlIpelrx0lWuanMgVgIOh4oIOcIt0MyXf_3QLBWC0kkwbPcYCiL&_nc_ohc=kF8Oj4OGr68Q7kNvwHgDxXo&_nc_oc=AdpzjCRbRUCAHx1pMww1p2mkFX6dxF7mdliui4PT0k2c1BaBrCdUR-HFljjiIw8ywiLJ57r9hAK2e8fo4evvGiom&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=oVy-LkDjPgH6KBP5dMjxWg&_nc_ss=7a30f&oh=00_Afwf6iFwLXdYQY5YSRlHVdiCgR-pIm0bU_O3MLWapTgZ2Q&oe=69C48638' }
         ]
     },
     
@@ -78,6 +88,9 @@ const products = [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/d7e3d181-624f-42a4-a00b-e16836892e99" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/956e8c7f-294f-486f-9313-abc90a29164d" },
             { months: 12, price: 859, link: "https://pay.hest.com.br/a4f761db-a482-4aa7-b45a-3af5473d76e7" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/644105059_122110476447224900_5311277305230824759_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEGPHu_cnsmNa7cu6bf0xgVcAcMCoiIhVhwBwwKiIiFWOPTWQoR34WP3LoHsWICfrJEoW_eJA1mKalfZVy8pnrM&_nc_ohc=2b1ZUTJCjG0Q7kNvwH6af6f&_nc_oc=AdrNR7B6K-JEkvMpYj-cKZ7UqDvKml5kkqQpJMdWttBbMWee7fYW0tLf-x5hN2Sz3pS7tkpalhPm9SWL44fVHD_d&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=_6POgBSOLyByBrSeDxYyEQ&_nc_ss=7a30f&oh=00_AfyboNWR6tgt05vpBgvRf2XdlmQsVIvsgF3EY9JfDGNA7Q&oe=69C48F02' }
         ]
     },
     { 
@@ -171,7 +184,7 @@ const products = [
     { 
         name: "Toop Cor", 
         basePrice: 197,
-        img: "https://api.hest.com.br/products/20250128152440130.png", 
+        img: "https://tse1.mm.bing.net/th/id/OIP.ZVWlWJNK1i5JoBkP3bLaUgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3", 
         desc: "Restaura a cor natural do cabelo sem tintas.",
         options: [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/37690af0-14ea-452c-9c75-8d031e984024" },
@@ -348,23 +361,61 @@ function renderProducts(filterText = '') {
 
         const collapseId = `collapse-${index}-${Date.now()}`;
 
+        const optionsCollapseId = `collapse-options-${index}`;
+        const detailsCollapseId = `collapse-details-${index}`;
+
+        let detailsSectionHtml = '';
+        if (product.details && product.details.length > 0) {
+            const detailsContent = product.details.map(detail => {
+                if (detail.type === 'image') {
+                    const imgSrc = detail.src || `https://drive.google.com/uc?export=view&id=${detail.id}`;
+                    return `<img src="${imgSrc}" class="img-fluid rounded mb-2" alt="Detalhe do produto ${product.name}" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="${imgSrc}">`;
+                }
+                if (detail.type === 'video') {
+                    // Nota: A incorporação de vídeos do Google Drive pode ser instável. Use IDs de arquivos compartilhados publicamente.
+                    return `<div class="ratio ratio-16x9 mb-2"><iframe src="https://drive.google.com/file/d/${detail.id}/preview" allow="autoplay"></iframe></div>`;
+                }
+                if (detail.type === 'text') {
+                    return `<div class="text-start">${detail.content}</div>`;
+                }
+                if (detail.type === 'html') {
+                    return `<div class="d-flex justify-content-center mb-2">${detail.content}</div>`;
+                }
+                return '';
+            }).join('');
+
+            detailsSectionHtml = `
+                <button class="btn btn-outline-success w-100 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#${detailsCollapseId}">
+                    <i class="bi bi-info-circle"></i> Sobre o produto
+                </button>
+                <div class="collapse mt-2" id="${detailsCollapseId}">
+                    <div class="p-3 rounded" style="background-color: #f8f9fa;">
+                        ${detailsContent}
+                    </div>
+                </div>
+            `;
+        }
+
         col.innerHTML = `
-            <div class="card h-100 shadow-sm product-card">
-                <img src="${product.img}" class="card-img-top p-3" alt="${product.name}" style="height: 180px; object-fit: contain;">
-                <div class="card-body d-flex flex-column">
+            <div class="card shadow-sm product-card">
+                <img src="${product.img}" class="card-img-top p-3" alt="${product.name}" style="height: 180px; object-fit: contain; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="${product.img}">
+                <div class="card-body d-flex flex-column text-center">
                     <h5 class="card-title product-title">${product.name}</h5>
                     <p class="card-text small product-desc flex-grow-1">${product.desc}</p>
                     
-                    <button class="btn btn-outline-success w-100 mb-2" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#${collapseId}" 
-                            aria-expanded="false" aria-controls="${collapseId}">
-                        <i class="bi bi-chevron-down"></i> Opções de compra
-                    </button>
-                    
-                    <div class="collapse" id="${collapseId}">
-                        <div class="product-options mt-2">
-                            ${optionsHtml}
+                    <div class="mt-auto">
+                        <button class="btn btn-outline-success w-100" type="button" 
+                                data-bs-toggle="collapse" data-bs-target="#${optionsCollapseId}" 
+                                aria-expanded="false" aria-controls="${optionsCollapseId}">
+                            <i class="bi bi-chevron-down"></i> Opções de compra
+                        </button>
+                        <div class="collapse mt-2" id="${optionsCollapseId}">
+                            <div class="product-options">
+                                ${optionsHtml}
+                            </div>
                         </div>
+                        ${detailsSectionHtml}
+                        
                     </div>
                 </div>
             </div>
@@ -573,4 +624,112 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Preencher o select de produtos no modal
+    const productSelect = document.getElementById('whatsapp-product-select');
+    if (productSelect) {
+        products.forEach(p => {
+            const option = document.createElement('option');
+            option.value = p.name;
+            option.textContent = p.name;
+            productSelect.appendChild(option);
+        });
+    }
+
+    // Event listener para botões de promoção nos produtos
+    document.addEventListener('click', function(e) {
+        const promoBtn = e.target.closest('.promo-from-product');
+        if (promoBtn) {
+            e.preventDefault();
+            const productName = promoBtn.dataset.productName;
+            if(productSelect) productSelect.value = productName;
+            
+            // Limpa os campos antes de mostrar
+            document.getElementById('whatsapp-name').value = '';
+            document.getElementById('whatsapp-uf').value = '';
+            document.getElementById('whatsapp-city').value = '';
+
+            const discountOfferModal = new bootstrap.Modal(document.getElementById('discountOfferModal'));
+            discountOfferModal.show();
+        }
+    });
+
+    // --- INÍCIO LÓGICA MODAL DE DESCONTO ---
+    const discountOfferModalEl = document.getElementById('discountOfferModal');
+    const discountNameModalEl = document.getElementById('discountNameModal');
+
+    if (discountOfferModalEl && discountNameModalEl) {
+        const discountOfferModal = new bootstrap.Modal(discountOfferModalEl);
+        const discountNameModal = new bootstrap.Modal(discountNameModalEl);
+        const getDiscountBtn = document.getElementById('getDiscountBtn');
+        const sendWhatsAppDiscountBtn = document.getElementById('sendWhatsAppDiscount');
+        const promoButton = document.getElementById('promo-button');
+        const bannerPromoBtn = document.getElementById('banner-promo-btn');
+
+        // Função para mostrar o modal de oferta
+        const showDiscountOffer = () => {
+            // Verifica se o popup já foi exibido nesta sessão
+            if (!sessionStorage.getItem('discountPopupShown')) {
+                setTimeout(() => {
+                    discountOfferModal.show();
+                    sessionStorage.setItem('discountPopupShown', 'true');
+                }, 3000); // Mostra após 3 segundos
+            }
+        };
+
+        showDiscountOffer();
+
+        // Novo Botão do Banner
+        if (bannerPromoBtn) {
+            bannerPromoBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if(document.getElementById('whatsapp-product-select')) document.getElementById('whatsapp-product-select').value = "";
+                document.getElementById('whatsapp-name').value = '';
+                if(document.getElementById('whatsapp-uf')) document.getElementById('whatsapp-uf').value = '';
+                if(document.getElementById('whatsapp-city')) document.getElementById('whatsapp-city').value = '';
+                discountOfferModal.show();
+            });
+        }
+
+        getDiscountBtn.addEventListener('click', () => {
+            discountOfferModal.hide();
+            discountNameModal.show();
+        });
+
+        sendWhatsAppDiscountBtn.addEventListener('click', () => {
+            const nameInput = document.getElementById('whatsapp-name');
+            const ufInput = document.getElementById('whatsapp-uf');
+            const cityInput = document.getElementById('whatsapp-city');
+            const productSelectInput = document.getElementById('whatsapp-product-select');
+
+            const userName = nameInput.value.trim();
+            const userUF = ufInput ? ufInput.value.trim() : '';
+            const userCity = cityInput ? cityInput.value.trim() : '';
+            const productName = productSelectInput ? productSelectInput.value : '';
+
+            if (!userName) { alert('Por favor, digite seu nome.'); nameInput.focus(); return; }
+            
+            const phoneNumber = '5519982668806';
+            let message;
+
+            if (productName) {
+                message = `Olá! Meu nome é *${userName}*`;
+                if (userCity && userUF) {
+                    message += `, sou de *${userCity}/${userUF}*`;
+                }
+                message += `.\n\nTenho interesse no produto *${productName}* e gostaria de receber um desconto!`;
+            } else {
+                message = `Olá! Meu nome é *${userName}*`;
+                if (userCity && userUF) {
+                    message += `, sou de *${userCity}/${userUF}*`;
+                }
+                message += `.\n\nVisitei o site e gostaria de receber um desconto!`;
+            }
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            discountNameModal.hide();
+        });
+    }
+    // --- FIM LÓGICA MODAL DE DESCONTO ---
 });
