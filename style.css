@@ -1,6 +1,5 @@
 /* style.css - Dark Theme com Cards Brancos e Efeito Blur nos Destaques */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&display=swap');
 
 :root {
@@ -74,11 +73,12 @@ header {
     gap: 10px;
 }
 .navbar-brand span {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Raleway', sans-serif;
     font-size: 2.1rem;
-    font-weight: 400; /* Pacifico is a single-weight font */
+    font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
 }
 
 .navbar-brand i {
@@ -223,9 +223,10 @@ header {
 }
 
 .home h1 {
-    font-family: 'Pacifico', cursive; /* Fonte do banner igual navbar */
-    font-weight: 800;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
     font-size: 5.2rem;
+    text-transform: uppercase;
     /* text-transform: uppercase; */ /* Removido para manter o estilo cursivo da fonte */
     background: none;
     color: var(--amarelo);
@@ -241,7 +242,7 @@ header {
 }
 /* Forçar a fonte no span interno se houver */
 .home h1 span {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Raleway', sans-serif;
 }
 
 .home h1 i {
@@ -352,8 +353,9 @@ header {
 /* ===== IFRAME DO FACEBOOK ===== */
 .facebook-banner-container {
     width: 100%;
-    max-width: 500px; /* Largura máxima permitida pelo Facebook */
-    margin-left: auto;
+    max-width: 450px;
+    margin: 0 auto;
+    height: 100%;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
@@ -364,50 +366,11 @@ header {
 
 .facebook-banner-container iframe {
     width: 100% !important;
-    height: 650px; /* Altura padrão para desktop */
-    border: none;
+    height: 100%;
     overflow: hidden;
     display: block;
     transition: opacity 0.5s ease;
 }
-
-/* Altura responsiva do iframe */
-@media (max-width: 992px) {
-    .facebook-banner-container iframe {
-        height: 600px;
-    }
-}
-
-@media (max-width: 768px) {
-    .facebook-banner-container iframe {
-        height: 500px;
-    }
-}
-
-@media (max-width: 576px) {
-    .facebook-banner-container iframe {
-        height: 400px;
-    }
-}
-
-.facebook-banner-container.fade-out iframe {
-    opacity: 0;
-}
-
-.facebook-banner-container.fade-in iframe {
-    opacity: 1;
-}
-
-.facebook-banner-container .facebook-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--verde);
-    font-size: 2rem;
-    z-index: 1;
-}
-
 /* ===== TÍTULOS DE SEÇÃO ===== */
 .section-title {
     font-weight: 800;
@@ -744,9 +707,9 @@ header {
 .contact-input-group input,
 .contact-input-group textarea {
     width: 100%;
-    background: var(--preto-secundario);
-    border: 2px solid var(--cinza-medio);
-    color: var(--branco);
+    background: var(--branco); /* Fundo branco para escrever */
+    border: 2px solid var(--cinza-claro);
+    color: var(--preto-fundo); /* Texto preto */
     border-radius: 12px;
     padding: 12px 15px;
     font-size: 0.95rem;
@@ -757,8 +720,7 @@ header {
 .contact-input-group textarea:focus {
     border-color: var(--verde);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
-    background: var(--preto-secundario);
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15); 
 }
 
 .contact-submit-btn {
@@ -883,9 +845,9 @@ header {
 
 /* Inputs Padronizados nos Modais */
 .modal-body input, .modal-body select {
-    background: var(--preto-secundario);
-    border: 2px solid var(--cinza-medio);
-    color: var(--branco) !important;
+    background: var(--branco); /* Fundo branco */
+    border: 2px solid var(--cinza-claro);
+    color: var(--preto-fundo) !important; /* Texto preto */
     border-radius: 50px; /* Padronizado redondo */
     padding: 0.75rem 1rem;
 }
@@ -896,7 +858,7 @@ header {
 }
 
 .modal-body input::placeholder {
-    color: #cccccc;
+    color: #666666;
 }
 
 /* Melhoria de contraste global para inputs */
@@ -905,7 +867,7 @@ input, textarea, select {
 }
 /* Inputs dentro de cards brancos (como no carrinho offcanvas se houver) ou específicos */
 .product-card input, .product-card select {
-    color: var(--preto-fundo) !important;
+    color: var(--preto-fundo) !important; 
     background-color: var(--branco) !important;
     border-color: #ccc !important;
 }
@@ -984,8 +946,13 @@ input, textarea, select {
 .offcanvas {
     background: var(--preto-card) !important;
     border-left: 2px solid var(--verde);
-    margin-top: var(--altura-header);
-    height: calc(100% - var(--altura-header));
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    height: 100% !important; /* Garante altura total mesmo no mobile */
+    margin-top: 0 !important;
+    z-index: 2147483647 !important; /* Z-index máximo possível para cobrir TUDO */
 }
 
 .offcanvas-header {
@@ -1100,7 +1067,6 @@ input, textarea, select {
     
     .home .row {
         flex-direction: column;
-        text-align: center;
     }
 
     .home-social-links {
