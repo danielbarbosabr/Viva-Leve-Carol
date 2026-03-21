@@ -398,7 +398,7 @@ function renderProducts(filterText = '') {
 
         col.innerHTML = `
             <div class="card shadow-sm product-card">
-                <img src="${product.img}" class="card-img-top p-3" alt="${product.name}" style="height: 180px; object-fit: contain; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-img="${product.img}">
+                <img src="${product.img}" class="card-img-top p-3" alt="${product.name}" style="height: 180px; object-fit: contain;">
                 <div class="card-body d-flex flex-column text-center">
                     <h5 class="card-title product-title">${product.name}</h5>
                     <p class="card-text small product-desc flex-grow-1">${product.desc}</p>
