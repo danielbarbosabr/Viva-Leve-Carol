@@ -1,13 +1,18 @@
 /* style.css - Dark Theme com Cards Brancos e Efeito Blur nos Destaques */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&display=swap');
 
 :root {
     --amarelo: #f1c40f;
     --amarelo-escuro: #d4ac0d;
+    --amarelo-brilho: #ffeaa7;
     --verde: #2ecc71;
     --verde-escuro: #27ae60;
     --verde-neon: #00ff88;
+    --azul: #3498db;
+    --azul-escuro: #2980b9;
+    --azul-neon: #00d2ff;
     --preto-fundo: #0a0a0a;
     --preto-card: #111111;
     --preto-secundario: #1a1a1a;
@@ -22,8 +27,7 @@
     --danger: #e74c3c;
     --danger-escuro: #c0392b;
     --facebook: #4267B2;
-    --altura-header: 80px;
-    --altura-header-mobile: 130px;
+    --altura-header: 70px;
 }
 
 * {
@@ -63,13 +67,18 @@ header {
 }
 
 .navbar-brand {
-    font-weight: 900;
-    font-size: 1.8rem;
     letter-spacing: -0.5px;
     color: var(--branco) !important;
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.navbar-brand span {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.1rem;
+    font-weight: 400; /* Pacifico is a single-weight font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-brand i {
@@ -81,25 +90,25 @@ header {
 
 .navbar {
     background: var(--cinza-nav) !important;
-    padding: 0.5rem 0;
+    padding: 0.2rem 0;
     margin-bottom: 0 !important;
 }
 
 .navbar-nav .nav-link {
     color: var(--branco-fumaca) !important;
     font-weight: 600;
-    padding: 0.8rem 1.2rem !important;
+    padding: 0.6rem 1.2rem !important;
     transition: all 0.3s;
     border-radius: 30px;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--amarelo) !important;
+    color: var(--verde-neon) !important;
     background: var(--cinza-claro);
 }
 
 .navbar-nav .nav-link.active {
-    color: var(--amarelo) !important;
+    color: var(--verde-neon) !important;
     background: var(--cinza-claro);
     font-weight: 700;
 }
@@ -214,14 +223,14 @@ header {
 }
 
 .home h1 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Pacifico', cursive; /* Fonte do banner igual navbar */
     font-weight: 800;
     font-size: 5.2rem;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, var(--verde-neon), var(--amarelo));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    /* text-transform: uppercase; */ /* Removido para manter o estilo cursivo da fonte */
+    background: none;
+    color: var(--amarelo);
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
@@ -230,10 +239,14 @@ header {
     letter-spacing: 1px;
     line-height: 1.1;
 }
+/* Forçar a fonte no span interno se houver */
+.home h1 span {
+    font-family: 'Pacifico', cursive;
+}
 
 .home h1 i {
     font-size: 4.5rem;
-    color: var(--verde);
+    color: var(--amarelo);
     -webkit-text-fill-color: initial;
     filter: drop-shadow(0 5px 10px rgba(46, 204, 113, 0.3));
 }
@@ -250,23 +263,90 @@ header {
 }
 
 .home .btn-warning {
-    background: var(--verde);
+    background: var(--verde); /* Fundo verde para destaque */
     border: none;
-    color: var(--preto-fundo);
+    color: var(--branco); /* Fonte branca */
     font-weight: 700;
     padding: 1.2rem 3rem;
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transition: all 0.3s;
-    box-shadow: 0 5px 20px rgba(46, 204, 113, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
     font-size: 1.1rem;
 }
 
 .home .btn-warning:hover {
     background: var(--verde-escuro);
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(46, 204, 113, 0.5);
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.6);
+    color: var(--branco);
+}
+
+/* Forçar ícones brancos nos botões do banner */
+.home .btn-warning i,
+.home .btn-custom-promo i {
+    color: var(--branco) !important;
+}
+
+/* BOTÃO PROMOCIONAL AZUL */
+.btn-custom-promo {
+    background: linear-gradient(45deg, var(--danger-escuro), var(--danger));
+    border: none;
+    color: var(--branco);
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    transition: all 0.3s ease;
+}
+.btn-custom-promo:hover {
+    background: linear-gradient(45deg, var(--danger), #ff6b6b);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.6);
+    color: var(--branco);
+}
+
+/* ===== ÍCONES SOCIAIS NO BANNER ===== */
+.home-social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.home-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 50%;
+    color: var(--branco);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.home-social-links a:hover, .social-links a:hover {
+    transform: translateY(-3px);
+    color: var(--branco);
+}
+
+.home-social-links a.social-whatsapp:hover, .social-links a.social-whatsapp:hover {
+    background: #25D366;
+    box-shadow: 0 0 15px #25D366;
+}
+.home-social-links a.social-instagram:hover, .social-links a.social-instagram:hover {
+    background: #E1306C;
+    box-shadow: 0 0 15px #E1306C;
+}
+.home-social-links a.social-facebook:hover, .social-links a.social-facebook:hover {
+    background: #1877F2;
+    box-shadow: 0 0 15px #1877F2;
+}
+.home-social-links a.social-email:hover, .social-links a.social-email:hover {
+    background: #EA4335;
+    box-shadow: 0 0 15px #EA4335;
 }
 
 /* ===== IFRAME DO FACEBOOK ===== */
@@ -457,15 +537,15 @@ header {
     border: 1px solid #e0e0e0 !important;
     border-radius: 20px !important;
     transition: all 0.3s ease;
-    height: 100%;
+    /* height: 100%; */ /* Removido para permitir expansão do card */
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 .product-card:hover {
-    border-color: var(--verde) !important;
-    box-shadow: 0 20px 30px rgba(46, 204, 113, 0.25) !important;
+    border-color: var(--azul) !important; /* Contorno azul no hover */
+    box-shadow: 0 20px 30px rgba(52, 152, 219, 0.25) !important;
     transform: translateY(-8px);
 }
 
@@ -526,8 +606,24 @@ header {
     box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
 }
 
+/* ===== DETALHES DO PRODUTO (COLLAPSE) ===== */
+.product-details-collapse .ratio {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-details-collapse iframe {
+    border: none;
+}
+
+.product-details-collapse .text-start {
+    color: var(--preto-fundo);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
 /* ===== SEÇÃO DE SERVIÇOS ===== */
-.services-section {
+.about-section {
     background-color: var(--preto-secundario);
     padding: 60px 0;
 }
@@ -553,10 +649,15 @@ header {
 }
 
 .service-card:hover {
-    border-color: var(--verde);
+    border-color: var(--azul); /* Contorno azul no hover */
     background: var(--preto-secundario);
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+}
+.service-card:hover > i:first-child {
+    text-shadow: 0 0 12px var(--azul-neon);
+    transform: scale(1.1);
+    transition: all 0.3s;
 }
 
 .service-card > i:first-child {
@@ -565,6 +666,7 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 15px;
+    transition: all 0.3s;
 }
 
 .service-card h5 {
@@ -580,11 +682,6 @@ header {
 }
 
 /* ===== SEÇÃO DE CONTATO ===== */
-.contact {
-    background-color: var(--preto-secundario);
-    padding: 60px 0;
-}
-
 .contact-wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -595,16 +692,16 @@ header {
     border: 1px solid var(--cinza-medio);
     border-radius: 15px;
     padding: 25px 20px;
-    height: 100%;
+    /* height: 100%; */
     transition: all 0.3s;
     grid-column: span 4;
 }
 
 .contact-card:hover {
-    border-color: var(--verde);
+    border-color: var(--azul); /* Contorno azul no hover */
     background: var(--preto-secundario);
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
 }
 
 .contact-form-title {
@@ -721,6 +818,7 @@ header {
 
 /* ===== BOTÃO FLUTUANTE DO WHATSAPP ===== */
 .whatsapp-float {
+    display: none !important; /* Removido a pedido do cliente */
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -754,23 +852,99 @@ header {
     100% { transform: scale(1); }
 }
 
-/* ===== MODAL DE RASTREAMENTO ===== */
-.tracking-modal .modal-content {
+/* ===== PADRONIZAÇÃO DE MODAIS (GERAL) ===== */
+.modal-content {
     background: var(--preto-card);
     border: 1px solid var(--verde);
     border-radius: 20px;
+    color: var(--branco);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.15);
 }
 
-.tracking-modal .modal-header {
+.modal-header {
     background: linear-gradient(135deg, var(--verde), var(--verde-escuro));
-    border-radius: 20px 20px 0 0;
-    padding: 1.5rem;
+    border-bottom: 1px solid var(--verde);
+    border-radius: 19px 19px 0 0; /* Arredondamento para casar com o content */
+    padding: 1.2rem;
 }
 
-.tracking-modal .modal-header .btn-close {
-    filter: brightness(0) invert(1);
+.modal-title {
+    color: var(--branco);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.btn-close {
+    filter: brightness(0) invert(1); /* Botão fechar branco */
+    opacity: 0.8;
+}
+
+/* Inputs Padronizados nos Modais */
+.modal-body input, .modal-body select {
+    background: var(--preto-secundario);
+    border: 2px solid var(--cinza-medio);
+    color: var(--branco) !important;
+    border-radius: 50px; /* Padronizado redondo */
+    padding: 0.75rem 1rem;
+}
+
+.modal-body input:focus, .modal-body select:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+}
+
+.modal-body input::placeholder {
+    color: #cccccc;
+}
+
+/* Melhoria de contraste global para inputs */
+input, textarea, select {
+    color: var(--branco); 
+}
+/* Inputs dentro de cards brancos (como no carrinho offcanvas se houver) ou específicos */
+.product-card input, .product-card select {
+    color: var(--preto-fundo) !important;
+    background-color: var(--branco) !important;
+    border-color: #ccc !important;
+}
+
+/* ===== ESTILOS DO LIGHTBOX (IMAGEM AMPLIADA) ===== */
+#imageModal .modal-content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#imageModal .btn-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: var(--danger) !important;
+    opacity: 1;
+    padding: 0.8rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1060;
+    transition: transform 0.3s;
+    filter: invert(1); /* Deixa o ícone X branco */
+}
+
+#imageModal .btn-close:hover {
+    transform: scale(1.1) rotate(90deg);
+    background-color: var(--danger-escuro) !important;
+}
+
+#modalImage {
+    border: 5px solid var(--branco);
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    max-height: 85vh;
+    background-color: var(--branco);
+}
+
+/* Estilos específicos Rastreamento */
 .tracking-modal .modal-body {
     padding: 2rem;
 }
@@ -781,12 +955,6 @@ header {
 }
 
 .tracking-input-group input {
-    background: var(--preto-secundario);
-    border: 2px solid var(--cinza-medio);
-    color: var(--branco);
-    border-radius: 50px;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
     flex: 1;
 }
 
@@ -933,7 +1101,7 @@ header {
 
 @media (max-width: 768px) {
     :root {
-        --altura-header: 130px;
+        --altura-header: 120px;
     }
     
     .home h1 {
@@ -993,4 +1161,14 @@ header {
         bottom: 20px;
         right: 20px;
     }
+}
+
+/* Animação de pulso para botões */
+@keyframes subtle-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+.pulse-button {
+    animation: subtle-pulse 2s infinite ease-in-out;
 }
