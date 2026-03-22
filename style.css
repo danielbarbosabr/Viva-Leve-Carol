@@ -206,106 +206,65 @@ header {
     padding: 80px 0;
 }
 
-.home::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(46, 204, 113, 0.15) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-.home .container {
-    position: relative;
-    z-index: 2;
-}
-
-.home h1 {
+.banner-title {
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
-    font-size: 5.2rem;
+    font-size: 3rem;
     text-transform: uppercase;
-    /* text-transform: uppercase; */ /* Removido para manter o estilo cursivo da fonte */
     background: none;
-    color: var(--amarelo);
-    -webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    letter-spacing: 1px;
-    line-height: 1.1;
-}
-/* Forçar a fonte no span interno se houver */
-.home h1 span {
-    font-family: 'Raleway', sans-serif;
+    color: var(--branco);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
 }
 
-.home h1 i {
-    font-size: 4.5rem;
-    color: var(--amarelo);
-    -webkit-text-fill-color: initial;
-    filter: drop-shadow(0 5px 10px rgba(46, 204, 113, 0.3));
+.banner-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--cinza-texto);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-viver {
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.banner-profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 4px solid var(--preto-secundario);
+    box-shadow: 0 0 0 2px var(--verde), 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .home .lead {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    color: var(--branco-fumaca);
-    opacity: 0.95;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    font-weight: 500;
-}
-
-.home .btn-warning {
-    background: var(--verde); /* Fundo verde para destaque */
-    border: none;
-    color: var(--branco); /* Fonte branca */
-    font-weight: 700;
-    padding: 1.2rem 3rem;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
     font-size: 1.1rem;
-}
-
-.home .btn-warning:hover {
-    background: var(--verde-escuro);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.6);
-    color: var(--branco);
-}
-
-/* Forçar ícones brancos nos botões do banner */
-.home .btn-warning i,
-.home .btn-custom-promo i {
-    color: var(--branco) !important;
+    color: var(--branco-fumaca);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
 }
 
 /* BOTÃO PROMOCIONAL AZUL */
 .btn-custom-promo {
-    background: linear-gradient(45deg, var(--danger-escuro), var(--danger));
+    background: var(--branco);
     border: none;
-    color: var(--branco);
+    color: var(--preto-fundo);
     font-weight: 700;
     border-radius: 50px;
-    padding: 0.8rem 2rem;
-    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 .btn-custom-promo:hover {
-    background: linear-gradient(45deg, var(--danger), #ff6b6b);
+    background: var(--verde);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.6);
-    color: var(--branco);
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
+    color: var(--preto-fundo);
 }
 
 /* ===== ÍCONES SOCIAIS NO BANNER ===== */
@@ -1147,4 +1106,40 @@ input, textarea, select {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ===== PERFIL VENDEDORA (VITRINE) ===== */
+.seller-nav-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--verde);
+}
+
+.seller-nav-verified {
+    position: absolute;
+    bottom: -2px;
+    right: -5px;
+    color: var(--azul-neon);
+    font-size: 0.9rem;
+    background-color: var(--cinza-nav);
+    border-radius: 50%;
+    padding: 0 2px;
+}
+
+.seller-nav-name {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--branco);
+    text-transform: uppercase;
+}
+
+.seller-nav-role {
+    font-size: 0.65rem;
+    color: var(--verde);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
