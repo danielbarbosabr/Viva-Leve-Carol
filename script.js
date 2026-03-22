@@ -7,9 +7,9 @@ const products = [
         img: "https://api.hest.com.br/products/20260203113215423.jpeg", 
         desc: "Tratamento emagrecedor que age na raiz do problema.",
         options: [
-            { months: 1, price: 209, link: "https://pay.hest.com.br/a93c2b8d-b73a-4076-ba69-b96d6bfc26a1" },
-            { months: 3, price: 335, link: "https://pay.hest.com.br/b9837c8b-2ba5-49f3-ad7e-6d036bff1b96" },
-            { months: 5, price: 461, link: "https://pay.hest.com.br/7a787852-b3c9-4a9f-a58f-6d571462e4fe" }
+            { months: 1, price: 197, link: "https://pay.hest.com.br/a93c2b8d-b73a-4076-ba69-b96d6bfc26a1" },
+            { months: 3, price: 297, link: "https://pay.hest.com.br/b9837c8b-2ba5-49f3-ad7e-6d036bff1b96" },
+            { months: 5, price: 397, link: "https://pay.hest.com.br/7a787852-b3c9-4a9f-a58f-6d571462e4fe" }
         ],
         details: [
             { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/641388317_122110164249224900_2559633456177760796_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFjhBHJV30_nAfT8PsQD_2DvL44xFKJpPS8vjjEUomk9CRRmQV32fE-WwyXXWUErvbaoY2GDK_2VV79vaFalx6L&_nc_ohc=z-XScaDZGDwQ7kNvwGvw6OT&_nc_oc=AdrxeyEAQTO172k6855-LQn41RkbK1_dnCTHSYZXrG17WgOSxyP3CecMEq-9KNv6b3N2HJmgqMaC5RSGM3Qfejww&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=dakLt4vukcFs4S9e2JGB2g&_nc_ss=7a30f&oh=00_Afxk1iu5HWcyXYr5UF0z6dnlc2vcuGQUm25D0bya2cYG6w&oe=69C47696' }
@@ -22,7 +22,7 @@ const products = [
         desc: "Chá solúvel com cúrcuma e psyllium. Energia e saciedade.",
         options: [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/4c1c5ddf-6f67-4c82-9950-d2e3b6b9ba0c" },
-            { months: 3, price: 335, link: "https://pay.hest.com.br/10cfe014-dec3-42b4-955e-ce04eb0663b2" },
+            { months: 3, price: 335.70, link: "https://pay.hest.com.br/10cfe014-dec3-42b4-955e-ce04eb0663b2" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/6ed08fe0-1da6-47a5-ab7d-c2df32a0aa44" }
         ],
         details: [
@@ -92,8 +92,8 @@ const products = [
         desc: "Creatina monohidratada, magnésio bisglicinato e coenzima Q10. Aumenta força, energia e desempenho físico.",
         options: [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/58d66193-b37f-4cc2-8fd3-59f68f1111fe" },
-            { months: 3, price: 335, link: "https://pay.hest.com.br/58d66193-b37f-4cc2-8fd3-59f68f1111fe" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/a2cb9260-b59d-40e3-bcb6-8d8e5fdb2383" }
+            { months: 3, price: 417, link: "https://pay.hest.com.br/58d66193-b37f-4cc2-8fd3-59f68f1111fe" },
+            { months: 5, price: 529, link: "https://pay.hest.com.br/a2cb9260-b59d-40e3-bcb6-8d8e5fdb2383" }
         ],
         details: [
             { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/626286188_17855984883612516_2330671153457725029_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFsMr4gLz93Tq0-KHZKJvZHwby8_dmMdwDBvLz92Yx3AAlmk9ySVmynGl6uA3cTLTsbFogm-5CSp3DeM1VoPJki&_nc_ohc=A6il-jHsVqEQ7kNvwFo46m4&_nc_oc=AdoLjzmPPlyB6UpE1N23S6tRYXg5RUNFiWQFz1DHP7odEmSUCJg-4j9x002qyWG-F939j0jbA9bBxBCCpmF5upq-&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=0UGfm2WD5j0iSyz1dXxXQg&_nc_ss=7a32e&oh=00_Afz6BvhgBC6q6ytAQyX7YqTTEhn64EsJz-1cdR2uWd5xKw&oe=69C5EB75' },
@@ -106,9 +106,9 @@ const products = [
         img: "https://api.hest.com.br/products/20251112173350643.png", 
         desc: "Creatina em gomas sabor tutti-frutti. Aumenta força, resistência e performance nos treinos.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/4b43e130-4da6-4653-b0bf-07eda9728b7f" },
-            { months: 3, price: 335, link: "https://pay.hest.com.br/714d7364-d132-4121-a6cb-101f5093e6d7" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/f1032fdf-daac-4bc1-9bc2-397deb365f70" }
+            { months: 1, price: 197, link: "https://pay.hest.com.br/4b43e130-4da6-4653-b0bf-07eda9728b7f" },
+            { months: 3, price: 459, link: "https://pay.hest.com.br/714d7364-d132-4121-a6cb-101f5093e6d7" },
+            { months: 5, price: 630, link: "https://pay.hest.com.br/f1032fdf-daac-4bc1-9bc2-397deb365f70" }
         ],
         details: [
             { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/642429088_17857794339612516_544781699236909530_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHxFWnVVHDhPHTGxNc4wej-CBSvI9b3-iYIFK8j1vf6JlGqKTGbCsjermO5XOyvGqgys6YdrV7zNKqa1S24xE68&_nc_ohc=935bGylyryQQ7kNvwEC6Sof&_nc_oc=AdpPJZgg0dqDfWatnw3xMMLAHTZa39a8jy8CEqtYqeyp1h4HrFVw6cuiWYJwz4wwOxBmqBrZfznb3K4N-P3h9R_S&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=SZSAgiI9ZX0qhdxEM_4q6w&_nc_ss=7a32e&oh=00_AfxzH3uIG-xzZtTIsCs8YYG2DKitXsVt8q-xGuB1z8lwnA&oe=69C5F016' }
@@ -158,9 +158,9 @@ const products = [
         img: "https://api.hest.com.br/products/20250128152440130.png", 
         desc: "Tratamento capilar que restaura a beleza e confiança dos seus cabelos.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/ca891a91-fef4-4d95-bdab-3fcbab75a27a" },
-            { months: 3, price: 335.70, link: "https://pay.hest.com.br/13fdcfcd-8687-4f71-b27e-7eeed51446ae" },
-            { months: 12, price: 859, link: "https://pay.hest.com.br/6d065d13-2cd6-471b-aee7-3d9713e5643f" }
+            { months: 1, price: 197, link: "https://pay.hest.com.br/ca891a91-fef4-4d95-bdab-3fcbab75a27a" },
+            { months: 3, price: 297, link: "https://pay.hest.com.br/13fdcfcd-8687-4f71-b27e-7eeed51446ae" },
+            { months: 5, price: 397, link: "https://pay.hest.com.br/6d065d13-2cd6-471b-aee7-3d9713e5643f" }
         ]
     },
     { 
@@ -231,9 +231,9 @@ const products = [
         img: "https://api.hest.com.br/products/20250128152546388.png", 
         desc: "Restaura a cor natural do cabelo sem tintas.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/37690af0-14ea-452c-9c75-8d031e984024" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/39e612cd-8a65-43fc-a528-a677c9f2acb9" },
-            { months: 12, price: 859, link: "https://pay.hest.com.br/534e9ace-24f9-4ae5-a5de-4a9330176b86" }
+            { months: 1, price: 197, link: "https://pay.hest.com.br/add42137-8168-4fe8-901b-7e1293261333" },
+            { months: 5, price: 297, link: "https://pay.hest.com.br/63c31a7b-d0a4-4f25-a05d-ff8dfd4e5ae8" },
+            { months: 12, price: 397, link: "https://pay.hest.com.br/088cafa9-572a-4d0e-838a-1ab57876e798" }
         ],
         details: [
             { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/496936315_9896621247064388_7593352552424363192_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_eui2=AeFvq_oQyE6Av9-m6Xxmurmn48RxmSbnzmjjxHGZJufOaCyG2fDPGptD1B4gf9FEamvoMr085gQ8GQQ-KB7IJmDM&_nc_ohc=h88encOmlPAQ7kNvwHFNwlb&_nc_oc=Adpp7KXehGp0zs-_uhLB_U1bHIUYhCLeuDB5PKyKpYon2aig-1tLfCnVY9M0kYoU-vIbTAtqsboG6Ya3uTn0xl_G&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=heZFXyEZATi89bv60DsnWg&_nc_ss=7a32e&oh=00_AfxGG_AH2jwYWUbaoWW3rK1OaNxBcvGt0V_FIGFrMnknjQ&oe=69C5F4B1' },
