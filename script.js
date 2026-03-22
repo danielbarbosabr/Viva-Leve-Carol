@@ -7,9 +7,9 @@ const products = [
         img: "https://api.hest.com.br/products/20260203113215423.jpeg", 
         desc: "Tratamento emagrecedor que age na raiz do problema.",
         options: [
-            { months: 1, price: 209, link: "https://pay.hest.com.br/baf4666f-6ce9-4da8-a2ac-755c8d3e4d64" },
-            { months: 3, price: 335, link: "https://pay.hest.com.br/1cf57f4a-688d-45d0-a3ca-8de9a2ca5e49" },
-            { months: 5, price: 461, link: "https://pay.hest.com.br/527119e2-5030-41f8-b0af-b14b0e98c78c" }
+            { months: 1, price: 209, link: "https://pay.hest.com.br/a93c2b8d-b73a-4076-ba69-b96d6bfc26a1" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/b9837c8b-2ba5-49f3-ad7e-6d036bff1b96" },
+            { months: 5, price: 461, link: "https://pay.hest.com.br/7a787852-b3c9-4a9f-a58f-6d571462e4fe" }
         ],
         details: [
             { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/641388317_122110164249224900_2559633456177760796_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFjhBHJV30_nAfT8PsQD_2DvL44xFKJpPS8vjjEUomk9CRRmQV32fE-WwyXXWUErvbaoY2GDK_2VV79vaFalx6L&_nc_ohc=z-XScaDZGDwQ7kNvwGvw6OT&_nc_oc=AdrxeyEAQTO172k6855-LQn41RkbK1_dnCTHSYZXrG17WgOSxyP3CecMEq-9KNv6b3N2HJmgqMaC5RSGM3Qfejww&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=dakLt4vukcFs4S9e2JGB2g&_nc_ss=7a30f&oh=00_Afxk1iu5HWcyXYr5UF0z6dnlc2vcuGQUm25D0bya2cYG6w&oe=69C47696' }
@@ -21,9 +21,9 @@ const products = [
         img: "https://api.hest.com.br/products/20260114195505729.jpg", 
         desc: "Chá solúvel com cúrcuma e psyllium. Energia e saciedade.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/b98ee4b7-6064-4260-a7a9-b3dc880416da" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/6ba5966d-bcf1-45be-b16d-0d713e154715" },
-            { months: 12, price: 851, link: "https://pay.hest.com.br/8bc7fa93-ca39-42b1-b273-8ba1dbc18c62" }
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/4c1c5ddf-6f67-4c82-9950-d2e3b6b9ba0c" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/10cfe014-dec3-42b4-955e-ce04eb0663b2" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/6ed08fe0-1da6-47a5-ab7d-c2df32a0aa44" }
         ],
         details: [
             { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/652612647_122113112967224900_2552435891511405490_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH4LZqYRYu2x4Im_PylXqYCVCOgUSfMlVRUI6BRJ8yVVBSPTKFfpmfikbTaSzLPHtGaRXaIDDNgDxs2Gwx5LWMD&_nc_ohc=gUIGXJ4ZhWYQ7kNvwGSXRqA&_nc_oc=AdqR6Zw3rTiBXnPF5ICx0Ck5yWqr61fu_iNmcgbG5szSMiqDAlsK8zWcNpHiGJYOmaCUYcK_GBmAqVRqO3PNU-fA&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=HGdnSCP9-UQ-Bmk_oz28Dg&_nc_ss=7a32e&oh=00_AfzdxhIUS8T6u68qji1xGWQxnZpdfPEWB2LriVsD5epGEw&oe=69C46DA2' },
@@ -36,12 +36,13 @@ const products = [
         img: "https://api.hest.com.br/products/20250128152337073.png", 
         desc: "Emagrecedor que já transformou mais de 35 mil pessoas.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/8893b794-7c19-4419-804f-0538e5604222" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/5b8ecc68-44bb-4ed7-9c5d-f14d4f68f2c4" },
-            { months: 12, price: 859, link: "https://pay.hest.com.br/dfc1625d-cee9-4be0-806c-11ea58a8d3e7" }
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/1a54aeb5-46bb-4355-9fcc-547dc972a4b9" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/a13d1c3c-3d35-4871-aeba-6d2a93d69b7b" },
+            { months: 12, price: 859, link: "https://pay.hest.com.br/9071a692-b08b-4142-bf3a-0e11b33b3548" }
         ],
         details: [
-            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/645149433_122110773051224900_9019391559536306528_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEaSxtwTiHcpW_wp0k3_HPu293ZSKXpa8fb3dlIpelrx0lWuanMgVgIOh4oIOcIt0MyXf_3QLBWC0kkwbPcYCiL&_nc_ohc=kF8Oj4OGr68Q7kNvwHgDxXo&_nc_oc=AdpzjCRbRUCAHx1pMww1p2mkFX6dxF7mdliui4PT0k2c1BaBrCdUR-HFljjiIw8ywiLJ57r9hAK2e8fo4evvGiom&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=oVy-LkDjPgH6KBP5dMjxWg&_nc_ss=7a30f&oh=00_Afwf6iFwLXdYQY5YSRlHVdiCgR-pIm0bU_O3MLWapTgZ2Q&oe=69C48638' }
+            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/645149433_122110773051224900_9019391559536306528_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEaSxtwTiHcpW_wp0k3_HPu293ZSKXpa8fb3dlIpelrx0lWuanMgVgIOh4oIOcIt0MyXf_3QLBWC0kkwbPcYCiL&_nc_ohc=kF8Oj4OGr68Q7kNvwHgDxXo&_nc_oc=AdpzjCRbRUCAHx1pMww1p2mkFX6dxF7mdliui4PT0k2c1BaBrCdUR-HFljjiIw8ywiLJ57r9hAK2e8fo4evvGiom&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=oVy-LkDjPgH6KBP5dMjxWg&_nc_ss=7a30f&oh=00_Afwf6iFwLXdYQY5YSRlHVdiCgR-pIm0bU_O3MLWapTgZ2Q&oe=69C48638' },
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/487316863_8773177199448310_7472235821140101242_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeF8soeG9ezdsEHftaRs4fELuzLlYxQ9BMC7MuVjFD0EwPrMEZ8KQXEFH7aJfbz--Hkoza8XZZrCpjqumBHvn8rq&_nc_ohc=TpEb75jvg7EQ7kNvwERzChg&_nc_oc=AdpMoNjgHWzX9d1ekYXDMykqNZSLKrQq4ytfmqJBjm-CUjZenWBYk_Jeat-YNkhPeIbeldOjdf5QolID_4leYD_Q&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=2qH7XhqWzcqmiyz7hTju4Q&_nc_ss=7a32e&oh=00_AfwGQbc85EoOHKp-9cDa0_Wk2ftEr3AYrDfjraYk0BqyvA&oe=69C61018' }
         ]
     },
     
@@ -55,6 +56,11 @@ const products = [
             { months: 1, price: 197, link: "https://pay.hest.com.br/cc320fe0-5edf-4a52-b80c-144b5008a7d4" },
             { months: 5, price: 397, link: "https://pay.hest.com.br/cb3dd576-9d03-418d-b22b-782cd8f96123" },
             { months: 12, price: 697, link: "https://pay.hest.com.br/5886005c-9689-4e5f-b065-bffe7ee5dfb9" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fbau3-1.fna.fbcdn.net/v/t39.30808-6/649684088_122113367433225431_344453539657892486_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGNsRNirkheCIJ1j-VOAxQL9-E3RN3ml1n34TdE3eaXWYvf7qRzewbDugoa1rmM_1ANvLAQTHXu-7GFiAgKvD1h&_nc_ohc=FdB8HvlFzcQQ7kNvwH2zjYc&_nc_oc=Adq3GaNE7-TPcHIoMrA3OXP9Lvy8IhCGEurLG2Wq6qBpwHT4-FwterrYeJ6lKwidYKxUfJucuHjMp7fqWUnpDnr9&_nc_zt=23&_nc_ht=scontent.fbau3-1.fna&_nc_gid=S3VegKVHXjbynI-RYtZplw&_nc_ss=7a32e&oh=00_AfzY9azWWt7bq8nPQCT6SnpTJCumgZmvKAlvstwn69dsmw&oe=69C5F029' },
+            { type: 'image', src: 'https://scontent.fbau3-1.fna.fbcdn.net/v/t39.30808-6/641101099_122110259679225431_3638175519730421397_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEL953rzwN166AYTg46L8GkYUH9Hx6BCTlhQf0fHoEJOe_irfR9ojF_ZbmVLcZa6nO5h4HtqyFJJlauUsMBLr0x&_nc_ohc=1I6nWrIK864Q7kNvwH1tRXQ&_nc_oc=AdoAjBws2msJGybY0hiXj2hiJIyekgzApkDASBvFy3HDBIuhoG4QSNTANQQlLTKUrTIonAA5WPEj8dY1lK0KEYKB&_nc_zt=23&_nc_ht=scontent.fbau3-1.fna&_nc_gid=kdTWWCszMxfvZ9lh2hjaag&_nc_ss=7a32e&oh=00_Afw_D5EGdbgoB1ZX8ITIU42LceemnvSQgpXTrei-SWeNPQ&oe=69C61006' },
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/634798092_122109459441225431_1452345213182997204_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEgUek18fhEsmS8k1bPP1XyDtb80M2kay4O1vzQzaRrLsUxi5oYEGuClcnYNWd3w5EsFNBI0VwWrEjhggHQVrdE&_nc_ohc=Vg7yThF-ppwQ7kNvwHmAtOO&_nc_oc=AdqXpGL-_Ni35g91DcReZIsK8xi3GKlduOuzbgPW2oKNAMNZ2EfRVWshyW1l2o9zoxfLymEcYSS7jGCEo7oCPED7&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=SoXiiMd9o9t_fPfjLvBXHg&_nc_ss=7a32e&oh=00_Afx6LTTH0oIYuOtnfJee6d6YTq0K61EJC3sckuwXOVFegA&oe=69C6036E' }
         ]
     },
     { 
@@ -80,6 +86,35 @@ const products = [
         ]
     },
     { 
+        name: "CreaGym", 
+        basePrice: 197,
+        img: "https://api.hest.com.br/products/20251112173707676.png", 
+        desc: "Creatina monohidratada, magnésio bisglicinato e coenzima Q10. Aumenta força, energia e desempenho físico.",
+        options: [
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/58d66193-b37f-4cc2-8fd3-59f68f1111fe" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/58d66193-b37f-4cc2-8fd3-59f68f1111fe" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/a2cb9260-b59d-40e3-bcb6-8d8e5fdb2383" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/626286188_17855984883612516_2330671153457725029_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFsMr4gLz93Tq0-KHZKJvZHwby8_dmMdwDBvLz92Yx3AAlmk9ySVmynGl6uA3cTLTsbFogm-5CSp3DeM1VoPJki&_nc_ohc=A6il-jHsVqEQ7kNvwFo46m4&_nc_oc=AdoLjzmPPlyB6UpE1N23S6tRYXg5RUNFiWQFz1DHP7odEmSUCJg-4j9x002qyWG-F939j0jbA9bBxBCCpmF5upq-&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=0UGfm2WD5j0iSyz1dXxXQg&_nc_ss=7a32e&oh=00_Afz6BvhgBC6q6ytAQyX7YqTTEhn64EsJz-1cdR2uWd5xKw&oe=69C5EB75' },
+            { type: 'image', src: 'https://scontent.fbau3-1.fna.fbcdn.net/v/t51.82787-15/626288062_17855984892612516_8566221061596054852_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEmWCZaWxyyCUoWBN9UU0gTP2YSRHBKy90_ZhJEcErL3eMA_ULHCdMSBM3Fo21a49ouoC_sWEPY-uVenQ2IhO8R&_nc_ohc=Es-Til3Cx1YQ7kNvwE_d8Vz&_nc_oc=AdozWJ-besa2cbA0jvfuMnblrTtnmUJ5d32Pf8wPijnHsX6nWyWtXuVeyTZaiP1gZFe92Z9rk97hdWuAxR49D1Jz&_nc_zt=23&_nc_ht=scontent.fbau3-1.fna&_nc_gid=mFNF9A5Z1ysdIkB2IoSKHw&_nc_ss=7a32e&oh=00_AfzjYVLDJuUeEeVi-HQVTe3jNryxmSfrDtTjDz8rZWhQVA&oe=69C5F925' }
+        ]
+    },
+    { 
+        name: "Creatina Gummy", 
+        basePrice: 197,
+        img: "https://api.hest.com.br/products/20251112173350643.png", 
+        desc: "Creatina em gomas sabor tutti-frutti. Aumenta força, resistência e performance nos treinos.",
+        options: [
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/4b43e130-4da6-4653-b0bf-07eda9728b7f" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/714d7364-d132-4121-a6cb-101f5093e6d7" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/f1032fdf-daac-4bc1-9bc2-397deb365f70" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/642429088_17857794339612516_544781699236909530_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeHxFWnVVHDhPHTGxNc4wej-CBSvI9b3-iYIFK8j1vf6JlGqKTGbCsjermO5XOyvGqgys6YdrV7zNKqa1S24xE68&_nc_ohc=935bGylyryQQ7kNvwEC6Sof&_nc_oc=AdpPJZgg0dqDfWatnw3xMMLAHTZa39a8jy8CEqtYqeyp1h4HrFVw6cuiWYJwz4wwOxBmqBrZfznb3K4N-P3h9R_S&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=SZSAgiI9ZX0qhdxEM_4q6w&_nc_ss=7a32e&oh=00_AfxzH3uIG-xzZtTIsCs8YYG2DKitXsVt8q-xGuB1z8lwnA&oe=69C5F016' }
+        ]
+    },
+    { 
         name: "FiberSlim", 
         basePrice: 209,
         img: "https://api.hest.com.br/products/20251112180628477.png", 
@@ -90,7 +125,9 @@ const products = [
             { months: 12, price: 859, link: "https://pay.hest.com.br/a4f761db-a482-4aa7-b45a-3af5473d76e7" }
         ],
         details: [
-            { type: 'image', src: 'https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/644105059_122110476447224900_5311277305230824759_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEGPHu_cnsmNa7cu6bf0xgVcAcMCoiIhVhwBwwKiIiFWOPTWQoR34WP3LoHsWICfrJEoW_eJA1mKalfZVy8pnrM&_nc_ohc=2b1ZUTJCjG0Q7kNvwH6af6f&_nc_oc=AdrNR7B6K-JEkvMpYj-cKZ7UqDvKml5kkqQpJMdWttBbMWee7fYW0tLf-x5hN2Sz3pS7tkpalhPm9SWL44fVHD_d&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=_6POgBSOLyByBrSeDxYyEQ&_nc_ss=7a30f&oh=00_AfyboNWR6tgt05vpBgvRf2XdlmQsVIvsgF3EY9JfDGNA7Q&oe=69C48F02' }
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/627164301_17855336016612516_8884616195499923807_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeEF4B8j6qfikZBso0qL-JGlevLQWYflTfx68tBZh-VN_DvnF8vwGRyHr2oRv81plMsP-5quZmCoHovH1JuIhogL&_nc_ohc=Nkyq3FuOdTAQ7kNvwGtchma&_nc_oc=AdqX73nYuhLBCUu7luZ20O6rRBI2zIjBo7NwcHQXaHwIkUJTCtpbTfhA1It2xDosO_aZSfs4UYUH4dEQlJpqSrF8&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=veezg8OQ7w-2-3T_JooL9g&_nc_ss=7a32e&oh=00_AfwurB1bGA7P3bRw0rS3tTd2dACh9yXq8RSswtdyVz4KYA&oe=69C5EEAC' },
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/628052987_17855335536612516_3964391855707414886_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeE7vVcBV3_NBcqmWT-1vUDF5Rusw_7qgGnlG6zD_uqAaffFJ71tz2f5r7Ig-xjbUs1br1dB6E9E2QHjjf_KpX28&_nc_ohc=q8ssKM10cY8Q7kNvwH60_gb&_nc_oc=AdoIEzeVddfJfl4UUFemb8Nos1P5xJgJNwvOD1XG6uraQ4c5IttkWyvlspE2mDhmlO9Oc-5nNnmhiwqfdgVWXG8N&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=_dfS-HwRM_xtiGYicDfP7g&_nc_ss=7a32e&oh=00_Afz6VQI66dJ70oD0tANfkc1eJP5Urka3esAW_yWdX9BY9g&oe=69C61389' },
+            { type: 'html', content: '<iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F25743867628542790%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>' }
         ]
     },
     { 
@@ -121,9 +158,9 @@ const products = [
         img: "https://api.hest.com.br/products/20250128152440130.png", 
         desc: "Tratamento capilar que restaura a beleza e confiança dos seus cabelos.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/eef48a82-a6c6-4aa3-a14f-4738d440c9a9" },
-            { months: 3, price: 335.70, link: "https://pay.hest.com.br/7c0eba99-dd07-46e1-89aa-857c83f4ae76" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/feb19442-b2c6-4e86-a075-0b9dfbdbf9df" }
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/ca891a91-fef4-4d95-bdab-3fcbab75a27a" },
+            { months: 3, price: 335.70, link: "https://pay.hest.com.br/13fdcfcd-8687-4f71-b27e-7eeed51446ae" },
+            { months: 12, price: 859, link: "https://pay.hest.com.br/6d065d13-2cd6-471b-aee7-3d9713e5643f" }
         ]
     },
     { 
@@ -132,9 +169,9 @@ const products = [
         img: "https://api.hest.com.br/products/20250128152643280.png", 
         desc: "Biohacking para foco, cognição e memorização.",
         options: [
-            { months: 1, price: 209.90, link: "https://pay.hest.com.br/a9f50f74-c70f-4c99-a972-3458c12c2b50" },
-            { months: 5, price: 461.50, link: "https://pay.hest.com.br/407d998f-0e6d-4393-93d0-95ae0f262b8f" },
-            { months: 12, price: 859, link: "https://pay.hest.com.br/eff80e9b-6f1e-4f54-a0ea-3671e8df5068" }
+            { months: 1, price: 209.90, link: "https://pay.hest.com.br/df40196f-0e51-4a35-90d6-d5272ff08f3a" },
+            { months: 3, price: 335, link: "https://pay.hest.com.br/4f6c3938-936f-4f5e-8107-271e64cde58a" },
+            { months: 5, price: 461.50, link: "https://pay.hest.com.br/6dd45490-e3bd-40e5-b961-288012bb02d6" }
         ]
     },
     { 
@@ -168,6 +205,9 @@ const products = [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/37690af0-14ea-452c-9c75-8d031e984024" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/39e612cd-8a65-43fc-a528-a677c9f2acb9" },
             { months: 12, price: 859, link: "https://pay.hest.com.br/534e9ace-24f9-4ae5-a5de-4a9330176b86" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/640428511_17857938111612516_4566485527624359276_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFpxskYgwZtmhjUXq6msZTOzgigqQAtfmDOCKCpAC1-YHRD6fOYuHRu-C6acy6u3UDHnz3nPoAB0Q5-P8Tzlsur&_nc_ohc=CxuvfcOHc_4Q7kNvwHNhM4K&_nc_oc=AdoRWwZ-NTl5HWWOkjCdcAumGbmUK1dSv6L2zrpvP7_FmrDFOrktONgmwdjQdJzeRp0ftHchVOEHOFmXSMxZJz1P&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=YeRIiKp3yLTphQhfQx87OQ&_nc_ss=7a32e&oh=00_AfysXNcZVqOCqPFpdl4fYeQMUC0cscvToyCdw3dNWj9JHQ&oe=69C6218C' }
         ]
     },
     { 
@@ -179,17 +219,25 @@ const products = [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/a9f50f74-c70f-4c99-a972-3458c12c2b50" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/407d998f-0e6d-4393-93d0-95ae0f262b8f" },
             { months: 12, price: 859, link: "https://pay.hest.com.br/eff80e9b-6f1e-4f54-a0ea-3671e8df5068" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t51.82787-15/625054642_17854586199612516_2378698700501920610_n.webp?stp=dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFW7mZsS2tqreqz_FuKqAQdfHk-o7Kc21V8eT6jspzbVRbrNA-t_Yn4-KyYUuLhHIjOyy8N0eHlm_0cG5YqZAyt&_nc_ohc=sNm_prBPXFIQ7kNvwH9MzE1&_nc_oc=Adptpp9FMHBvp49ft_R0px6tlzzG3rjtI6AWB0Y6YNWRtzD5NdcEaCyS_LQ3mK3wVA53fDUx89LhMG-QXWC3Oylq&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=R3pLDmxMdR78OWG4UtNGKg&_nc_ss=7a32e&oh=00_Afwfh6Q241BbkfRQjYLtR8GS46YuH3S--nBUwvBzGzbs4Q&oe=69C601EB' },
+            { type: 'html', content: '<iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2779195572419074%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>' }
         ]
     },
     { 
         name: "Toop Cor", 
         basePrice: 197,
-        img: "https://tse1.mm.bing.net/th/id/OIP.ZVWlWJNK1i5JoBkP3bLaUgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3", 
+        img: "https://api.hest.com.br/products/20250128152546388.png", 
         desc: "Restaura a cor natural do cabelo sem tintas.",
         options: [
             { months: 1, price: 209.90, link: "https://pay.hest.com.br/37690af0-14ea-452c-9c75-8d031e984024" },
             { months: 5, price: 461.50, link: "https://pay.hest.com.br/39e612cd-8a65-43fc-a528-a677c9f2acb9" },
             { months: 12, price: 859, link: "https://pay.hest.com.br/534e9ace-24f9-4ae5-a5de-4a9330176b86" }
+        ],
+        details: [
+            { type: 'image', src: 'https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/496936315_9896621247064388_7593352552424363192_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=e06c5d&_nc_eui2=AeFvq_oQyE6Av9-m6Xxmurmn48RxmSbnzmjjxHGZJufOaCyG2fDPGptD1B4gf9FEamvoMr085gQ8GQQ-KB7IJmDM&_nc_ohc=h88encOmlPAQ7kNvwHFNwlb&_nc_oc=Adpp7KXehGp0zs-_uhLB_U1bHIUYhCLeuDB5PKyKpYon2aig-1tLfCnVY9M0kYoU-vIbTAtqsboG6Ya3uTn0xl_G&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=heZFXyEZATi89bv60DsnWg&_nc_ss=7a32e&oh=00_AfxGG_AH2jwYWUbaoWW3rK1OaNxBcvGt0V_FIGFrMnknjQ&oe=69C5F4B1' },
+            { type: 'html', content: '<iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fjosiane.botelhosiqueira%2Fvideos%2F707691961716945%2F%3Fidorvanity%3D1159207878395744&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>' }
         ]
     }
 ];
