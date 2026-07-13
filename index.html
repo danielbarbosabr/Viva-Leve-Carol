@@ -2,425 +2,1045 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>ViverLeve – Bem-estar e saúde</title>
-    <!-- Favicon -->
-    <link rel="icon" href="https://scontent.fcpq14-1.fna.fbcdn.net/v/t39.30808-6/650803182_122112694233224900_1326095623705846834_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE5c5n05ifn-OzEj9exIO2pIf8PkJcDcJIh_w-QlwNwkvHkkxpvSD-b9IUX9cC51HvkPe2GfjuGgEq-ALJ7bQZ3&_nc_ohc=s4P_G4IEZ6MQ7kNvwHJggD_&_nc_oc=AdraYJkJjj2Zz_ygi1cmw0oLIfo5TxcVwjzw96o519FlR6xhGyr7tD_dx79fQF5bYM28GHXKidHM_Ta3YZFpVzRP&_nc_zt=23&_nc_ht=scontent.fcpq14-1.fna&_nc_gid=aBqSw6KC5yMLe86DDcvbsQ&_nc_ss=7a30f&oh=00_AfwHJ6Q-Uk6TO2rdmnZ5wiesvKYrrc9zWn7JiIy-pC5TWQ&oe=69C4A4C8" type="image/jpeg">
-
-    <!-- Bootstrap 5 CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroMarket | Compra e Venda de Eletrônicos</title>
+    <!-- Favicon do Site -->
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/073/450/732/non_2x/bold-yellow-lightning-bolt-symbol-integrated-with-stylized-black-letter-e-isolated-on-white-background-vector.jpg" type="image/jpeg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Sora -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;800;900&display=swap" rel="stylesheet">
-    <!-- CSS customizado -->
+    <!-- GSAP 2.1.3 (Necessário para a animação do Yeti Original) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/MorphSVGPlugin.min.js"></script>
+    <!-- Rive Runtime -->
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- 
-    BOTÃO FLUTUANTE DO WHATSAPP - Removido a pedido do cliente
-    <a href="https://wa.me/5519982668806" class="whatsapp-float" target="_blank">
-        <i class="bi bi-whatsapp"></i>
-    </a> 
--->
-
-<!-- HEADER COM NAVBAR FIXA -->
-<header>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand viverleve-icon" href="#">
-                <i class="bi bi-heart-pulse-fill"></i>
-                <span>ViverLeve</span>
-            </a>
+    <!-- Header Estilo Mercado Livre (Azul e Verde) -->
+    <header class="header-main sticky-top shadow-sm">
+        <div class="container py-2">
+            <!-- Linha Superior: Logo e Busca -->
+            <div class="row align-items-center g-2 g-md-4">
+                <div class="col-md-2 d-flex align-items-center">
+                    <div class="d-md-none me-2">
+                        <div class="role-guest d-flex align-items-center gap-1">
+                            <a href="#" class="text-white text-decoration-none fw-bold" style="font-size: 0.72rem;" onclick="window.showAuthScreen('login')">Entre</a>
+                            <span class="text-white-50" style="font-size: 0.72rem;">|</span>
+                            <a href="#" class="text-white text-decoration-none fw-bold" style="font-size: 0.72rem;" onclick="window.showAuthScreen('cadastro')">Cadastre-se</a>
+                        </div>
+                        <button class="btn role-logged-in d-none border-0 p-0 text-white d-flex align-items-center gap-2" type="button" onclick="window.showProfileEdit()">
+                            <div id="mobileUserTrigger" class="d-flex align-items-center justify-content-center bg-white bg-opacity-25 rounded-circle shadow-sm" style="width: 30px; height: 30px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3);">
+                                <i class="bi bi-person-circle fs-5"></i>
+                            </div>
+                            <span id="mobileUserName" class="fw-bold" style="font-size: 0.8rem;">Usuário</span>
+                        </button>
+                    </div>
+                    <a href="index.html" class="logo mb-0 d-flex align-items-center text-decoration-none ms-auto ms-md-0">
+                        <img src="https://static.vecteezy.com/system/resources/previews/073/450/732/non_2x/bold-yellow-lightning-bolt-symbol-integrated-with-stylized-black-letter-e-isolated-on-white-background-vector.jpg" alt="ElectroMarket Logo" width="30" class="me-1 me-md-2">
+                        <h1 class="fs-5 fs-md-4 mb-0">Electro<span class="market-text">Market</span></h1>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="input-group search-bar">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar produtos, marcas e muito mais...">
+                        <button class="btn btn-search" type="button" id="btnSearch"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end d-none d-md-flex align-items-center justify-content-end">
+                    <div class="user-nav d-flex align-items-center gap-2">
+                        <div class="role-guest d-flex gap-2">
+                            <button class="btn btn-simple" onclick="window.showAuthScreen('cadastro')">Cadastre-se</button>
+                            <button class="btn btn-simple btn-solid" onclick="window.showAuthScreen('login')">Entre</button>
+                        </div>
+                        <div class="role-logged-in d-none d-flex align-items-center gap-2 cursor-pointer me-2" onclick="window.showProfileEdit()" title="Meu Perfil">
+                            <img id="navUserAvatar" src="" class="rounded-circle border" width="28" height="28" style="object-fit: cover; display: none;">
+                            <i id="navUserIcon" class="bi bi-person-circle fs-5 text-white"></i>
+                            <span id="navUserName" class="text-white fw-bold small">Usuário</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <button class="btn btn-theme p-0 border-0 text-white" id="themeToggle" title="Alternar tema"><i class="bi bi-moon-stars"></i></button>
+                            <a href="#" class="text-white text-decoration-none position-relative role-client" title="Carrinho" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                                <i class="bi bi-cart2 fs-5"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none" id="cartBadgeDesktop" style="font-size: 0.6rem;">0</span>
+                            </a>
+                            <a href="#" class="text-white text-decoration-none position-relative" title="Notificações" data-bs-toggle="modal" data-bs-target="#notificacoesModal">
+                                <i class="bi bi-bell fs-5"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notifBadgeDesktop" style="font-size: 0.6rem;">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
-                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list"></i>
+            <div class="row mt-2 d-none d-md-flex">
+                <div class="col-md-2">
+                    <div class="shipping-info d-flex align-items-center text-white" id="shippingInfoBox" style="cursor:pointer;" onclick="window.handleShippingInfoClick()">
+                        <i class="bi bi-geo-alt me-1"></i>
+                        <div style="font-size: 0.72rem; line-height: 1.1;">
+                            Receber em:<br><span id="shippingLabel" style="font-size: 0.8rem; font-weight: bold;">Detectando local...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 d-flex align-items-center">
+                    <nav class="nav-links d-flex gap-4">
+                        <a href="#" class="text-white text-decoration-none role-client" onclick="loadPage('eletronicos')"><i class="bi bi-house-door me-1"></i> Início</a>
+                        <div class="dropdown role-client">
+                            <a href="#" class="text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-list me-1"></i> Categorias</a>
+                            <ul class="dropdown-menu border-0 shadow" style="max-height: 600px; overflow-y: auto; min-width: 320px;">
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">Games</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Games > Consoles')">Consoles</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Games > PC Gamer')">PC Gamer</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Games > Jogos')">Jogos</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Games > Acessórios')">Acessórios</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">Informática</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Informática > Notebooks')">Notebooks</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Informática > Computadores > Desktop')">Computadores Desktop</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Informática > Computadores > Mini PC')">Mini PCs</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Informática > Componentes')">Componentes (Hardware)</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Informática > Periféricos')">Periféricos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">Celulares e Tablets</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Celulares > Smartphones')">Smartphones</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Celulares > Tablets')">Tablets</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Celulares > Smartwatches')">Smartwatches</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Celulares > Acessórios')">Acessórios e Cabos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">TVs e Áudio</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('TVs e Áudio > TVs')">TVs</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('TVs e Áudio > Áudio')">Som e Áudio</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">Eletrodomésticos</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Eletrodomésticos')">Eletrodomésticos</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Eletroportáteis')">Eletroportáteis (Air Fryer, etc)</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">Segurança e Automação</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Segurança')">Câmeras e Alarmes</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Casa Inteligente')">Alexa e Automação</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><h6 class="dropdown-header text-uppercase fw-bold text-primary">Outras Categorias</h6></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Climatização')">Climatização</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Automotivo')">Automotivo</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Câmeras')">Câmeras e Drones</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Redes')">Redes e Roteadores</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Armazenamento')">Armazenamento</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="loadPage('Energia')">Cabos e Energia</a></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-white text-decoration-none role-client" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas"><i class="bi bi-filter-left me-1"></i> Filtros</a>
+                        <a href="#" class="text-white text-decoration-none role-client" onclick="loadPage('Ofertas')"><i class="bi bi-tag me-1"></i> Ofertas</a>
+                        <a href="#" class="text-white text-decoration-none role-client" onclick="window.renderLikedProducts()"><i class="bi bi-heart me-1"></i> Curtidos</a>
+                        <a href="#" class="text-white text-decoration-none role-client" onclick="window.renderAccessHistory()"><i class="bi bi-clock-history me-1"></i> Histórico</a>
+                        <a href="#" class="text-white text-decoration-none role-client" onclick="window.renderOrderManagement('buyer')"><i class="bi bi-bag-check me-1"></i> Minhas Compras</a>
+                        
+                        <a href="#" class="text-white text-decoration-none role-seller d-none" onclick="window.renderSellerPanel()">
+                            <i class="bi bi-box-seam me-1"></i> <strong>Meus Produtos</strong>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none role-seller d-none" data-bs-toggle="modal" data-bs-target="#announceModal" onclick="window.resetAnnounceModal()">
+                            <i class="bi bi-plus-circle me-1"></i> <strong>Vender Produto</strong>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none role-seller d-none position-relative" onclick="window.renderOrderManagement('seller_requests')">
+                            <i class="bi bi-bell me-1"></i> <strong>Solicitações</strong>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none" id="pendingBadgeNav" style="font-size: 0.6rem;">0</span>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none role-seller d-none" onclick="window.renderOrderManagement('seller_sales')">
+                            <i class="bi bi-shop me-1"></i> <strong>Minhas Vendas</strong>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none role-admin d-none" onclick="window.renderOrderManagement('admin')"><i class="bi bi-shield-lock me-1"></i> Painel Admin</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner principal -->
+    <section id="heroSection" class="hero-banner py-4 py-md-5 text-white text-center">
+        <div class="container hero-inner">
+            <h2 class="hero-title mb-2" id="heroTitle">Encontre o melhor preço em eletrônicos</h2>
+            <p class="hero-subtitle mb-4 opacity-75" id="heroSubtitle">Navegue por ofertas, compare preços e descubra produtos com frete rápido.</p>
+            
+            <div id="heroCategories" class="hero-categories d-flex justify-content-start justify-content-md-center text-center overflow-auto pb-2 gap-4 mt-2">
+                <div class="hero-cat-item" onclick="loadPage('Smartphone')"><i class="bi bi-phone"></i><p>Celulares</p></div>
+                <div class="hero-cat-item" onclick="loadPage('Notebook')"><i class="bi bi-laptop"></i><p>Notebooks</p></div>
+                <div class="hero-cat-item" onclick="loadPage('Smart TV')"><i class="bi bi-tv"></i><p>TV e Vídeo</p></div>
+                <div class="hero-cat-item" onclick="loadPage('Console Video Game')"><i class="bi bi-controller"></i><p>Games</p></div>
+                <div class="hero-cat-item" onclick="loadPage('Eletrodomesticos')"><i class="bi bi-lightning-charge"></i><p>Eletro</p></div>
+                <div class="hero-cat-item" onclick="loadPage('Placa de Vídeo')"><i class="bi bi-cpu"></i><p>Hardware</p></div>
+                <div class="hero-cat-item" onclick="loadPage('Smartwatch')"><i class="bi bi-watch"></i><p>Relógios</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Produtos -->
+    <main class="container my-4" id="productGridMain">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title mb-4 fs-4" id="gridTitle">Recomendados para você</h2>
+                <div id="productsGrid" class="row g-3" style="min-height: 50vh;"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Nova Tela de Autenticação com Yeti Original -->
+    <div id="authScreen" class="ml-auth-overlay d-none">
+        <div class="ml-auth-wrapper" id="authWrapper">
+            <button type="button" class="ml-auth-close" onclick="window.hideAuthScreen()" aria-label="Fechar">
+                <i class="bi bi-x-lg"></i>
             </button>
-            
-            <div class="collapse navbar-collapse" id="navbarMain">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">
-                            <i class="bi bi-house-door-fill"></i> Início
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#destaques">
-                            <i class="bi bi-stars"></i> Destaques
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#arrival">
-                            <i class="bi bi-box-seam"></i> Produtos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre-nos">
-                            <i class="bi bi-info-circle-fill"></i> Sobre Nós
-                        </a>
-                    </li>
-                </ul>
+
+            <!-- ===== LOGIN ===== -->
+            <div class="ml-auth-card ml-auth-login">
+                <div class="ml-auth-logo">
+                    <img src="https://static.vecteezy.com/system/resources/previews/073/450/732/non_2x/bold-yellow-lightning-bolt-symbol-integrated-with-stylized-black-letter-e-isolated-on-white-background-vector.jpg" alt="ElectroMarket">
+                    <span>Electro<span class="market-text">Market</span></span>
+                </div>
+
+                <h2 class="ml-auth-title">Acesse sua conta</h2>
+
+                <form id="loginFormAnimV2" class="ml-auth-form" autocomplete="off">
+                    <div class="ml-field">
+                        <input type="text" id="v2LogEmail" placeholder=" " required>
+                        <label for="v2LogEmail">E-mail ou telefone</label>
+                    </div>
+                    <div class="ml-field">
+                        <input type="password" id="v2LogPass" placeholder=" " required>
+                        <label for="v2LogPass">Senha</label>
+                        <i class="bi bi-eye ml-eye-icon" onclick="window.toggleAuthPass('v2LogPass', this)"></i>
+                    </div>
+                    <a href="#" class="ml-forgot-link" onclick="window.forgotPassword(event)">Esqueceu sua senha?</a>
+                    <button type="submit" class="ml-btn-primary mt-3">Entrar</button>
+                </form>
+
+                <div class="ml-auth-divider"><span>ou</span></div>
+
+                <button type="button" class="ml-btn-outline" onclick="window.toggleAuthMode('cadastro')">Criar conta</button>
+            </div>
+
+            <!-- ===== CADASTRO (multi-step) ===== -->
+            <div class="ml-auth-card ml-auth-cadastro">
+                <div class="ml-auth-logo">
+                    <img src="https://static.vecteezy.com/system/resources/previews/073/450/732/non_2x/bold-yellow-lightning-bolt-symbol-integrated-with-stylized-black-letter-e-isolated-on-white-background-vector.jpg" alt="ElectroMarket">
+                    <span>Electro<span class="market-text">Market</span></span>
+                </div>
+
+                <h2 class="ml-auth-title">Crie sua conta grátis</h2>
+
+                <div class="ml-steps" id="mlCadSteps">
+                    <div class="ml-step-item active" data-step-indicator="1">
+                        <span class="ml-step-circle">1</span>
+                        <span class="ml-step-label">Dados de acesso</span>
+                    </div>
+                    <span class="ml-step-line"></span>
+                    <div class="ml-step-item" data-step-indicator="2">
+                        <span class="ml-step-circle">2</span>
+                        <span class="ml-step-label">Endereço e entrega</span>
+                    </div>
+                </div>
+
+                <form id="cadFormAnim" class="ml-auth-form" autocomplete="off">
+
+                    <!-- Passo 1: dados de acesso -->
+                    <div class="ml-step-panel" data-step-panel="1">
+                        <div class="ml-role-toggle">
+                            <label class="ml-role-option">
+                                <input type="radio" name="mlCadRole" value="CLIENTE" checked onchange="document.getElementById('v2CadTipo').value='CLIENTE'">
+                                <span><i class="bi bi-bag"></i> Quero comprar</span>
+                            </label>
+                            <label class="ml-role-option">
+                                <input type="radio" name="mlCadRole" value="VENDEDOR" onchange="document.getElementById('v2CadTipo').value='VENDEDOR'">
+                                <span><i class="bi bi-shop"></i> Quero vender</span>
+                            </label>
+                        </div>
+                        <select id="v2CadTipo" class="d-none">
+                            <option value="CLIENTE" selected>Cliente</option>
+                            <option value="VENDEDOR">Vendedor</option>
+                        </select>
+
+                        <div class="ml-field">
+                            <input type="text" id="v2CadNome" placeholder=" " required>
+                            <label for="v2CadNome">Nome completo</label>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="ml-field">
+                                    <input type="text" id="v2CadCPF" placeholder=" " maxlength="14" required>
+                                    <label for="v2CadCPF">CPF</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="ml-field">
+                                    <input type="tel" id="v2CadTelefone" placeholder=" " maxlength="15" required>
+                                    <label for="v2CadTelefone">Telefone / WhatsApp</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-field">
+                            <input type="email" id="v2CadEmail" placeholder=" " required>
+                            <label for="v2CadEmail">E-mail</label>
+                        </div>
+                        <div class="ml-field">
+                            <input type="password" id="v2CadPass" placeholder=" " required>
+                            <label for="v2CadPass">Senha</label>
+                            <i class="bi bi-eye ml-eye-icon" onclick="window.toggleAuthPass('v2CadPass', this)"></i>
+                        </div>
+
+                        <button type="button" class="ml-btn-primary mt-2" onclick="window.mlCadNextStep()">Continuar</button>
+                    </div>
+
+                    <!-- Passo 2: endereço e entrega -->
+                    <div class="ml-step-panel d-none" data-step-panel="2">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="ml-field">
+                                    <input type="text" id="v2CadCEP" placeholder=" " maxlength="9" required>
+                                    <label for="v2CadCEP">CEP</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="ml-field">
+                                    <input type="text" id="v2CadNum" placeholder=" " required>
+                                    <label for="v2CadNum">Número</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-field">
+                            <input type="text" id="v2CadEnd" placeholder=" " required>
+                            <label for="v2CadEnd">Rua / Logradouro</label>
+                        </div>
+                        <div class="ml-field">
+                            <input type="text" id="v2CadBairro" placeholder=" ">
+                            <label for="v2CadBairro">Bairro</label>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-8">
+                                <div class="ml-field">
+                                    <input type="text" id="v2CadCid" placeholder=" " required>
+                                    <label for="v2CadCid">Cidade</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <label class="ml-select-label">Estado</label>
+                                <select class="ml-select" id="v2CadUF">
+                                    <option value="SP">SP</option><option value="RJ">RJ</option><option value="MG">MG</option>
+                                    <option value="ES">ES</option><option value="PR">PR</option><option value="SC">SC</option>
+                                    <option value="RS">RS</option><option value="DF">DF</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="ml-select-label mt-1">Pagamento preferido</label>
+                        <select class="ml-select mb-2" id="v2CadPagamento">
+                            <option value="pix">PIX</option>
+                            <option value="cartao">Cartão</option>
+                            <option value="debito">Débito</option>
+                            <option value="boleto">Boleto</option>
+                        </select>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <button type="button" class="btn btn-sm btn-info text-white" onclick="abrirUploadExterno()" style="font-size:0.75rem;white-space:nowrap;">
+                                <i class="bi bi-upload"></i> Subir foto
+                            </button>
+                            <div class="ml-field flex-grow-1 mb-0">
+                                <input type="url" id="v2CadAvatarLink" placeholder=" ">
+                                <label for="v2CadAvatarLink">Link da foto (opcional)</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-2">
+                            <button type="button" class="ml-btn-outline flex-grow-1" onclick="window.mlCadPrevStep()">Voltar</button>
+                            <button type="submit" class="ml-btn-primary flex-grow-1">Criar conta</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="ml-auth-divider"><span>ou</span></div>
+
+                <button type="button" class="ml-btn-outline" onclick="window.toggleAuthMode('login')">Já tenho conta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offcanvas Filtros -->
+    <div class="offcanvas offcanvas-start themed-modal" tabindex="-1" id="filterOffcanvas">
+        <div class="offcanvas-header text-white">
+            <h5 class="offcanvas-title fw-bold" style="color: var(--primary-blue);"><i class="bi bi-filter-left me-1"></i> Filtros de Busca</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="filter-group mb-4">
+                <h6 class="fw-bold small text-uppercase">Ordenar por</h6>
+                <select id="sortOrder" class="form-select form-select-sm mt-2" onchange="applyFilters()">
+                    <option value="default">Destaques</option>
+                    <option value="recent">Mais recentes</option>
+                    <option value="rating">Mais avaliados</option>
+                    <option value="priceAsc">Menor Preço</option>
+                    <option value="priceDesc">Maior Preço</option>
+                </select>
+            </div>
+            <div class="filter-group mb-4">
+                <h6 class="fw-bold small text-uppercase">Faixa de Preço</h6>
+                <div class="d-flex align-items-center gap-2 mt-2">
+                    <input type="number" id="minPrice" class="form-control form-control-sm" placeholder="Mín">
+                    <span>-</span>
+                    <input type="number" id="maxPrice" class="form-control form-control-sm" placeholder="Máx">
+                </div>
+                <button class="btn btn-primary btn-sm w-100 mt-2 fw-bold" onclick="applyFilters()">Aplicar</button>
+            </div>
+            <div class="filter-group mb-4">
+                <h6 class="fw-bold small text-uppercase">Categoria</h6>
+                <select id="filterCategory" class="form-select form-select-sm mt-2" onchange="applyFilters()">
+                    <option value="">Todas as categorias</option>
+                </select>
+            </div>
+            <div class="filter-group mb-4">
+                <h6 class="fw-bold small text-uppercase">Localização do Vendedor</h6>
+                <div class="row g-2 mt-1">
+                    <div class="col-5">
+                        <select id="filterEstado" class="form-select form-select-sm" onchange="window.onFilterEstadoChange()">
+                            <option value="">UF</option>
+                        </select>
+                    </div>
+                    <div class="col-7">
+                        <select id="filterCidade" class="form-select form-select-sm" onchange="applyFilters()" disabled>
+                            <option value="">Selecione o estado</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="text-center small text-muted my-1 mb-1">ou</p>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                    <input type="text" id="filterCEP" class="form-control" placeholder="Digite seu CEP" maxlength="9">
+                    <button class="btn btn-outline-primary" type="button" onclick="window.applyCepFilter()">Buscar</button>
+                </div>
+                <div id="filterCepStatus" class="small text-muted mt-1"></div>
+            </div>
+            <div class="filter-group mb-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="filterDelivery" onchange="applyFilters()">
+                    <label class="form-check-label small" for="filterDelivery">Somente com entrega</label>
+                </div>
+            </div>
+            <div class="filter-group mb-4">
+                <h6 class="fw-bold small text-uppercase">Lojas</h6>
+                <div id="storeFilters" class="mt-2"></div>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm w-100 fw-bold mt-2" onclick="clearFilters()">Limpar Filtros</button>
+        </div>
+    </div>
+
+    <!-- Offcanvas Carrinho -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-cart-check me-2 text-success"></i>Meu Carrinho</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="cartItemsList" class="flex-grow-1 overflow-auto pe-2"></div>
+            <div id="cartFooter" class="border-top pt-3 mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0 fw-bold">Total:</h5>
+                    <h5 class="mb-0 fw-bold text-success" id="cartTotalValue">R$ 0,00</h5>
+                </div>
+                <button class="btn btn-success w-100 py-3 fw-bold rounded-3 shadow-sm" onclick="alert('Finalizando compra...')">FINALIZAR TUDO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalhes do Produto -->
+    <div class="modal fade" id="productDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header text-white" style="background-color: var(--header-bg);">
+                    <h5 class="modal-title fw-bold">Detalhes do Produto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row" id="productDetailContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Anúncio -->
+    <div class="modal fade" id="announceModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header text-white" style="background-color: var(--primary-blue);">
+                    <h5 class="modal-title fw-bold">O que você quer vender?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="announceForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="prodTitle" placeholder="Título do anúncio" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="prodDescription" placeholder="Descrição detalhada" rows="3" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="number" class="form-control" id="prodPrice" placeholder="Preço (R$)" max="10000000" min="0" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="number" class="form-control" id="prodQuantity" placeholder="Quantidade" required>
+                            </div>
+                        </div>
+                        <input type="hidden" id="prodPrecoOriginal" value="">
+                        <div class="mb-3">
+                            <select class="form-select" id="prodCategory" required>
+                                <option value="" selected disabled>Onde seu produto se encaixa?</option>
+                                <optgroup label="Games">
+                                    <option value="Eletrônicos > Games > Consoles > PlayStation">Consoles > PlayStation</option>
+                                    <option value="Eletrônicos > Games > Consoles > Xbox">Consoles > Xbox</option>
+                                    <option value="Eletrônicos > Games > Consoles > Nintendo">Consoles > Nintendo</option>
+                                    <option value="Eletrônicos > Games > Consoles > Portáteis">Consoles > Portáteis</option>
+                                    <option value="Eletrônicos > Games > Jogos > Mídia Física">Jogos > Mídia Física</option>
+                                    <option value="Eletrônicos > Games > Jogos > Digital">Jogos > Digital</option>
+                                    <option value="Eletrônicos > Games > Acessórios > Controles">Acessórios > Controles</option>
+                                    <option value="Eletrônicos > Games > Acessórios > Headsets">Acessórios > Headsets</option>
+                                    <option value="Eletrônicos > Games > Acessórios > Volantes">Acessórios > Volantes</option>
+                                    <option value="Eletrônicos > Games > Acessórios > Suportes e Bases">Acessórios > Suportes e Bases</option>
+                                    <option value="Eletrônicos > Games > PC Gamer > PCs Montados">PC Gamer > PCs Montados</option>
+                                    <option value="Eletrônicos > Games > PC Gamer > Periféricos Gamer">PC Gamer > Periféricos Gamer</option>
+                                    <option value="Eletrônicos > Games > Realidade Virtual (VR)">Realidade Virtual (VR)</option>
+                                </optgroup>
+                                <optgroup label="Informática">
+                                    <option value="Eletrônicos > Informática > Notebooks > Básico">Notebooks > Básico</option>
+                                    <option value="Eletrônicos > Informática > Notebooks > Gamer">Notebooks > Gamer</option>
+                                    <option value="Eletrônicos > Informática > Notebooks > Profissional">Notebooks > Profissional</option>
+                                    <option value="Eletrônicos > Informática > Computadores > Desktop">Computadores > Desktop</option>
+                                    <option value="Eletrônicos > Informática > Computadores > All-in-One">Computadores > All-in-One</option>
+                                    <option value="Eletrônicos > Informática > Computadores > Mini PC">Computadores > Mini PC</option>
+                                    <option value="Eletrônicos > Informática > Componentes > Placa de Vídeo">Componentes > Placa de Vídeo</option>
+                                    <option value="Eletrônicos > Informática > Componentes > Processador">Componentes > Processador</option>
+                                    <option value="Eletrônicos > Informática > Componentes > Memória RAM">Componentes > Memória RAM</option>
+                                    <option value="Eletrônicos > Informática > Componentes > SSD / HD">Componentes > SSD / HD</option>
+                                    <option value="Eletrônicos > Informática > Componentes > Placa-mãe">Componentes > Placa-mãe</option>
+                                    <option value="Eletrônicos > Informática > Componentes > Fonte">Componentes > Fonte</option>
+                                    <option value="Eletrônicos > Informática > Periféricos > Teclado">Periféricos > Teclado</option>
+                                    <option value="Eletrônicos > Informática > Periféricos > Mouse">Periféricos > Mouse</option>
+                                    <option value="Eletrônicos > Informática > Periféricos > Monitor">Periféricos > Monitor</option>
+                                    <option value="Eletrônicos > Informática > Periféricos > Webcam">Periféricos > Webcam</option>
+                                    <option value="Eletrônicos > Informática > Periféricos > Headset">Periféricos > Headset</option>
+                                    <option value="Eletrônicos > Informática > Impressão > Impressoras">Impressão > Impressoras</option>
+                                    <option value="Eletrônicos > Informática > Impressão > Multifuncionais">Impressão > Multifuncionais</option>
+                                    <option value="Eletrônicos > Informática > Impressão > Suprimentos">Impressão > Suprimentos</option>
+                                </optgroup>
+                                <optgroup label="Celulares e Tablets">
+                                    <option value="Eletrônicos > Celulares e Tablets > Smartphones">Celulares > Smartphones</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Tablets">Celulares > Tablets</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Smartwatches">Celulares > Smartwatches</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Acessórios > Capas">Celulares > Acessórios > Capas</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Acessórios > Películas">Celulares > Acessórios > Películas</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Acessórios > Carregadores">Celulares > Acessórios > Carregadores</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Acessórios > Cabos">Celulares > Acessórios > Cabos</option>
+                                    <option value="Eletrônicos > Celulares e Tablets > Fones de Ouvido">Celulares > Fones de Ouvido</option>
+                                </optgroup>
+                                <optgroup label="TVs e Áudio">
+                                    <option value="Eletrônicos > TVs e Áudio > TVs > LED">TVs > LED</option>
+                                    <option value="Eletrônicos > TVs e Áudio > TVs > OLED">TVs > OLED</option>
+                                    <option value="Eletrônicos > TVs e Áudio > TVs > QLED">TVs > QLED</option>
+                                    <option value="Eletrônicos > TVs e Áudio > Áudio > Soundbar">Áudio > Soundbar</option>
+                                    <option value="Eletrônicos > TVs e Áudio > Áudio > Caixa de Som">Áudio > Caixa de Som</option>
+                                    <option value="Eletrônicos > TVs e Áudio > Áudio > Home Theater">Áudio > Home Theater</option>
+                                    <option value="Eletrônicos > TVs e Áudio > Projetores">Projetores</option>
+                                </optgroup>
+                                <optgroup label="Eletrodomésticos">
+                                    <option value="Eletrônicos > Eletrodomésticos > Geladeiras">Eletrodomésticos > Geladeiras</option>
+                                    <option value="Eletrônicos > Eletrodomésticos > Fogões">Eletrodomésticos > Fogões</option>
+                                    <option value="Eletrônicos > Eletrodomésticos > Cooktops">Eletrodomésticos > Cooktops</option>
+                                    <option value="Eletrônicos > Eletrodomésticos > Micro-ondas">Eletrodomésticos > Micro-ondas</option>
+                                    <option value="Eletrônicos > Eletrodomésticos > Lava e Seca">Eletrodomésticos > Lava e Seca</option>
+                                    <option value="Eletrônicos > Eletrodomésticos > Lava-louças">Eletrodomésticos > Lava-louças</option>
+                                </optgroup>
+                                <optgroup label="Eletroportáteis">
+                                    <option value="Eletrônicos > Eletroportáteis > Cozinha > Air Fryer">Cozinha > Air Fryer</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Cozinha > Liquidificador">Cozinha > Liquidificador</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Cozinha > Cafeteira">Cozinha > Cafeteira</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Cozinha > Batedeira">Cozinha > Batedeira</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Limpeza > Aspirador">Limpeza > Aspirador</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Limpeza > Robô Aspirador">Limpeza > Robô Aspirador</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Cuidados Pessoais > Secador">Cuidados > Secador</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Cuidados Pessoais > Chapinha">Cuidados > Chapinha</option>
+                                    <option value="Eletrônicos > Eletroportáteis > Cuidados Pessoais > Barbeador">Cuidados > Barbeador</option>
+                                </optgroup>
+                                <optgroup label="Climatização">
+                                    <option value="Eletrônicos > Climatização > Ar-condicionado">Ar-condicionado</option>
+                                    <option value="Eletrônicos > Climatização > Ventiladores">Ventiladores</option>
+                                    <option value="Eletrônicos > Climatização > Aquecedores">Aquecedores</option>
+                                    <option value="Eletrônicos > Climatização > Umidificadores">Umidificadores</option>
+                                </optgroup>
+                                <optgroup label="Segurança e Automação">
+                                    <option value="Eletrônicos > Segurança e Automação > Câmeras">Segurança > Câmeras</option>
+                                    <option value="Eletrônicos > Segurança e Automação > Alarmes">Segurança > Alarmes</option>
+                                    <option value="Eletrônicos > Segurança e Automação > Sensores">Segurança > Sensores</option>
+                                    <option value="Eletrônicos > Segurança e Automação > Fechaduras Digitais">Segurança > Fechaduras Digitais</option>
+                                    <option value="Eletrônicos > Segurança e Automação > Casa Inteligente > Alexa / Google Home">Automação > Alexa / Google Home</option>
+                                    <option value="Eletrônicos > Segurança e Automação > Casa Inteligente > Lâmpadas Smart">Automação > Lâmpadas Smart</option>
+                                    <option value="Eletrônicos > Segurança e Automação > Casa Inteligente > Tomadas Inteligentes">Automação > Tomadas Inteligentes</option>
+                                </optgroup>
+                                <optgroup label="Automotivo">
+                                    <option value="Eletrônicos > Automotivo > Som Automotivo">Som Automotivo</option>
+                                    <option value="Eletrônicos > Automotivo > Multimídia">Multimídia</option>
+                                    <option value="Eletrônicos > Automotivo > Câmeras Veiculares">Câmeras Veiculares</option>
+                                    <option value="Eletrônicos > Automotivo > Carregadores">Carregadores</option>
+                                </optgroup>
+                                <optgroup label="Câmeras e Drones">
+                                    <option value="Eletrônicos > Câmeras e Drones > Câmeras DSLR">Câmeras DSLR</option>
+                                    <option value="Eletrônicos > Câmeras e Drones > Mirrorless">Câmeras Mirrorless</option>
+                                    <option value="Eletrônicos > Câmeras e Drones > Drones">Drones</option>
+                                    <option value="Eletrônicos > Câmeras e Drones > Acessórios">Acessórios</option>
+                                </optgroup>
+                                <optgroup label="Redes e Conectividade">
+                                    <option value="Eletrônicos > Redes e Conectividade > Roteadores">Roteadores</option>
+                                    <option value="Eletrônicos > Redes e Conectividade > Modems">Modems</option>
+                                    <option value="Eletrônicos > Redes e Conectividade > Repetidores">Repetidores</option>
+                                    <option value="Eletrônicos > Redes e Conectividade > Switches">Switches</option>
+                                </optgroup>
+                                <optgroup label="Armazenamento">
+                                    <option value="Eletrônicos > Armazenamento > HD Externo">HD Externo</option>
+                                    <option value="Eletrônicos > Armazenamento > SSD">SSD</option>
+                                    <option value="Eletrônicos > Armazenamento > Pen Drive">Pen Drive</option>
+                                    <option value="Eletrônicos > Armazenamento > Cartão de Memória">Cartão de Memória</option>
+                                </optgroup>
+                                <optgroup label="Cabos e Energia">
+                                    <option value="Eletrônicos > Cabos e Energia > Cabos (HDMI, USB)">Cabos (HDMI, USB)</option>
+                                    <option value="Eletrônicos > Cabos e Energia > Adaptadores">Adaptadores</option>
+                                    <option value="Eletrônicos > Cabos e Energia > Extensões">Extensões</option>
+                                    <option value="Eletrônicos > Cabos e Energia > Filtros de Linha">Filtros de Linha</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="prodDelivery" checked>
+                                <label class="form-check-label small" for="prodDelivery">Eu realizo a entrega</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Fotos do Produto (Links externos)</label>
+                            <button type="button" class="btn btn-sm btn-info text-white mb-2 d-block" onclick="abrirUploadExterno()">
+                                <i class="bi bi-upload"></i> Subir imagens no Imgur
+                            </button>
+                            <div class="d-flex flex-column gap-2">
+                                <input type="url" class="form-control form-control-sm" id="prodLink1" placeholder="Link da imagem 1 (Ex: Imgur)">
+                                <input type="url" class="form-control form-control-sm" id="prodLink2" placeholder="Link da imagem 2">
+                                <input type="url" class="form-control form-control-sm" id="prodLink3" placeholder="Link da imagem 3">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 fw-bold">Publicar Anúncio</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offcanvas Menu Mobile -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" style="width: 85%;">
+        <div class="offcanvas-header border-0 mobile-menu-header">
+            <div class="d-flex align-items-center w-100">
+                <div class="bg-white rounded-circle me-3 d-flex align-items-center justify-content-center" id="mobileProfileHeader" style="width: 40px !important; height: 40px !important; min-width: 40px; min-height: 40px; overflow: hidden; flex-shrink: 0; aspect-ratio: 1/1;">
+                    <i class="bi bi-person-fill fs-3" style="color: var(--primary-blue);"></i>
+                </div>
+                <div>
+                    <h6 class="mb-0 fw-bold text-white" id="mobileWelcomeName">Olá, visitante</h6>
+                    <small class="text-white-50">Bem-vindo ao Electro<span class="market-text">Market</span></small>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body p-0 bg-light">
+            <div class="list-group list-group-flush custom-mobile-menu">
+                <!-- Seção de Login (Apenas visitantes) -->
+                <div class="role-guest">
+                    <a href="#" class="list-group-item list-group-item-action" onclick="window.showAuthScreen('login'); window.closeMobileMenu();">
+                        <i class="bi bi-box-arrow-in-right"></i> <strong>Entre na sua conta</strong>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="window.showAuthScreen('cadastro'); window.closeMobileMenu();">
+                        <i class="bi bi-person-plus"></i> Cadastre-se
+                    </a>
+                    <hr class="my-0 opacity-10">
+                </div>
+
+                <a href="#" class="list-group-item list-group-item-action" onclick="loadPage('eletronicos'); window.closeMobileMenu();">
+                    <i class="bi bi-house"></i> <strong>Início</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-client" onclick="window.renderOrderManagement('buyer'); window.closeMobileMenu();">
+                    <i class="bi bi-bag"></i> <strong>Minhas Compras</strong>
+                </a>
+
+                <!-- Menu de Categorias Mobile -->
+                <a href="#collapseCategoriesMobile" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" data-bs-toggle="collapse">
+                    <span><i class="bi bi-list-ul"></i> <strong>Categorias</strong></span>
+                    <i class="bi bi-chevron-down small"></i>
+                </a>
+                <div class="collapse bg-light" id="collapseCategoriesMobile">
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-2 ps-5 small" onclick="loadPage('Games'); window.closeMobileMenu();">Games</a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-2 ps-5 small" onclick="loadPage('Notebooks'); window.closeMobileMenu();">Notebooks</a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-2 ps-5 small" onclick="loadPage('Computadores'); window.closeMobileMenu();">Computadores e Desktops</a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-2 ps-5 small" onclick="loadPage('Celulares'); window.closeMobileMenu();">Celulares e Tablets</a>
+                </div>
+
+                <a href="#" class="list-group-item list-group-item-action role-seller d-none" onclick="window.renderSellerPanel(); window.closeMobileMenu();">
+                    <i class="bi bi-box-seam"></i> <strong>Meus Produtos</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-seller d-none" data-bs-toggle="modal" data-bs-target="#announceModal" onclick="window.resetAnnounceModal(); window.closeMobileMenu();">
+                    <i class="bi bi-tag"></i> <strong>Vender Produto</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-seller d-none d-flex justify-content-between align-items-center" onclick="window.renderOrderManagement('seller_requests'); window.closeMobileMenu();">
+                    <span><i class="bi bi-bell"></i> <strong>Solicitações</strong></span>
+                    <span class="badge bg-danger rounded-pill d-none" id="pendingBadgeMobile">0</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-seller d-none" onclick="window.renderOrderManagement('seller_sales'); window.closeMobileMenu();">
+                    <i class="bi bi-shop"></i> <strong>Minhas Vendas</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-admin d-none" onclick="window.renderOrderManagement('admin'); window.closeMobileMenu();">
+                    <i class="bi bi-shield-lock"></i> <strong>Painel Admin</strong>
+                </a>
+
+                <hr class="my-2 opacity-10">
+
+                <a href="#" class="list-group-item list-group-item-action role-client" onclick="loadPage('Ofertas'); window.closeMobileMenu();">
+                    <i class="bi bi-lightning"></i> <strong>Ofertas do Dia</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-client" onclick="window.renderLikedProducts(); window.closeMobileMenu();">
+                    <i class="bi bi-heart"></i> <strong>Meus Favoritos</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action role-client" onclick="window.renderAccessHistory(); window.closeMobileMenu();">
+                    <i class="bi bi-clock-history"></i> <strong>Histórico</strong>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" onclick="window.closeMobileMenu();">
+                    <i class="bi bi-sliders"></i> <strong>Filtros de Busca</strong>
+                </a>
                 
-                <div class="d-flex align-items-center gap-3">
-                    <form id="search-form" class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" id="search-input" placeholder="Pesquisar produtos..." aria-label="Search">
-                        <button class="btn btn-success" type="submit">
-                            <i class="bi bi-search"></i>
+                <hr class="my-0 opacity-10">
+                <div class="list-group-item d-flex justify-content-between align-items-center" onclick="window.toggleTema()">
+                    <span><i class="bi bi-moon-stars"></i> <strong>Tema Escuro</strong></span>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="themeSwitchMobile">
+                    </div>
+                </div>
+
+                <a href="#" class="list-group-item list-group-item-action role-logged-in d-none" onclick="logout(); window.closeMobileMenu();">
+                        <i class="bi bi-box-arrow-right"></i> <strong>Sair da conta</strong>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action role-logged-in d-none" onclick="window.showNotifications(); window.closeMobileMenu();">
+                        <i class="bi bi-bell"></i> <strong>Notificações</strong> <span class="badge bg-danger rounded-pill ms-auto d-none" id="mobileNotifBadge">0</span>
+
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chat -->
+    <!-- ÁREA DE PEDIDOS ESTILO WHATSAPP WEB (Minhas Vendas / Compras / Solicitações) -->
+    <div id="whatsappOrdersView" class="d-none wa-main">
+        <section class="wa-side">
+            <div class="wa-side__header">
+                <h6 id="waSideTitle" class="mb-0">Minhas Vendas</h6>
+            </div>
+            <div class="wa-side__search">
+                <i class="bi bi-search"></i>
+                <input type="text" id="waContactSearch" placeholder="Buscar conversa..." oninput="window.filterWaContacts(this.value)">
+            </div>
+            <div id="waContactList" class="wa-side__list"></div>
+        </section>
+
+        <section class="wa-chat">
+            <!-- Estado vazio: nenhuma conversa selecionada -->
+            <div id="waEmptyState" class="wa-empty-state">
+                <i class="bi bi-chat-square-text"></i>
+                <p>Selecione um pedido ao lado para ver a conversa</p>
+            </div>
+
+            <div id="waChatActive" class="d-none h-100 flex-column chat-container" style="margin:0;border-radius:0;">
+                <div class="chat-header-pro">
+                    <button type="button" class="chat-header-close d-lg-none" onclick="window.closeWaChat()" aria-label="Voltar" style="margin-right:4px;">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+                    <div class="chat-header-avatar-wrap">
+                        <img id="chatPartnerAvatar" src="" onerror="this.src='https://ui-avatars.com/api/?name=User'">
+                    </div>
+                    <div class="chat-header-info">
+                        <span id="chatPartnerNameHeader" class="chat-header-name">Conversa</span>
+                        <span id="chatOrderIdDisplayHeader" class="chat-header-order-id"></span>
+                    </div>
+                    <div class="dropdown">
+                        <button type="button" class="chat-header-close" data-bs-toggle="dropdown" aria-label="Opções" style="margin-right:4px;">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li><a class="dropdown-item small" href="javascript:void(0)" onclick="window.viewChatPartnerProfile()"><i class="bi bi-person-circle me-2"></i>Ver perfil</a></li>
+                            <li><a class="dropdown-item small text-danger" href="javascript:void(0)" onclick="window.chatCancelOrder(currentChat)"><i class="bi bi-x-circle me-2"></i>Cancelar pedido</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Resumo do Produto (fixo no topo) -->
+                <div id="chatProductSummary" class="chat-product-summary">
+                    <img id="chatProdImg" src="" referrerpolicy="no-referrer"
+                         onerror="this.src='https://placehold.co/45/e9ecef/6c757d?text=%20'">
+                    <div class="chat-product-summary-info">
+                        <div id="chatProdTitle" class="chat-product-summary-title">Produto</div>
+                        <div id="chatProdPrice" class="chat-product-summary-price">R$ 0,00</div>
+                    </div>
+                    <small id="chatOrderIdDisplay" class="chat-product-summary-id">#000000</small>
+                </div>
+                <!-- Barra de Status do Pedido -->
+                <div id="orderStatusBar" class="chat-status-bar"></div>
+
+                <!-- Área de Mensagens -->
+                <div id="chatMessagesContainer" class="flex-grow-1 p-3" style="overflow-y: auto;"></div>
+
+                <!-- Barra de Preview (Responder/Editar) -->
+                <div id="chatInputPreview" class="p-2 bg-warning bg-opacity-10 border-bottom d-none"></div>
+
+                <!-- Opções do pedido (status/logística) — abre pra cima, encostada no input, estilo WhatsApp -->
+                <div id="logisticsAgreementArea">
+                    <div id="logisticsButtons" class="logistics-buttons"></div>
+                </div>
+
+                <!-- Painel de Anexo (abre ao clicar no clipe, sem popups feios de prompt()) -->
+                <div id="chatAttachPanel" class="p-3 bg-light border-top d-none">
+                    <div class="d-flex gap-2 mb-2">
+                        <button type="button" class="btn btn-sm flex-grow-1 chat-attach-tab active" data-attach-type="image" onclick="window.setChatAttachType('image')">
+                            <i class="bi bi-image me-1"></i>Imagem
+                        </button>
+                        <button type="button" class="btn btn-sm flex-grow-1 chat-attach-tab" data-attach-type="file" onclick="window.setChatAttachType('file')">
+                            <i class="bi bi-file-earmark me-1"></i>Arquivo
+                        </button>
+                    </div>
+                    <div class="input-group input-group-sm mb-2">
+                        <span class="input-group-text"><i class="bi bi-link-45deg"></i></span>
+                        <input type="url" id="chatAttachLinkInput" class="form-control" placeholder="Cole o link da imagem...">
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm flex-grow-1" onclick="window.abrirUploadExterno()">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Fazer upload (Imgur)
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm flex-grow-1" onclick="window.confirmChatAttach()">
+                            <i class="bi bi-send me-1"></i>Enviar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input de Mensagem -->
+                <div class="chat-input-bar">
+                    <form id="chatMessageForm" onsubmit="return window.sendChatMessage(event)" class="d-flex gap-2 align-items-center">
+                        <button type="button" class="chat-icon-btn"
+                                onclick="window.toggleChatAttachPanel()" title="Anexar imagem ou arquivo">
+                            <i class="bi bi-paperclip"></i>
+                        </button>
+                        <button type="button" class="chat-icon-btn"
+                                onclick="window.toggleChatActions()" title="Opções do pedido">
+                            <i class="bi bi-plus-circle"></i>
+                        </button>
+                        <input type="text" id="chatMessageInput" class="chat-text-input"
+                               placeholder="Digite sua mensagem..." autocomplete="off">
+                        <button type="submit" class="chat-send-btn">
+                            <i class="bi bi-send-fill"></i>
                         </button>
                     </form>
-                    
-                    <div class="cart-wrapper">
-                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
-                            <i class="bi bi-cart"></i>
-                            <span id="cart-count" class="badge">0</span>
-                        </a>
-                        <span id="cart-total">R$0,00</span>
-                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Detalhes do Pedido -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalhes do Pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="orderDetailsContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Admin -->
+    <div class="modal fade" id="adminDbModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 15px;">
+                <div class="modal-header text-white" style="background-color: var(--primary-blue);">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-cpu-fill me-2"></i> Console de Administração</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <i class="bi bi-cloud-arrow-up-fill text-primary" style="font-size: 3rem;"></i>
+                    <h5 class="mt-3 fw-bold">Sincronizar Banco de Dados</h5>
+                    <p class="text-muted small">Esta ação enviará os produtos padrão para o Supabase.</p>
+                    <button class="btn btn-primary w-100 py-2 fw-bold" id="btnInitDb">CRIAR / ATUALIZAR BANCO</button>
                 </div>
             </div>
         </div>
-    </nav>
-</header>
+    </div>
 
-<!-- BANNER PRINCIPAL COM IFRAME DO FACEBOOK AO LADO -->
-<section class="home" id="home">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <div class="banner-profile-wrapper mb-3">
-                    <img src="https://scontent.fbau3-1.fna.fbcdn.net/v/t39.30808-6/650803182_122112694233224900_1326095623705846834_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeE5c5n05ifn-OzEj9exIO2pIf8PkJcDcJIh_w-QlwNwkvHkkxpvSD-b9IUX9cC51HvkPe2GfjuGgEq-ALJ7bQZ3&_nc_ohc=QY0t3XETdFoQ7kNvwGv0LII&_nc_oc=AdpYbA8gjTMFuPnDdTh9Glydb1G9k2jbpan2vgy_4Ksw0Tf9g7n6S60H4Qo9QYyw8Emf13L1-tfX1kEYxg36KcMx&_nc_zt=23&_nc_ht=scontent.fbau3-1.fna&_nc_gid=40SvbgLVXrztYVNgwrZdlQ&_nc_ss=7a32e&oh=00_AfygPgST41awoDrrCSDpqfuuEL4pX0L0ueKIRXcpp4uu-Q&oe=69C5F648" alt="ViverLeve" class="banner-profile-img">
+    <!-- Modal Notificações -->
+    <div class="modal fade" id="notificacoesModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 15px; overflow: hidden;">
+                <div class="modal-header text-white" style="background-color: var(--primary-blue);">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-bell-fill me-2"></i> Notificações</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <h1 class="banner-title mb-3">ViverLeve</h1>
-                <p class="lead mb-4 opacity-75">Saúde, beleza e bem-estar para o seu dia a dia com produtos de alta qualidade.</p>
-                
-                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-4">
-                    <a href="#arrival" class="btn btn-outline-light rounded-pill px-4 py-2 fw-bold">
-                        VER PRODUTOS
-                    </a>
-                    <button class="btn btn-custom-promo rounded-pill px-4 py-2 fw-bold pulse-button" id="banner-promo-btn">
-                        QUERO DESCONTO
+                <div class="modal-body p-0">
+                    <div class="list-group list-group-flush" id="notificacoesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offcanvas Editar Perfil -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="profileEditOffcanvas" style="width: 400px; max-width: 90%;">
+        <div class="offcanvas-header text-white" style="background-color: var(--primary-blue);">
+            <h5 class="offcanvas-title fw-bold"><i class="bi bi-person-gear me-2"></i> Meu Perfil</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form id="profileEditForm">
+                <div class="text-center mb-4">
+                    <img id="profilePreview" src="https://placehold.co/100" class="rounded-circle border shadow-sm mb-2" width="100" height="100" style="object-fit: cover;" referrerpolicy="no-referrer">
+                    <label class="form-label d-block small fw-bold">Alterar Foto de Perfil</label>
+                    <button type="button" class="btn btn-sm btn-info text-white mb-2" onclick="abrirUploadExterno()">
+                        <i class="bi bi-upload"></i> Subir foto no Imgur
                     </button>
-                </div>
-                <div class="home-social-links justify-content-center">
-                    <a href="https://wa.me/5519982668806" target="_blank" title="WhatsApp" class="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
-                    <a href="mailto:equipe.viverleve@gmail.com" target="_blank" title="E-mail" class="social-email"><i class="bi bi-envelope-fill"></i></a>
-                    <a href="https://www.instagram.com/fitviverleve" target="_blank" title="Instagram" class="social-instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#facebookModal" title="Facebook" class="social-facebook"><i class="bi bi-facebook"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SEÇÃO DE DESTAQUES (CARROSSEL COM EFEITO BLUR NO FUNDO) -->
-<section class="destaques-section py-5" id="destaques">
-    <div class="container">
-        <h2 class="section-title viverleve-icon">
-            <i class="bi bi-stars"></i> 
-            <span>DESTAQUES</span>
-        </h2>
-        <div id="carouselDestaques" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-            </div>
-            <div class="carousel-inner rounded-4">
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestaques" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselDestaques" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- SEÇÃO DE PRODUTOS -->
-<section class="arrival py-5" id="arrival">
-    <div class="container">
-        <h2 class="section-title viverleve-icon">
-            <i class="bi bi-box-seam"></i> 
-            <span>NOSSOS PRODUTOS</span>
-        </h2>
-        <div class="row g-4" id="product-list"></div>
-    </div>
-</section>
-
-<!-- SEÇÃO SOBRE NÓS (SERVIÇOS + CONTATO) -->
-<section class="about-section py-5" id="sobre-nos">
-    <div class="container">
-        <h2 class="section-title viverleve-icon">
-            <i class="bi bi-info-circle-fill"></i> 
-            <span>SOBRE NÓS</span>
-        </h2>
-        
-        <div class="services-grid">
-            <div class="service-card" data-bs-toggle="modal" data-bs-target="#trackingModal">
-                <i class="bi bi-truck"></i>
-                <h5>Rastrear Pedido</h5>
-                <p>Clique para rastrear nos Correios</p>
-            </div>
-            <div class="service-card" onclick="window.open('https://wa.me/5519982668806', '_blank')">
-                <i class="bi bi-headset"></i>
-                <h5>Suporte via WhatsApp</h5>
-                <p>(19) 98266-8806</p>
-            </div>
-            <div class="service-card">
-                <i class="bi bi-credit-card"></i>
-                <h5>Pagamento Facilitado</h5>
-                <p>Pix, cartão ou boleto</p>
-            </div>
-            <div class="service-card">
-                <i class="bi bi-shield-check"></i>
-                <h5>Garantia de 90 dias</h5>
-                <p>Sua satisfação ou seu dinheiro de volta</p>
-            </div>
-        </div>
-
-        <div class="mt-5"></div>
-
-        <div class="contact-wrapper">
-            <div class="services-grid">
-                <div class="contact-card">
-                    <div class="contact-form-container">
-                        <div class="contact-form-title viverleve-icon">
-                            <i class="bi bi-chat-dots-fill"></i>
-                            <span>Entre em contato</span>
-                        </div>
-                        
-                        <form id="contact-form">
-                            <div class="contact-input-group">
-                                <label class="viverleve-icon">
-                                    <i class="bi bi-person-fill"></i> Nome
-                                </label>
-                                <input type="text" id="contact-name" placeholder="Seu nome completo" required>
-                            </div>
-                            
-                            <div class="contact-input-group">
-                                <label class="viverleve-icon">
-                                    <i class="bi bi-envelope-fill"></i> E-mail
-                                </label>
-                                <input type="email" id="contact-email" placeholder="seu@email.com" required>
-                            </div>
-                            
-                            <div class="contact-input-group">
-                                <label class="viverleve-icon">
-                                    <i class="bi bi-chat-fill"></i> Mensagem
-                                </label>
-                                <textarea id="contact-message" placeholder="Digite sua mensagem..." rows="4" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="contact-submit-btn viverleve-icon">
-                                <i class="bi bi-send-fill"></i> 
-                                <span>Enviar mensagem</span>
-                            </button>
-                        </form>
-                        
-                        <div class="contact-info-row">
-                            <div class="contact-info-item">
-                                <i class="bi bi-envelope-fill"></i>
-                                <span>equipe.viverleve@gmail.com</span>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="bi bi-whatsapp"></i>
-                                <span>(19) 98266-8806</span>
-                            </div>
-                            <div class="contact-info-item">
-                                <a href="https://www.instagram.com/fitviverleve" target="_blank" class="text-decoration-none">
-                                    <i class="bi bi-instagram"></i>
-                                    <span>@fitviverleve</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- RODAPÉ -->
-<footer class="footer py-5">
-    <div class="container">
-        <div class="row gy-4">
-            <div class="col-md-4">
-                <h5 class="mb-3 viverleve-icon">
-                    <i class="bi bi-leaf"></i> ViverLeve
-                </h5>
-                <p>Saúde, beleza e bem-estar para você viver com mais leveza.</p>
-                <div class="social-links">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#facebookModal" class="social-facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com/fitviverleve" target="_blank" class="social-instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="https://wa.me/5519996884068" target="_blank" class="social-whatsapp"><i class="bi bi-whatsapp"></i></a>
-                    <a href="mailto:equipe.viverleve@gmail.com" target="_blank" class="social-email"><i class="bi bi-envelope"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <h5 class="mb-3 viverleve-icon">
-                    <i class="bi bi-link"></i> Links Rápidos
-                </h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#home" class="text-decoration-none viverleve-icon"><i class="bi bi-house-door"></i> Início</a></li>
-                    <li class="mb-2"><a href="#destaques" class="text-decoration-none viverleve-icon"><i class="bi bi-stars"></i> Destaques</a></li>
-                    <li class="mb-2"><a href="#arrival" class="text-decoration-none viverleve-icon"><i class="bi bi-box-seam"></i> Produtos</a></li>
-                    <li class="mb-2"><a href="#sobre-nos" class="text-decoration-none viverleve-icon"><i class="bi bi-info-circle-fill"></i> Sobre Nós</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5 class="mb-3 viverleve-icon">
-                    <i class="bi bi-info-circle"></i> Contatos
-                </h5>
-                <p class="mb-2 viverleve-icon"><i class="bi bi-geo-alt-fill"></i> Endereço: R. Fioravante Mancino - Parque Industrial Brasileiro, Sumaré - SP</p>
-                <p class="mb-2 viverleve-icon"><i class="bi bi-telephone-fill"></i> (19) 98266-8806</p>
-                <p class="mb-2 viverleve-icon"><i class="bi bi-envelope-fill"></i> equipe.viverleve@gmail.com</p>
-                <p class="mb-2 viverleve-icon"><i class="bi bi-instagram"></i> <a href="https://www.instagram.com/fitviverleve" target="_blank" class="text-decoration-none">@fitviverleve</a></p>
-                <p class="viverleve-icon"><i class="bi bi-clock-fill"></i> Atendimento 24 horas</p>
-            </div>
-        </div>
-        <div class="border-top pt-4 mt-4 text-center">
-            <p class="mb-0 viverleve-icon">
-                <i class="bi bi-leaf"></i>
-                <span>Criado por <a href="https://github.com/danielbarbosabr" target="_blank" class="text-decoration-none">Daniel B</a> | ViverLeve © 2025 - Todos os direitos reservados</span>
-            </p>
-        </div>
-    </div>
-</footer>
-
-<!-- MODAL DE RASTREAMENTO -->
-<div class="modal fade tracking-modal" id="trackingModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title viverleve-icon"><i class="bi bi-truck"></i> Rastrear Pedido</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="tracking-input-group">
-                    <input type="text" id="tracking-code" class="form-control" placeholder="Digite o código de rastreamento">
-                    <button class="btn btn-success viverleve-icon" onclick="trackOrder()"><i class="bi bi-search"></i> Rastrear</button>
-                </div>
-                <p class="tracking-info mt-3 viverleve-icon"><i class="bi bi-info-circle"></i> Digite o código de rastreamento enviado para seu e-mail</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL PARA AMPLIAR IMAGEM (LIGHTBOX) -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content bg-transparent border-0 align-items-center">
-            <div class="modal-body p-0 position-relative d-inline-block">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <img src="" id="modalImage" class="img-fluid" alt="Imagem ampliada">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- OFFCANVAS DO CARRINHO -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title viverleve-icon"><i class="bi bi-cart-fill me-2"></i>Meu Carrinho</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body d-flex flex-column">
-        <div id="cart-items-container" class="flex-grow-1">
-            <p class="text-center text-secondary">Seu carrinho está vazio</p>
-        </div>
-        <div class="mt-auto" id="cart-footer">
-            <div class="p-3 bg-dark rounded">
-                <strong class="fs-5 viverleve-icon"><i class="bi bi-cash"></i> Total: <span id="offcanvas-total" class="text-success">R$0,00</span></strong>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL DE OFERTA DE DESCONTO -->
-<div class="modal fade discount-modal" id="discountOfferModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title viverleve-icon"><i class="bi bi-gift-fill"></i> Oferta Especial</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center p-4">
-                <div class="mb-3 position-relative d-inline-block">
-                    <img src="https://scontent.fbau3-2.fna.fbcdn.net/v/t39.30808-6/614774157_122108279559188298_8348377730302129215_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeGj6gRPRDVPaz85rx7Ri1HvJv_TMQoP0Ogm_9MxCg_Q6HQIDKL1FbM_6-2RWzuTDAUR1FkczYopz8bp_8KXuQEq&_nc_ohc=ODOwBtunZaQQ7kNvwETuKl5&_nc_oc=AdqiTL9oP4b8YzlNiuAlXqeBGR3m0ubnkr4i0VmpUJFSblgay9EDFdb7o0aq5pcdPPiVb9T21Fk4dL2MpYifskVa&_nc_zt=23&_nc_ht=scontent.fbau3-2.fna&_nc_gid=IAyc1YINcSeT__gxGLMiCw&_nc_ss=7a32e&oh=00_AfzJ21zh8h0A8t1viv2r2kU0uXjWyj647blq5W_X_KRbMg&oe=69C616DE" class="rounded-4 border border-3 border-success shadow" width="110" height="110" style="object-fit: cover;">
-                </div>
-                <h3 class="mt-1 fw-bold">Olá! Sou a Carol</h3>
-                <p class="text-white small text-uppercase fw-bold mb-3">Consultora Oficial ViverLeve</p>
-                <p class="lead mb-4">Que bom ter você por aqui! Posso liberar um <strong>DESCONTO</strong> exclusivo para sua compra agora?</p>
-                <button class="btn btn-success btn-lg w-100 mb-2" id="getDiscountBtn">QUERO MEU DESCONTO</button>
-                <button class="btn btn-secondary btn-lg w-100" data-bs-dismiss="modal">NÃO, OBRIGADO</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL PARA PEGAR NOME PARA O WHATSAPP -->
-<div class="modal fade discount-modal" id="discountNameModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title viverleve-icon"><i class="bi bi-whatsapp"></i> Receber Desconto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center p-4">
-                <h4 class="mt-3">Ótima escolha!</h4>
-                <p class="my-3">Para receber seu desconto, me diga seu nome e clique no botão abaixo para falar comigo no WhatsApp!</p>
-                <div class="mb-3">
-                    <input type="text" id="whatsapp-name" class="form-control form-control-lg text-center" placeholder="Seu nome" required>
+                    <input type="url" class="form-control form-control-sm" id="editAvatarLink" placeholder="Cole o link da imagem aqui">
                 </div>
                 <div class="mb-3">
-                    <div class="row g-2">
-                        <div class="col-4">
-                            <input type="text" id="whatsapp-uf" class="form-control text-center" placeholder="UF (Ex: SP)">
-                        </div>
-                        <div class="col-8">
-                            <input type="text" id="whatsapp-city" class="form-control" placeholder="Cidade">
-                        </div>
+                    <label class="form-label small fw-bold">Nome Completo</label>
+                    <input type="text" class="form-control" id="editNome" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">E-mail</label>
+                    <input type="email" class="form-control" id="editEmail" required readonly style="background-color: #f8f9fa;">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">CPF</label>
+                    <input type="text" class="form-control" id="editCPF" readonly style="background-color: #f8f9fa;">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Telefone / WhatsApp</label>
+                    <input type="tel" class="form-control" id="editTelefone" maxlength="15">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">CEP</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="editCEP" maxlength="9" placeholder="00000-000">
+                        <button type="button" class="btn btn-outline-secondary" onclick="window.buscarCepPerfil()" title="Buscar endereço pelo CEP">
+                            <i class="bi bi-search"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <select id="whatsapp-product-select" class="form-select form-select-lg text-center">
-                        <option value="" selected>Selecione o produto de interesse...</option>
-                        <!-- Preenchido via JavaScript -->
+                    <label class="form-label small fw-bold">Rua / Logradouro</label>
+                    <input type="text" class="form-control" id="editRua" required>
+                </div>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label class="form-label small fw-bold">Número</label>
+                        <input type="text" class="form-control" id="editNumero">
+                    </div>
+                    <div class="col-8 mb-3">
+                        <label class="form-label small fw-bold">Bairro</label>
+                        <input type="text" class="form-control" id="editBairro">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label class="form-label small fw-bold">Cidade</label>
+                        <input type="text" class="form-control" id="editCidade" required>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label small fw-bold">Estado</label>
+                        <select class="form-select" id="editEstado" required>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label small fw-bold">Pagamento Preferido</label>
+                    <select class="form-select" id="editPagamento" required>
+                        <option value="pix">PIX</option>
+                        <option value="cartao">Cartão de Crédito</option>
+                        <option value="debito">Cartão de Débito</option>
+                        <option value="boleto">Boleto Bancário</option>
                     </select>
                 </div>
-                <button class="btn btn-success btn-lg w-100" id="sendWhatsAppDiscount">
-                    <i class="bi bi-whatsapp me-2"></i> RECEBER MEU DESCONTO
-                </button>
-            </div>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">SALVAR ALTERAÇÕES</button>
+                <button type="button" class="btn btn-outline-danger w-100 py-2 fw-bold mt-2" onclick="logout()">SAIR DA CONTA</button>
+            </form>
         </div>
     </div>
-</div>
 
-<!-- MODAL DO FACEBOOK -->
-<div class="modal fade" id="facebookModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title viverleve-icon"><i class="bi bi-facebook"></i> Siga-nos no Facebook</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Dock Unificado Mobile (Navegação + Ferramentas) -->
+    <footer class="footer py-2 border-top fixed-bottom main-footer-dock">
+        <div class="container">
+            <!-- Navegação do App (Apenas Mobile) -->
+            <div class="mobile-nav-row d-flex d-md-none justify-content-around mb-2">
+                <a href="#" class="nav-item active role-client" data-page="eletronicos" onclick="loadPage('eletronicos'); updateMobileNavActive('eletronicos')">
+                    <i class="bi bi-house"></i><span>Início</span>
+                </a>
+
+                <!-- Opções de Cliente -->
+                <a href="#" class="nav-item role-client" data-page="renderLikedProducts" onclick="window.renderLikedProducts(); updateMobileNavActive('renderLikedProducts')">
+                    <i class="bi bi-heart"></i><span>Favoritos</span>
+                </a>
+                <a href="#" class="nav-item role-client" data-page="renderOrderManagement" onclick="window.renderOrderManagement('buyer'); updateMobileNavActive('renderOrderManagement')">
+                    <i class="bi bi-bag"></i><span>Compras</span>
+                </a>
+                <a href="#" class="nav-item role-client" data-page="cartOffcanvas" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" onclick="updateMobileNavActive('cartOffcanvas')">
+                    <i class="bi bi-cart"></i><span>Carrinho</span>
+                </a>
+
+                <!-- Opções de Vendedor -->
+                <a href="#" class="nav-item role-seller d-none" data-page="renderSellerPanel" onclick="window.renderSellerPanel(); updateMobileNavActive('renderSellerPanel')">
+                    <i class="bi bi-box-seam"></i><span>Produtos</span>
+                </a>
+                <a href="#" class="nav-item role-seller d-none" data-page="announceModal" data-bs-toggle="modal" data-bs-target="#announceModal" onclick="window.resetAnnounceModal(); updateMobileNavActive('announceModal')">
+                    <i class="bi bi-plus-circle"></i><span>Vender</span>
+                </a>
+                <a href="#" class="nav-item role-seller d-none" data-page="seller_sales" onclick="window.renderOrderManagement('seller_sales'); updateMobileNavActive('seller_sales')">
+                    <i class="bi bi-shop"></i><span>Vendas</span>
+                </a>
+                <a href="#" class="nav-item role-seller d-none" data-page="seller_requests" onclick="window.renderOrderManagement('seller_requests'); updateMobileNavActive('seller_requests')">
+                    <i class="bi bi-bell"></i><span>Pedidos</span>
+                    <span class="badge bg-danger rounded-pill dock-badge d-none" id="pendingBadgeDock">0</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="mobileMenu" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" onclick="updateMobileNavActive('mobileMenu')">
+                    <i class="bi bi-three-dots"></i><span>Mais</span>
+                </a>
             </div>
-            <div class="modal-body p-0" style="height: 500px; overflow: hidden;">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61586747021286&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
-                        style="border:none; width: 100%; height: 100%;" 
-                        allowfullscreen="true" 
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                </iframe>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+                <span class="footer-copyright text-white d-none d-md-block">© 2026 Electro<span class="market-text">Market</span>.</span>
+            
+                <div class="footer-tools d-flex gap-4 align-items-center justify-content-center">
+                    <span class="small text-white opacity-50 d-none d-md-block">Stack:</span>
+                    <a href="https://code.visualstudio.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="20" title="VS Code"></a>
+                    <a href="https://github.com/danielbarbosabr" target="_blank" class="text-white"><i class="bi bi-github fs-5"></i></a>
+                    <a href="https://vercel.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" width="20" title="Vercel" style="filter: invert(1) brightness(2);"></a>
+                    <a href="https://supabase.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="20" title="Supabase"></a>
+                    <a href="https://www.deepseek.com/" target="_blank"><img src="https://www.deepseek.com/favicon.ico" width="20" title="DeepSeek AI" style="border-radius: 4px; filter: none !important;"></a>
+                </div>
+
+                <span class="text-white-50 d-md-none" style="font-size: 0.6rem;">© 2026 ElectroMarket</span>
             </div>
         </div>
-    </div>
-</div>
+    </footer>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+    <!-- Scripts na ordem correta -->
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
